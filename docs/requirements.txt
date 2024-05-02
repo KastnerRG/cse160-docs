@@ -1,1 +1,1 @@
-sphinx-material
+sphinx_material
