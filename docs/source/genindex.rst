@@ -1,0 +1,25 @@
+UCSD CSE 160: Introduction to Parallel Computing
+================================================
+
+This course aims to provide knowledge and hands-on experience in developing software for processors with massively parallel computing resources. A massively parallel processor has the hardware ability to allow many threads to execute simultaneously. Many commercial offerings from NVIDIA, Intel, AMD, Qualcomm, Google, and ARM offer such levels of concurrency. Effectively programming these processors requires in-depth knowledge of parallel programming principles and the parallelism models, communication models, and resource limitations of these processors. In addition, this course also prepares the students to use the parallelism models of modern programming languages. The target audiences of the course are students who want to develop applications for these processors for fun, work, and research, as well as those who want to develop programming tools and future processors.
+
+The course involves a series of programming assignments of steadily growing complexity. All assignments will involve programming a massively parallel GPU system using CUDA, a popular commercial language extension of C/C++ for GPU programming. 
+
+Data Science & Machine Learning Platform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 2
+
+   DSMLP
+
+Programming Assignments:
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 2
+   
+   PA1 - Device Query <PA1>
+   PA2 - Vector Addition <PA2>
+   PA3 - Matrix Multiplication <PA3>
+   PA4 - Tiled Matrix Multiplication <PA4>
+   PA5 - Convolution <PA5>
+   PA6 - Convolutional Neural Network <PA6>
