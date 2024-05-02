@@ -17,13 +17,13 @@ Make sure you have the following software installed:
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone git@github.com:KastnerRG/cse160-opencl.git
+    git clone git@github.com:KastnerRG/cse160-docs.git
     ```
 
 2. Navigate to the `docs` directory:
 
     ```bash
-    cd cse160-opencl/docs
+    cd cse160-docs/docs
     ```
 
 3. Install Sphinx and any necessary dependencies using pip:
@@ -53,3 +53,5 @@ Make sure you have the following software installed:
 ### Viewing Documentation
 
 You can view the generated HTML documentation by opening the corresponding HTML files in a web browser. Alternatively, you can serve the documentation locally using a web server.
+
+The latest documentation is being hosted [here](https://docs-cse160.readthedocs.io/en/latest/)
