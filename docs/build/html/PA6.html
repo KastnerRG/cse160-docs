@@ -6,236 +6,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="lang:clipboard.copy" content="Copy to clipboard">
-  <meta name="lang:clipboard.copied" content="Copied to clipboard">
-  <meta name="lang:search.language" content="en">
-  <meta name="lang:search.pipeline.stopwords" content="True">
-  <meta name="lang:search.pipeline.trimmer" content="True">
-  <meta name="lang:search.result.none" content="No matching documents">
-  <meta name="lang:search.result.one" content="1 matching document">
-  <meta name="lang:search.result.other" content="# matching documents">
-  <meta name="lang:search.tokenizer" content="[\s\-]+">
-
-  
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
-
-    <style>
-      body,
-      input {
-        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
-      }
-
-      code,
-      kbd,
-      pre {
-        font-family: "Roboto Mono", "Courier New", Courier, monospace
-      }
-    </style>
-  
-
-  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
-  
-  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
-  
-  <meta name="theme-color" content="#3f51b5">
-  <script src="_static/javascripts/modernizr.js"></script>
-  
-  
-  
     <title>PA6 - Convolutional Neural Network Forward Layer GPU Implementation &#8212; cse160-opencl 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
+    
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="PA5 - Convolution" href="PA5.html" />
-  
-   
-
-  </head>
-  <body dir=ltr
-        data-md-color-primary=blue-grey data-md-color-accent=blue>
-  
-  <svg class="md-svg">
-    <defs data-children-count="0">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-      
-    </defs>
-  </svg>
-  
-  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
-  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
-  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#PA6" tabindex="1" class="md-skip"> Skip to content </a>
-  <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="index.html" title="cse160-opencl 0.0.1 documentation"
-           class="md-header-nav__button md-logo">
-          
-            &nbsp;
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">cse160-opencl 0.0.1 documentation</span>
-          <span class="md-header-nav__topic"> PA6 - Convolutional Neural Network Forward Layer GPU Implementation </span>
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-        
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder=""Search""
-             autocapitalize="off" autocomplete="off" spellcheck="false"
-             data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      </div>
-      
-      
-  
-  <script src="_static/javascripts/version_dropdown.js"></script>
-  <script>
-    var json_loc = ""versions.json"",
-        target_loc = "../",
-        text = "Versions";
-    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-  </script>
-  
-
-    </div>
-  </nav>
-</header>
-
-  
-  <div class="md-container">
-    
-    
-    
-  <nav class="md-tabs" data-md-component="tabs">
-    <div class="md-tabs__inner md-grid">
-      <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">cse160-opencl 0.0.1 documentation</a></li>
+    <link rel="prev" title="PA5 - Convolution" href="PA5.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="PA5.html" title="PA5 - Convolution"
+             accesskey="P">previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">cse160-opencl 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</a></li> 
       </ul>
-    </div>
-  </nav>
-    <main class="md-main">
-      <div class="md-main__inner md-grid" data-md-component="container">
-        
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="index.html" title="cse160-opencl 0.0.1 documentation" class="md-nav__button md-logo">
-      
-        <img src="_static/" alt=" logo" width="48" height="48">
-      
-    </a>
-    <a href="index.html"
-       title="cse160-opencl 0.0.1 documentation">cse160-opencl 0.0.1 documentation</a>
-  </label>
-  
+    </div>  
 
-</nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#pa6--page-root" class="md-nav__link">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#objective" class="md-nav__link">Objective</a>
-        </li>
-        <li class="md-nav__item"><a href="#input-data" class="md-nav__link">Input Data</a>
-        </li>
-        <li class="md-nav__item"><a href="#instructions" class="md-nav__link">Instructions</a>
-        </li>
-        <li class="md-nav__item"><a href="#how-to-compile" class="md-nav__link">How to Compile</a>
-        </li>
-        <li class="md-nav__item"><a href="#how-to-test" class="md-nav__link">How to Test</a>
-        </li>
-        <li class="md-nav__item"><a href="#test-output" class="md-nav__link">Test Output</a>
-        </li>
-        <li class="md-nav__item"><a href="#submission" class="md-nav__link">Submission</a>
-        </li>
-        <li class="md-nav__item"><a href="#credit" class="md-nav__link">Credit</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/PA6.rst.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
-  </ul>
-</nav>
-              </div>
-            </div>
-          </div>
-        
-        <div class="md-content">
-          <article class="md-content__inner md-typeset" role="main">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <section id="pa6-convolutional-neural-network-forward-layer-gpu-implementation">
-<h1 id="pa6--page-root">PA6 - Convolutional Neural Network Forward Layer GPU Implementation<a class="headerlink" href="#pa6--page-root" title="Permalink to this heading">¶</a></h1>
+<h1>PA6 - Convolutional Neural Network Forward Layer GPU Implementation<a class="headerlink" href="#pa6-convolutional-neural-network-forward-layer-gpu-implementation" title="Permalink to this heading">¶</a></h1>
 <section id="objective">
-<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permalink to this heading">¶</a></h2>
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">¶</a></h2>
 <p>This is the second part of a three part project implementing and optimizing the forward pass of a convolution layer using CUDA. Convolutional layers are the primary building blocks of convolutional neural networks (CNNs), which are used for tasks like image classification, object detection, natural language processing and recommendation systems.</p>
 <p>You will be working with a modified version of the LeNet5 architceture shown bellow:</p>
 <figure class="align-center">
-<img alt="LeNet-5 Architecture" src="_images/lenet.png"/>
+<img alt="LeNet-5 Architecture" src="_images/lenet.png" />
 </figure>
 <p>You can read about the original network:</p>
 <p>Source: <a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf</a></p>
 <p>Your optimized CUDA implementation of the convolutional layer will be used to perform inference for layers C1 and C3 (shown in red) in the figure above. This leverages the <a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">mini-dnn-cpp</a> (Mini-DNN) framework for implementing the modified LeNet-5.</p>
 </section>
 <section id="input-data">
-<h2 id="input-data">Input Data<a class="headerlink" href="#input-data" title="Permalink to this heading">¶</a></h2>
+<h2>Input Data<a class="headerlink" href="#input-data" title="Permalink to this heading">¶</a></h2>
 <p>The network will be tested on the <a class="reference external" href="https://github.com/zalandoresearch/fashion-mnist">Fashion MNIST dataset</a> which contains 10,000 single channel images each of dimensions 86x86 but we will only use 1000 of these at a time. The output layer consists of 10 nodes, where each node represents the likelihood of the input belonging to one of the 10 classes (T-shirt, dress, sneaker, boot, etc).</p>
 </section>
 <section id="instructions">
-<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h2>
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h2>
 <p>This assignment requires you to complete a GPU implementation of the convolutional layer. Performance of the GPU implementation is not important as this assignment is intended to build functionality before optimizing. The only file you need to update to implement the forward convolution is: <code class="code docutils literal notranslate"><span class="pre">src/layer/custom/new-forward.cu</span></code>. To understand which functions within <code class="code docutils literal notranslate"><span class="pre">new-forward.cu</span></code> are being called and when, it may be helpful ot refer to <code class="code docutils literal notranslate"><span class="pre">src/layer/conv_cust.cc</span></code>.</p>
 <p>Again, you are performing the following operation:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for b = 0 .. B                     // for each image in the batch
@@ -253,78 +71,96 @@
 </div>
 <p>This animation can help visualize this process better:</p>
 <figure class="align-center">
-<img alt="Convolution Animation" src="_images/convolution.png"/>
+<img alt="Convolution Animation" src="_images/convolution.png" />
 </figure>
 <p>Source: <a class="reference external" href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks#layer">https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks#layer</a></p>
 </section>
 <section id="how-to-compile">
-<h2 id="how-to-compile">How to Compile<a class="headerlink" href="#how-to-compile" title="Permalink to this heading">¶</a></h2>
+<h2>How to Compile<a class="headerlink" href="#how-to-compile" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="code docutils literal notranslate"><span class="pre">src/layer/custom/new-forward.cu</span></code> file contains the code for the programming assignment. There is a Makefile included which compiles it and links it with the libgputk CUDA library automatically. It can be run by typing <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">m2</span></code> from the PA7 folder. It generates a <code class="code docutils literal notranslate"><span class="pre">m2</span></code> output executable.</p>
 </section>
 <section id="how-to-test">
-<h2 id="how-to-test">How to Test<a class="headerlink" href="#how-to-test" title="Permalink to this heading">¶</a></h2>
+<h2>How to Test<a class="headerlink" href="#how-to-test" title="Permalink to this heading">¶</a></h2>
 <p>Use the <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span></code> command to test your program which will run your program on a batch size of 1000 images. This will automatically compile your source (equivilent to executing <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">m2</span></code> and then running <code class="code docutils literal notranslate"><span class="pre">./m2</span> <span class="pre">1000</span></code>).</p>
 </section>
 <section id="test-output">
-<h2 id="test-output">Test Output<a class="headerlink" href="#test-output" title="Permalink to this heading">¶</a></h2>
+<h2>Test Output<a class="headerlink" href="#test-output" title="Permalink to this heading">¶</a></h2>
 <p>You will need to checkout a GPU for this assignment, but please avoid editing while accessing a device. You can accomplish this with: <code class="code docutils literal notranslate"><span class="pre">launch.sh</span> <span class="pre">-g</span> <span class="pre">1</span> <span class="pre">-s</span> <span class="pre">-i</span> <span class="pre">ghcr.io/ucsd-ets/nvcr-cuda:main</span></code></p>
 <p>The accuracy of your implementation should meet the 0.886 that our implementation does.</p>
 </section>
 <section id="submission">
-<h2 id="submission">Submission<a class="headerlink" href="#submission" title="Permalink to this heading">¶</a></h2>
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading">¶</a></h2>
 <p>Submit the <code class="code docutils literal notranslate"><span class="pre">src/layer/custom/new-forward.cu</span></code> file on gradescope.</p>
 </section>
 <section id="credit">
-<h2 id="credit">Credit<a class="headerlink" href="#credit" title="Permalink to this heading">¶</a></h2>
+<h2>Credit<a class="headerlink" href="#credit" title="Permalink to this heading">¶</a></h2>
 <p>This project is originally from UIUC ECE408 and builds off a number of open source projects including the Fashion MNIST dataset, mini-dnn-cpp, and the Eigen project.</p>
 </section>
 </section>
 
 
-          </article>
-        </div>
-      </div>
-    </main>
-  </div>
-  <footer class="md-footer">
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="PA5.html" title="PA5 - Convolution"
-               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-               rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span
-                      class="md-footer-nav__direction"> "Previous" </span> PA5 - Convolution </span>
-              </div>
-            </a>
-          
-          
-        </a>
-        
-      </nav>
-    </div>
-    <div class="md-footer-meta md-typeset">
-      <div class="md-footer-meta__inner md-grid">
-        <div class="md-footer-copyright">
-          <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2024, UCSD-CSE160.
-              
+            <div class="clearer"></div>
           </div>
-            Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
-             and
-            <a href="https://github.com/bashtage/sphinx-material/">Material for
-              Sphinx</a>
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#input-data">Input Data</a></li>
+<li><a class="reference internal" href="#instructions">Instructions</a></li>
+<li><a class="reference internal" href="#how-to-compile">How to Compile</a></li>
+<li><a class="reference internal" href="#how-to-test">How to Test</a></li>
+<li><a class="reference internal" href="#test-output">Test Output</a></li>
+<li><a class="reference internal" href="#submission">Submission</a></li>
+<li><a class="reference internal" href="#credit">Credit</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="PA5.html"
+                          title="previous chapter">PA5 - Convolution</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/PA6.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
     </div>
-  </footer>
-  <script src="_static/javascripts/application.js"></script>
-  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="PA5.html" title="PA5 - Convolution"
+             >previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">cse160-opencl 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, UCSD-CSE160.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    </div>
   </body>
 </html>
