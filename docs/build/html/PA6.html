@@ -1,44 +1,98 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PA6 - Convolutional Neural Network Forward Layer GPU Implementation &mdash; CSE 160 - Introduction to Parallel Computing 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
-    <title>PA6 - Convolutional Neural Network Forward Layer GPU Implementation &#8212; cse160-opencl 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="PA5 - Convolution" href="PA5.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="PA5.html" title="PA5 - Convolution"
-             accesskey="P">previous</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">cse160-opencl 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CSE 160 - Introduction to Parallel Computing
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="DSMLP.html">DSMLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sample.html">Sample RST File</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="PA1.html">PA1 - Device Query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PA2.html">PA2 - Vector Addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PA3.html">PA3 - Matrix Multiplication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PA4.html">PA4 - Tiled Matrix Multiplication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PA5.html">PA5 - Convolution</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PA6 - Convolutional Neural Network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#objective">Objective</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data">Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions">Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-compile">How to Compile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-test">How to Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-output">Test Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submission">Submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#credit">Credit</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CSE 160 - Introduction to Parallel Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PA6.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="pa6-convolutional-neural-network-forward-layer-gpu-implementation">
-<h1>PA6 - Convolutional Neural Network Forward Layer GPU Implementation<a class="headerlink" href="#pa6-convolutional-neural-network-forward-layer-gpu-implementation" title="Permalink to this heading">¶</a></h1>
+<h1>PA6 - Convolutional Neural Network Forward Layer GPU Implementation<a class="headerlink" href="#pa6-convolutional-neural-network-forward-layer-gpu-implementation" title="Link to this heading"></a></h1>
 <section id="objective">
-<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">¶</a></h2>
+<h2>Objective<a class="headerlink" href="#objective" title="Link to this heading"></a></h2>
 <p>This is the second part of a three part project implementing and optimizing the forward pass of a convolution layer using CUDA. Convolutional layers are the primary building blocks of convolutional neural networks (CNNs), which are used for tasks like image classification, object detection, natural language processing and recommendation systems.</p>
 <p>You will be working with a modified version of the LeNet5 architceture shown bellow:</p>
 <figure class="align-center">
@@ -49,11 +103,11 @@
 <p>Your optimized CUDA implementation of the convolutional layer will be used to perform inference for layers C1 and C3 (shown in red) in the figure above. This leverages the <a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">mini-dnn-cpp</a> (Mini-DNN) framework for implementing the modified LeNet-5.</p>
 </section>
 <section id="input-data">
-<h2>Input Data<a class="headerlink" href="#input-data" title="Permalink to this heading">¶</a></h2>
+<h2>Input Data<a class="headerlink" href="#input-data" title="Link to this heading"></a></h2>
 <p>The network will be tested on the <a class="reference external" href="https://github.com/zalandoresearch/fashion-mnist">Fashion MNIST dataset</a> which contains 10,000 single channel images each of dimensions 86x86 but we will only use 1000 of these at a time. The output layer consists of 10 nodes, where each node represents the likelihood of the input belonging to one of the 10 classes (T-shirt, dress, sneaker, boot, etc).</p>
 </section>
 <section id="instructions">
-<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h2>
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading"></a></h2>
 <p>This assignment requires you to complete a GPU implementation of the convolutional layer. Performance of the GPU implementation is not important as this assignment is intended to build functionality before optimizing. The only file you need to update to implement the forward convolution is: <code class="code docutils literal notranslate"><span class="pre">src/layer/custom/new-forward.cu</span></code>. To understand which functions within <code class="code docutils literal notranslate"><span class="pre">new-forward.cu</span></code> are being called and when, it may be helpful ot refer to <code class="code docutils literal notranslate"><span class="pre">src/layer/conv_cust.cc</span></code>.</p>
 <p>Again, you are performing the following operation:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for b = 0 .. B                     // for each image in the batch
@@ -76,91 +130,56 @@
 <p>Source: <a class="reference external" href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks#layer">https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks#layer</a></p>
 </section>
 <section id="how-to-compile">
-<h2>How to Compile<a class="headerlink" href="#how-to-compile" title="Permalink to this heading">¶</a></h2>
+<h2>How to Compile<a class="headerlink" href="#how-to-compile" title="Link to this heading"></a></h2>
 <p>The <code class="code docutils literal notranslate"><span class="pre">src/layer/custom/new-forward.cu</span></code> file contains the code for the programming assignment. There is a Makefile included which compiles it and links it with the libgputk CUDA library automatically. It can be run by typing <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">m2</span></code> from the PA7 folder. It generates a <code class="code docutils literal notranslate"><span class="pre">m2</span></code> output executable.</p>
 </section>
 <section id="how-to-test">
-<h2>How to Test<a class="headerlink" href="#how-to-test" title="Permalink to this heading">¶</a></h2>
+<h2>How to Test<a class="headerlink" href="#how-to-test" title="Link to this heading"></a></h2>
 <p>Use the <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span></code> command to test your program which will run your program on a batch size of 1000 images. This will automatically compile your source (equivilent to executing <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">m2</span></code> and then running <code class="code docutils literal notranslate"><span class="pre">./m2</span> <span class="pre">1000</span></code>).</p>
 </section>
 <section id="test-output">
-<h2>Test Output<a class="headerlink" href="#test-output" title="Permalink to this heading">¶</a></h2>
+<h2>Test Output<a class="headerlink" href="#test-output" title="Link to this heading"></a></h2>
 <p>You will need to checkout a GPU for this assignment, but please avoid editing while accessing a device. You can accomplish this with: <code class="code docutils literal notranslate"><span class="pre">launch.sh</span> <span class="pre">-g</span> <span class="pre">1</span> <span class="pre">-s</span> <span class="pre">-i</span> <span class="pre">ghcr.io/ucsd-ets/nvcr-cuda:main</span></code></p>
 <p>The accuracy of your implementation should meet the 0.886 that our implementation does.</p>
 </section>
 <section id="submission">
-<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading">¶</a></h2>
+<h2>Submission<a class="headerlink" href="#submission" title="Link to this heading"></a></h2>
 <p>Submit the <code class="code docutils literal notranslate"><span class="pre">src/layer/custom/new-forward.cu</span></code> file on gradescope.</p>
 </section>
 <section id="credit">
-<h2>Credit<a class="headerlink" href="#credit" title="Permalink to this heading">¶</a></h2>
+<h2>Credit<a class="headerlink" href="#credit" title="Link to this heading"></a></h2>
 <p>This project is originally from UIUC ECE408 and builds off a number of open source projects including the Fashion MNIST dataset, mini-dnn-cpp, and the Eigen project.</p>
 </section>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</a><ul>
-<li><a class="reference internal" href="#objective">Objective</a></li>
-<li><a class="reference internal" href="#input-data">Input Data</a></li>
-<li><a class="reference internal" href="#instructions">Instructions</a></li>
-<li><a class="reference internal" href="#how-to-compile">How to Compile</a></li>
-<li><a class="reference internal" href="#how-to-test">How to Test</a></li>
-<li><a class="reference internal" href="#test-output">Test Output</a></li>
-<li><a class="reference internal" href="#submission">Submission</a></li>
-<li><a class="reference internal" href="#credit">Credit</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="PA5.html" class="btn btn-neutral float-left" title="PA5 - Convolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, UCSD-CSE160.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="PA5.html"
-                          title="previous chapter">PA5 - Convolution</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/PA6.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="PA5.html" title="PA5 - Convolution"
-             >previous</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">cse160-opencl 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">PA6 - Convolutional Neural Network Forward Layer GPU Implementation</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, UCSD-CSE160.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

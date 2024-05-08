@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.10.0" xml:lang="en-US">
+  <compound refid="class_sample_class" kind="class"><name>SampleClass</name>
+    <member refid="class_sample_class_1a3debf34af44aab01bd75d59aedef88d0" kind="function"><name>printHello</name></member>
+  </compound>
+  <compound refid="hello_8cpp" kind="file"><name>hello.cpp</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/Users/ashwinrohit/Developer/cse160-docs/src</name>
+  </compound>
+</doxygenindex>

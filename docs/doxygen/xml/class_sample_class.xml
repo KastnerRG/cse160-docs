@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_sample_class" kind="class" language="C++" prot="public">
+    <compoundname>SampleClass</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_sample_class_1a3debf34af44aab01bd75d59aedef88d0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SampleClass::printHello</definition>
+        <argsstring>()</argsstring>
+        <name>printHello</name>
+        <qualifiedname>SampleClass::printHello</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>embed:rst:leading-asterisk
+* This function prints hello
+* </verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/ashwinrohit/Developer/cse160-docs/src/hello.cpp" line="14" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>embed:rst:leading-asterisk
+* Hello, World!
+* </verbatim> </para>
+    </detaileddescription>
+    <location file="/Users/ashwinrohit/Developer/cse160-docs/src/hello.cpp" line="8" column="1" bodyfile="/Users/ashwinrohit/Developer/cse160-docs/src/hello.cpp" bodystart="8" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_sample_class_1a3debf34af44aab01bd75d59aedef88d0" prot="public" virt="non-virtual"><scope>SampleClass</scope><name>printHello</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
