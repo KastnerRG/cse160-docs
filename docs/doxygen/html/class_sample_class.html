@@ -82,11 +82,89 @@ $(function() {
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3debf34af44aab01bd75d59aedef88d0" id="r_a3debf34af44aab01bd75d59aedef88d0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3debf34af44aab01bd75d59aedef88d0">printHello</a> ()</td></tr>
 <tr class="separator:a3debf34af44aab01bd75d59aedef88d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad065a7b6a0a9e5afb998376bd310f13a" id="r_ad065a7b6a0a9e5afb998376bd310f13a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad065a7b6a0a9e5afb998376bd310f13a">computeShaders2D</a> (int x, int y)</td></tr>
+<tr class="separator:ad065a7b6a0a9e5afb998376bd310f13a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf718b2754218ea0e6992a64763673c8" id="r_aaf718b2754218ea0e6992a64763673c8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf718b2754218ea0e6992a64763673c8">computeShaders3D</a> (int x, int y, int z)</td></tr>
+<tr class="separator:aaf718b2754218ea0e6992a64763673c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">embed:rst:leading-asterisk
 * Hello, World!
 * </pre> </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad065a7b6a0a9e5afb998376bd310f13a" name="ad065a7b6a0a9e5afb998376bd310f13a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad065a7b6a0a9e5afb998376bd310f13a">&#9670;&#160;</a></span>computeShaders2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int SampleClass::computeShaders2D </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">embed:rst:leading-asterisk
+* This function computes the shader values for a given pixel
+* </pre><p> Here are the function parameters:</p>
+<p><code>x:</code> x-coordinate of the pixel</p>
+<p><code>y:</code> y-coordinate of the pixel </p><dl class="section return"><dt>Returns</dt><dd>Computed shader value for pixel (x, y) </dd></dl>
+
+</div>
+</div>
+<a id="aaf718b2754218ea0e6992a64763673c8" name="aaf718b2754218ea0e6992a64763673c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf718b2754218ea0e6992a64763673c8">&#9670;&#160;</a></span>computeShaders3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int SampleClass::computeShaders3D </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">embed:rst:leading-asterisk
+* This function computes the shader values for a given pixel in 3D.
+* </pre><p> For 2D, use <a class="el" href="#ad065a7b6a0a9e5afb998376bd310f13a">computeShaders2D</a>. Here are the function parameters:</p>
+<p><code>x:</code> x-coordinate of the pixel</p>
+<p><code>y:</code> y-coordinate of the pixel</p>
+<p><code>z:</code> z-coordinate of the pixel </p><dl class="section return"><dt>Returns</dt><dd>Computed shader value for pixel (x, y, z) </dd></dl>
+
+</div>
+</div>
 <a id="a3debf34af44aab01bd75d59aedef88d0" name="a3debf34af44aab01bd75d59aedef88d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3debf34af44aab01bd75d59aedef88d0">&#9670;&#160;</a></span>printHello()</h2>
 

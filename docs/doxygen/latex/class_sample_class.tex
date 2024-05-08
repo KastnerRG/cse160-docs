@@ -4,6 +4,10 @@
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{class_sample_class_a3debf34af44aab01bd75d59aedef88d0}{print\+Hello}} ()
+\item 
+static int \mbox{\hyperlink{class_sample_class_ad065a7b6a0a9e5afb998376bd310f13a}{compute\+Shaders2D}} (int x, int y)
+\item 
+static int \mbox{\hyperlink{class_sample_class_aaf718b2754218ea0e6992a64763673c8}{compute\+Shaders3D}} (int x, int y, int z)
 \end{DoxyCompactItemize}
 
 
@@ -14,6 +18,40 @@ static void \mbox{\hyperlink{class_sample_class_a3debf34af44aab01bd75d59aedef88d
  
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_sample_class_ad065a7b6a0a9e5afb998376bd310f13a}\label{class_sample_class_ad065a7b6a0a9e5afb998376bd310f13a} 
+\index{SampleClass@{SampleClass}!computeShaders2D@{computeShaders2D}}
+\index{computeShaders2D@{computeShaders2D}!SampleClass@{SampleClass}}
+\doxysubsubsection{\texorpdfstring{computeShaders2D()}{computeShaders2D()}}
+{\footnotesize\ttfamily static int Sample\+Class\+::compute\+Shaders2D (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}embed:rst:leading-asterisk
+* This function computes the shader values for a given pixel
+* \end{DoxyVerb}
+ Here are the function parameters\+:
+
+{\ttfamily x\+:} x-\/coordinate of the pixel
+
+{\ttfamily y\+:} y-\/coordinate of the pixel \begin{DoxyReturn}{Returns}
+Computed shader value for pixel (x, y) 
+\end{DoxyReturn}
+\Hypertarget{class_sample_class_aaf718b2754218ea0e6992a64763673c8}\label{class_sample_class_aaf718b2754218ea0e6992a64763673c8} 
+\index{SampleClass@{SampleClass}!computeShaders3D@{computeShaders3D}}
+\index{computeShaders3D@{computeShaders3D}!SampleClass@{SampleClass}}
+\doxysubsubsection{\texorpdfstring{computeShaders3D()}{computeShaders3D()}}
+{\footnotesize\ttfamily static int Sample\+Class\+::compute\+Shaders3D (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}embed:rst:leading-asterisk
+* This function computes the shader values for a given pixel in 3D.
+* \end{DoxyVerb}
+ For 2D, use \doxylink{class_sample_class_ad065a7b6a0a9e5afb998376bd310f13a}{compute\+Shaders2D}. Here are the function parameters\+:
+
+{\ttfamily x\+:} x-\/coordinate of the pixel
+
+{\ttfamily y\+:} y-\/coordinate of the pixel
+
+{\ttfamily z\+:} z-\/coordinate of the pixel \begin{DoxyReturn}{Returns}
+Computed shader value for pixel (x, y, z) 
+\end{DoxyReturn}
 \Hypertarget{class_sample_class_a3debf34af44aab01bd75d59aedef88d0}\label{class_sample_class_a3debf34af44aab01bd75d59aedef88d0} 
 \index{SampleClass@{SampleClass}!printHello@{printHello}}
 \index{printHello@{printHello}!SampleClass@{SampleClass}}

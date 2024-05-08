@@ -50,6 +50,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#doxygen-test">Doxygen Test</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv411SampleClass"><code class="docutils literal notranslate"><span class="pre">SampleClass</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#_CPPv4N11SampleClass10printHelloEv"><code class="docutils literal notranslate"><span class="pre">SampleClass::printHello()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N11SampleClass16computeShaders2DEii"><code class="docutils literal notranslate"><span class="pre">SampleClass::computeShaders2D()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N11SampleClass16computeShaders3DEiii"><code class="docutils literal notranslate"><span class="pre">SampleClass::computeShaders3D()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -112,6 +114,35 @@
 <dt class="sig sig-object cpp" id="_CPPv4N11SampleClass10printHelloEv">
 <span id="_CPPv3N11SampleClass10printHelloEv"></span><span id="_CPPv2N11SampleClass10printHelloEv"></span><span id="SampleClass::printHello"></span><span class="target" id="class_sample_class_1a3debf34af44aab01bd75d59aedef88d0"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">printHello</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11SampleClass10printHelloEv" title="Link to this definition"></a><br /></dt>
 <dd><p>This function prints hello</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11SampleClass16computeShaders2DEii">
+<span id="_CPPv3N11SampleClass16computeShaders2DEii"></span><span id="_CPPv2N11SampleClass16computeShaders2DEii"></span><span id="SampleClass::computeShaders2D__i.i"></span><span class="target" id="class_sample_class_1ad065a7b6a0a9e5afb998376bd310f13a"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">computeShaders2D</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11SampleClass16computeShaders2DEii" title="Link to this definition"></a><br /></dt>
+<dd><p><p>This function computes the shader values for a given pixel</p>
+ Here are the function parameters:</p>
+<p><code class="docutils literal notranslate"><span class="pre">x:</span></code> x-coordinate of the pixel</p>
+<p><code class="docutils literal notranslate"><span class="pre">y:</span></code> y-coordinate of the pixel </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Computed shader value for pixel (x, y) </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11SampleClass16computeShaders3DEiii">
+<span id="_CPPv3N11SampleClass16computeShaders3DEiii"></span><span id="_CPPv2N11SampleClass16computeShaders3DEiii"></span><span id="SampleClass::computeShaders3D__i.i.i"></span><span class="target" id="class_sample_class_1aaf718b2754218ea0e6992a64763673c8"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">computeShaders3D</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11SampleClass16computeShaders3DEiii" title="Link to this definition"></a><br /></dt>
+<dd><p><p>This function computes the shader values for a given pixel in 3D.</p>
+ For 2D, use <a class="reference internal" href="#class_sample_class_1ad065a7b6a0a9e5afb998376bd310f13a"><span class="std std-ref">computeShaders2D</span></a>. Here are the function parameters:</p>
+<p><code class="docutils literal notranslate"><span class="pre">x:</span></code> x-coordinate of the pixel</p>
+<p><code class="docutils literal notranslate"><span class="pre">y:</span></code> y-coordinate of the pixel</p>
+<p><code class="docutils literal notranslate"><span class="pre">z:</span></code> z-coordinate of the pixel </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Computed shader value for pixel (x, y, z) </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
