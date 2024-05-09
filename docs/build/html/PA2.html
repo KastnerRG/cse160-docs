@@ -43,25 +43,25 @@
 <h1>PA2 - Vector Addition<a class="headerlink" href="#pa2-vector-addition" title="Permalink to this heading">¶</a></h1>
 <section id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">¶</a></h2>
-<p>The purpose of this lab is to introduce the student to the CUDA API by implementing vector addition. The student will implement vector addition by writing the GPU kernel code as well as the associated host code.</p>
+<p>The purpose of this lab is to introduce the student to the OpenCL API by implementing vector addition. The student will implement vector addition by writing the GPU kernel code as well as the associated host code.</p>
 </section>
 <section id="instructions">
 <h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h2>
 <p>Edit the code in the code tab to perform the following:</p>
 <ul class="simple">
-<li><p>Allocate device memory</p></li>
+<li><p>Create memory buffers on device</p></li>
 <li><p>Copy host memory to device</p></li>
-<li><p>Initialize thread block and kernel grid dimensions</p></li>
-<li><p>Invoke CUDA kernel</p></li>
+<li><p>Initialize global size and local size</p></li>
+<li><p>Invoke OpenCL kernel</p></li>
 <li><p>Copy results from device to host</p></li>
 <li><p>Free device memory</p></li>
-<li><p>Write the CUDA kernel</p></li>
+<li><p>Write the OpenCL kernel</p></li>
 </ul>
-<p>Instructions about where to place each part of the code is demarcated by the <code class="code docutils literal notranslate"><span class="pre">//&#64;&#64;</span></code> comment lines.</p>
+<p>Instructions about where to place each part of the code is demarcated by the <cite>//&#64;&#64;</cite> comment lines.</p>
 </section>
 <section id="how-to-compile">
 <h2>How to Compile<a class="headerlink" href="#how-to-compile" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="code docutils literal notranslate"><span class="pre">template.cu</span></code> file contains the code for the programming assignment. There is a Makefile included which compiles it and links it with the libgputk CUDA library automatically. It can be run by typing <code class="code docutils literal notranslate"><span class="pre">make</span></code> from the PA2 folder. It generates a <code class="code docutils literal notranslate"><span class="pre">solution</span></code> output file. During development, make sure to run the <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> command before running <code class="code docutils literal notranslate"><span class="pre">make</span></code>.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">main.c</span></code> and <code class="code docutils literal notranslate"><span class="pre">kernel.cl</span></code> files contain the code for the programming assignment. There is a Makefile included which compiles it. It can be run by typing <code class="code docutils literal notranslate"><span class="pre">make</span></code> from the PA2 folder. It generates a <code class="code docutils literal notranslate"><span class="pre">solution</span></code> output file. During development, make sure to run the <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> command before running <code class="code docutils literal notranslate"><span class="pre">make</span></code>.</p>
 </section>
 <section id="how-to-test">
 <h2>How to Test<a class="headerlink" href="#how-to-test" title="Permalink to this heading">¶</a></h2>
@@ -69,11 +69,12 @@
 </section>
 <section id="dataset-generation-optional">
 <h2>Dataset Generation (Optional)<a class="headerlink" href="#dataset-generation-optional" title="Permalink to this heading">¶</a></h2>
-<p>The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the <code class="code docutils literal notranslate"><span class="pre">dataset_generator.cpp</span></code> file. You may compile this file using the <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">dataset_generator</span></code> command and run the executeable using the command <code class="code docutils literal notranslate"><span class="pre">./dataset_generator</span></code>.</p>
+<p>DISCLAIMER: NEEDS TO BE CONVERTED TO C FOR HELPER LIBRARY</p>
+<p>The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the <code class="code docutils literal notranslate"><span class="pre">dataset_generator.py</span></code> file in the <code class="code docutils literal notranslate"><span class="pre">Dataset</span></code> directory. You may run this script using <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">dataset_generator.py</span></code>.</p>
 </section>
 <section id="submission">
 <h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading">¶</a></h2>
-<p>Submit the <code class="code docutils literal notranslate"><span class="pre">template.cu</span></code> file on gradescope. Preserve the file name while uploading to gradescope.</p>
+<p>Submit the <code class="code docutils literal notranslate"><span class="pre">main.c</span></code> and <code class="code docutils literal notranslate"><span class="pre">kernel.cl</span></code> files on gradescope. Preserve the file name while uploading to gradescope.</p>
 </section>
 </section>
 
