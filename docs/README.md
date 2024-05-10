@@ -55,3 +55,15 @@ Make sure you have the following software installed:
 You can view the generated HTML documentation by opening the corresponding HTML files in a web browser. Alternatively, you can serve the documentation locally using a web server.
 
 The latest documentation is being hosted [here](https://docs-cse160.readthedocs.io/en/latest/)
+
+### Helpful Comments for Breate & Doxygen
+
+- Documentation root path: root/docs
+- Breathe Path: root/ext/breathe
+- Doxygen XML Output: root/doxyxml
+
+### Setting up Doxygen
+
+- You might want to change the absolute paths in `docs/source/conf.py` and `docs/doxygen/Doxyfile`. You just need to change the prefix path from the given sample path.
+
+- If you want doxygen to consider private class members as well, search for the `EXTRACT_PRIVATE` field in the Doxyfile and switch it to `YES`.

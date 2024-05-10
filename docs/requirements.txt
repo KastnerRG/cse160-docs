@@ -1,0 +1,12 @@
+sphinx
+breathe
+sphinx-rtd-theme
+sphinx-copybutton             
+sphinx-rtd-theme              
+sphinxcontrib-applehelp       
+sphinxcontrib-devhelp         
+sphinxcontrib-htmlhelp        
+sphinxcontrib-jquery          
+sphinxcontrib-jsmath          
+sphinxcontrib-qthelp          
+sphinxcontrib-serializinghtml

@@ -7,12 +7,16 @@
 # -- Path setup --------------------------------------------------------------
 
 # Path to the directory containing the C/C++ source files
-cpp_source_dir = '../src'
+cpp_source_dir = '/Users/ashwinrohit/Developer/cse160-docs/src'
 
 # Add the directory to the Python path so autodoc can find the source files
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath(cpp_source_dir))
+
+# NOTE: You may want to change this to the path containing your breathe installation
+sys.path.append("/Users/ashwinrohit/Developer/cse160-docs/docs/ext/breathe")
 
 # Configuration for autodoc to generate documentation from the C/C++ source files
 autodoc_default_flags = ['members', 'undoc-members']
@@ -21,7 +25,7 @@ autodoc_default_flags = ['members', 'undoc-members']
 
 # -- Project information -----------------------------------------------------
 
-project = 'cse160-opencl'
+project = 'CSE 160 - Introduction to Parallel Computing'
 copyright = '2024, UCSD-CSE160'
 author = 'UCSD-CSE160'
 
@@ -37,6 +41,9 @@ html_use_index=False
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.imgmath',
+    'sphinx.ext.todo',
+    'breathe'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -53,9 +60,16 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'default'
+html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# -- Options for Breathe output ----------------------------------------------
+
+# NOTE: Relative path might not work, try your system's absolute path
+breathe_projects = {'CSE 160 - Introduction to Parallel Computing' : '/Users/ashwinrohit/Developer/cse160-docs/docs/doxyxml' }
+
+breathe_default_project = "CSE 160 - Introduction to Parallel Computing"
