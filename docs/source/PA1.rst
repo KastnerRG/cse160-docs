@@ -22,6 +22,12 @@ Some properties to pay attention to:
 
 The student is encouraged to relate the device-specific information to the OpenCL memory model, provided below.
 
+.. image:: image.memory_model.jpg
+  :width: 400
+  :alt: OpenCL Memory model
+
+*Credits: Khronos Group*
+
 How to Run
 ^^^^^^^^^^
 The :code:`main.c` file contains the host code for the programming assignment; there is no associated device kernel code for this assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the DeviceQuery folder. It generates a :code:`device_query` output file.  Simply run this with :code:`./device_query`, which will print device information to the console.
