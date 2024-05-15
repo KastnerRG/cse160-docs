@@ -3,26 +3,29 @@ Programming Assignment 1 - Device Query
 
 Objective
 ^^^^^^^^^
-The purpose of this programming assignment is to introduce the student to the CUDA hardware resources along with their capabilities. The student is not expected to understand the details of the code, but should understand the process of compiling and running code that will be used in subsequent modules.
+The purpose of this programming assignment is to familiarize the student with the underlying hardware and how it relates to the OpenCL hardware model.  By extension, the program will familiarize the student with the processing resources at hand along with their capabilities.  By the end of this assignment, one should understand the process of compiling and running code that will be used in subsequent modules.
+
 
 Instructions
 ^^^^^^^^^^^^^
-The code provided queries the GPU hardware on the system. Do not concentrate on the API calls, but on functions starting with :code:`gpuTK`.
+The file :code:`main.c` queries for devices across all platforms, and displays information about each device.
 
-The :code:`gpuTKLog` function logs results, specifically we log the following hardware features:
+Some properties to pay attention to:
 
-* GPU card's name
-* GPU computation capabilities
-* Maximum number of block dimensions
-* Maximum number of grid dimensions
-* Maximum size of GPU memory
-* Amount of constant and share memory
-* Warp size
+* Computational Capabilities
+* Global Memory Size
+* Shared Memory Size
+* Work Item Size
+* Work Item Dimensions
+* Work Group Size
+* Preferred Work Group Size Multiple
+
+The student is encouraged to relate the device-specific information to the OpenCL memory model, provided below.
 
 How to Run
 ^^^^^^^^^^
-The :code:`template.cu` file contains the code for the programming assignment. There is a Makefile included which compiles it and links it with the libgputk CUDA library automatically. It can be run by typing :code:`make` from the PA1 folder. It generates a :code:`solution` output file.
+The :code:`main.c` file contains the host code for the programming assignment; there is no associated device kernel code for this assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the DeviceQuery folder. It generates a :code:`device_query` output file.  Simply run this with :code:`./device_query`, which will print device information to the console.
 
 Submission
 ^^^^^^^^^^
-You do not need to submit any code for this assignment. You must answer the questions in Gradescope.
+put it onto gradescope and answer a quiz or something idk 
