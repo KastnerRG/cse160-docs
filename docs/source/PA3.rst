@@ -14,6 +14,7 @@ Edit the code in the code tab to perform the following:
 * Set the dimensions of the result matrix
 * Create device buffers for the matrices 
 * Copy host memory to device buffers
+* Create the kernel
 * Build the kernel program?
 * Set up arguments for the kernel
 * Define local and global work sizes
