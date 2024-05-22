@@ -74,7 +74,7 @@ PROJECT_ICON           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "/Users/ashwinrohit/Developer/cse160-docs/docs/doxygen"
+OUTPUT_DIRECTORY       = "/home/docs/checkouts/readthedocs.org/user_builds/docs-cse160/checkouts/latest/docs/doxygen"
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
