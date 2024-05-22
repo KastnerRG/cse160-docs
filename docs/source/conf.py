@@ -70,6 +70,6 @@ html_static_path = ['_static']
 # -- Options for Breathe output ----------------------------------------------
 
 # NOTE: Relative path might not work, try your system's absolute path
-breathe_projects = {'CSE 160 - Introduction to Parallel Computing' : '/Users/ashwinrohit/Developer/cse160-docs/docs/doxyxml' }
+breathe_projects = {'CSE 160 - Introduction to Parallel Computing' : '/docs/doxyxml' }
 
 breathe_default_project = "CSE 160 - Introduction to Parallel Computing"
