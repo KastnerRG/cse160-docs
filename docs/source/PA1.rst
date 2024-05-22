@@ -22,7 +22,7 @@ Some properties to pay attention to:
 
 The student is encouraged to relate the device-specific information to the OpenCL memory model, provided below.
 
-.. image:: image.memory_model.jpg
+.. image:: /image/image.memory_model.jpg
   :width: 400
   :alt: OpenCL Memory model
 
