@@ -18,6 +18,7 @@ build:
   apt_packages:
     - make
     - doxygen
+    - python3-sphinx
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
