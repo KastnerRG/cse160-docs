@@ -34,4 +34,4 @@ The :code:`main.c` file contains the host code for the programming assignment; t
 
 Submission
 ^^^^^^^^^^
-put it onto gradescope and answer a quiz or something idk 
+You do not need to submit any code for this assignment. You must answer the questions in Gradescope.
