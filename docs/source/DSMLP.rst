@@ -1,7 +1,7 @@
 DSMLP
 =====
 
-Access DSMLP using ssh
+Access DSMLP Using SSH
 ^^^^^^^^^^^^^^^^^^^^^^
 
 You will use the `UCSD Data Science / Machine Learning Platform (DSMLP) <https://support.ucsd.edu/its?id=kb_article_view&sys_kb_id=fda9846287908954947a0fa8cebb352b>`_ to get access to a GPU.
@@ -16,7 +16,7 @@ Once you have that container, you can compile and run the Makefiles in the PA di
 
 Please be considerate on your use of the GPUs. The GPUs in DSMLP are shared within this class and across campus. If you are not actively using the GPU, you should shut down the container to allow others to access it.
 
-Access DSMLP using VSCode
+Access DSMLP Using VSCode
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To be determined.
