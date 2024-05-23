@@ -11,6 +11,7 @@ Data Science & Machine Learning Platform
    :maxdepth: 2
 
    DSMLP
+   QIDK
    Sample
 
 Programming Assignments:
