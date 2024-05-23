@@ -5,7 +5,7 @@ Android Debug Bridge (ADB)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Installation:
     1. Install Android Studio `here <https://developer.android.com/studio>`_
-    2. Follow instructions `here <https://developer.android.com/tools/adb>`_ to install ADB using Android Studio's SDK Manager
+    2. Follow these `instructions <https://developer.android.com/tools/adb>`_ to install ADB using Android Studio's SDK Manager
     3. Add the path to :code:`android_sdk/platform-tools/` to your system's PATH variable or navigate to the directory and run the commands from there
 
 Usage:
