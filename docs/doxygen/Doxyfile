@@ -74,7 +74,7 @@ PROJECT_ICON           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "/home/docs/checkouts/readthedocs.org/user_builds/docs-cse160/checkouts/latest/docs/doxygen"
+OUTPUT_DIRECTORY       = 
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -954,7 +954,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = "/Users/ashwinrohit/Developer/cse160-docs/src"
+INPUT                  = "../src"
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1496,18 +1496,18 @@ HTML_INDEX_NUM_ENTRIES = 100
 # create a documentation set, doxygen will generate a Makefile in the HTML
 # output directory. Running make will produce the docset in that directory and
 # running make install will install the docset in
-# ~/Library/Developer/Shared/Documentation/DocSets so that Xcode will find it at
+# ~/Library/Developer/Shared/Documentation/ets so that Xcode will find it at
 # startup. See https://developer.apple.com/library/archive/featuredarticles/Doxy
 # genXcode/_index.html for more information.
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-GENERATE_DOCSET        = NO
+GENERATE_ET        = NO
 
-# This tag determines the name of the docset feed. A documentation feed provides
+# This tag determines the name of the et feed. A documentation feed provides
 # an umbrella under which multiple documentation sets from a single provider
 # (such as a company or product suite) can be grouped.
-# The default value is: Doxygen generated docs.
+# The default value is: Doxygen generated .
 # This tag requires that the tag GENERATE_DOCSET is set to YES.
 
 DOCSET_FEEDNAME        = "Doxygen generated docs"
