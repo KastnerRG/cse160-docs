@@ -11,10 +11,10 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
-    doxygen: "1.11.0"  # Add the desired Doxygen version
   jobs:
     pre_build:
       # Run the Makefile inside the docs/ directory
+      - apt update && apt install -y doxygen
       - cd docs/ && make
 
 # Build documentation in the "docs/" directory with Sphinx
