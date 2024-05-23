@@ -7,7 +7,7 @@
 # -- Path setup --------------------------------------------------------------
 
 # Path to the directory containing the C/C++ source files
-cpp_source_dir = '/home/docs/checkouts/readthedocs.org/user_builds/docs-cse160/checkouts/latest/src'
+cpp_source_dir = '../../src'
 
 # Add the directory to the Python path so autodoc can find the source files
 import os
@@ -16,7 +16,7 @@ import sys
 sys.path.insert(0, os.path.abspath(cpp_source_dir))
 
 # NOTE: You may want to change this to the path containing your breathe installation
-sys.path.append("/home/docs/checkouts/readthedocs.org/user_builds/docs-cse160/checkouts/latest/docs/ext/breathe")
+sys.path.append("../ext/breathe")
 
 # Configuration for autodoc to generate documentation from the C/C++ source files
 autodoc_default_flags = ['members', 'undoc-members']
@@ -70,6 +70,6 @@ html_static_path = ['_static']
 # -- Options for Breathe output ----------------------------------------------
 
 # NOTE: Relative path might not work, try your system's absolute path
-breathe_projects = {'CSE 160 - Introduction to Parallel Computing' : '/home/docs/checkouts/readthedocs.org/user_builds/docs-cse160/checkouts/latest/docs/doxyxml' }
+breathe_projects = {'CSE 160 - Introduction to Parallel Computing' : '../doxyxml' }
 
 breathe_default_project = "CSE 160 - Introduction to Parallel Computing"
