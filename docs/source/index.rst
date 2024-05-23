@@ -19,6 +19,7 @@ Qualcomm Innovators Development Kit
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started with QIDK
+
    QIDK
 
 Programming Assignments:
