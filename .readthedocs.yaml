@@ -48,6 +48,7 @@ build:
   apt_packages:
     - make
     - doxygen
+    - python3-sphinx
   jobs:
     post_checkout:
       - cd docs && make
