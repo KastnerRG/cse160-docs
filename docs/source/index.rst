@@ -26,6 +26,7 @@ Programming Assignments:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
+   :caption: Programming Assignments
    
    PA1 - Device Query <PA1>
    PA2 - Vector Addition <PA2>
