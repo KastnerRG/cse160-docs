@@ -46,8 +46,8 @@ OpenCL Setup For QIDK
 Installation:
     1. Open Termux on your Android device or SSH into your device
     2. Run the following command to install the OpenCL package: :code:`pkg install ocl-icd`
-    3. Run the following command to install the OpenCL development package: :code:`pkg install ocl-icd-dev`
-    4. Run the following command to install the OpenCL headers: :code:`pkg install opencl-headers`
+    3. Run the following command to install the OpenCL headers: :code:`pkg install opencl-headers`
+    4. Run the following command to add the device OpenCL drivers to the dynamic linker path: :code:`export LD_LIBRARY_PATH=/system/vendor/lib64:$LD_LIBRARY_PATH`
 
 Usage:
     - You can now compile and run OpenCL programs on your Android device like you would on DSMLP
