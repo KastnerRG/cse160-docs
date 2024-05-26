@@ -43,7 +43,7 @@ Usage:
 Access QIDK using VSCode (code-server)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Installation:
-    1. Open Termux on your Android device
+    1. Open Termux on your Android device or SSH into your device
     2. Run the following command to install the OpenSSH package: :code:`pkg install tur-repo`
     3. Run the following command to install the OpenSSH package: :code:`pkg install code-server`
 
@@ -51,7 +51,7 @@ Usage:
     - Run the following command to start the code-server: 
         - With authentication: :code:`code-server --bind-addr 0.0.0.0:8080`, find the password in :code:`/code-server/config.yaml`
         - Without authentication: :code:`code-server --auth none --bind-addr 0.0.0.0:8080`
-    - Access VSCode from your local machine by entering the IP address and port number (8080) in your browser
+    - Access VSCode from your local machine by entering the QIDK's IP address and port number (8080) in your browser
 
 OpenCL Setup For QIDK
 ^^^^^^^^^^^^^^^^^^^^^
