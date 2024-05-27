@@ -61,5 +61,11 @@ Installation:
     3. Run the following command to install the OpenCL headers: :code:`pkg install opencl-headers`
     4. Run the following command to add the device OpenCL drivers to the dynamic linker path: :code:`export LD_LIBRARY_PATH=/system/vendor/lib64:$LD_LIBRARY_PATH`
 
+Debugging
+^^^^^^^^^
+Make/GCC/LD Errors:
+    1. This is probably due to the fact that build tools are not installed in the device.
+    2. Run the following command to install the build tools: :code:`pkg install build-essential`
+
 Usage:
     - You can now compile and run OpenCL programs on your Android device like you would on DSMLP

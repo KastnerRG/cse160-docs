@@ -34,3 +34,11 @@ Programming Assignments:
    PA4 - Tiled Matrix Multiplication <PA4>
    PA5 - Convolution <PA5>
    PA6 - Convolutional Neural Network <PA6>
+
+Project Assignments:
+^^^^^^^^^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 2
+   :caption: Project Assignments
+
+   PA8 - Quantisation in Machine Learning <pa8-quantisation>
