@@ -194,6 +194,52 @@ a single-threaded program on one CPU core; now that we have a kernel, let's try
 running it as a multi-threaded program on multiple CPU cores!
 
 Run ``make cpu`` in the ``raytracer_kernel`` directory to compile and run the program
-using a CPU as a compute device.
+using a CPU as a compute device.  This should yield a new output image, titled ``output_cpu.png``.
+It is an exact copy of the image generated with the sequential implemenation to prove that
+it works the same way!
+
+In the terminal, you'll be met with some information.  The first is the compute device
+that the kernel is running on.  The second is how much time the program took to run.
+Compare this time with the first (sequential) implemenation we did in Step 2.
+How do they compare?  Why might this be?
+
+Step 5:
++++++++
+Our final test is to run our kernel implemenation on our most parallelized compute 
+device: a GPU!  While our kernel ran on multiple cores already in Part 4, we have access
+to much more cores on a GPU.  Let's see how that affects performance!
+
+Run ``make gpu`` in the ``raytracer_kernel`` directory to compile and run the program
+using a GPU as a compute device.  This should yield a new output image, titled ``output_gpu.png``.
+Once again, it is an exact copy of the image generated with the sequential implemenation to prove that
+it works the same way.
+
+Checking the terminal, you'll see that the compute device we're running on is now a GPU.  
+Following this you'll once again find the time it took for the program to run.  How does
+this time compare to the previous two programs?  Why is this?
+
+Recap
+^^^^^
+
+We have two programs:
+
+* Sequential implementation (``main.c`` standalone in ``raytracer_sequential``)
+* Kernel implementation (``main.c`` and ``kernel.cl`` in ``raytracer_kernel``)
+
+The sequential implementation runs on a single thread on the CPU.
+
+The Kernel implemenation can be run on both the CPU and the GPU.  Depending on the device,
+the number of cores accesible (and thus the number of active threads) differs.  
+This causes differences in performance; that is, the more threads we have access to, 
+the greater the degree of parallelization.
+
+From this example, you should have been able to witness firsthand the power of parallelization!
+
+Submission
+^^^^^^^^^^
+You do not need to submit any code for this assignment.  You must answer the questions
+in Gradescope.
+
+
 
 
