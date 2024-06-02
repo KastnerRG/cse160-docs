@@ -103,7 +103,7 @@ In the diagram below, we can see that an intersection of a primary ray with the
 blue sphere in the scene results in blue being drawn to the pixel that the primary
 ray goes through.
 
-.. image:: /image/raytracerimage2.gif
+.. image:: /image/raytracerimage2.png
   :width: 400
   :alt: Raytracing Diagram
 
