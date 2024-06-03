@@ -168,6 +168,10 @@ the time it took for the program to run was also outputted.  **Note how much tim
 sequential implemenation of the raytracer took**!  We'll see how our next implemenation
 compares.
 
+.. image:: /image/singlethreadedsequential.png
+  :width: 400
+  :alt: Single Threaded Sequential Implementation Diagram
+
 Step 3:
 +++++++
 Now that we have a benchmark performance of how long a sequential, single-threaded
@@ -203,6 +207,10 @@ that the kernel is running on.  The second is how much time the program took to 
 Compare this time with the first (sequential) implemenation we did in Step 2.
 How do they compare?  Why might this be?
 
+.. image:: /image/multithreadedCPUkernel.png
+  :width: 400
+  :alt: Multithreaded Kernel on CPU Diagram
+
 Step 5:
 +++++++
 Our final test is to run our kernel implemenation on our most parallelized compute 
@@ -218,6 +226,11 @@ Checking the terminal, you'll see that the compute device we're running on is no
 Following this you'll once again find the time it took for the program to run.  How does
 this time compare to the previous two programs?  Why is this?
 
+
+.. image:: /image/multithreadedGPUkernel.png
+  :width: 400
+  :alt: Multithreaded Kernel on GPU Diagram
+
 Recap
 ^^^^^
 
@@ -229,7 +242,7 @@ We have two programs:
 The sequential implementation runs on a single thread on the CPU.
 
 The Kernel implemenation can be run on both the CPU and the GPU.  Depending on the device,
-the number of cores accesible (and thus the number of active threads) differs.  
+the number of cores accessible (and thus the number of active threads) differs.  
 This causes differences in performance; that is, the more threads we have access to, 
 the greater the degree of parallelization.
 
