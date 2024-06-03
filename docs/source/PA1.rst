@@ -2,9 +2,9 @@
 Programming Assignment 1 - Device Query
 =======================================
 
-======
+******
 Part 1
-======
+******
 
 Objective
 ^^^^^^^^^
@@ -43,9 +43,9 @@ Submission
 ^^^^^^^^^^
 You do not need to submit any code for this assignment. You must answer the questions in Gradescope.
 
-======
+******
 Part 2
-======
+******
 
 Objective
 ^^^^^^^^^
@@ -169,7 +169,7 @@ sequential implemenation of the raytracer took**!  We'll see how our next implem
 compares.
 
 .. image:: /image/singlethreadedsequential.png
-  :width: 400
+  :width: 600
   :alt: Single Threaded Sequential Implementation Diagram
 
 Step 3:
@@ -208,7 +208,7 @@ Compare this time with the first (sequential) implemenation we did in Step 2.
 How do they compare?  Why might this be?
 
 .. image:: /image/multithreadedCPUkernel.png
-  :width: 400
+  :width: 600
   :alt: Multithreaded Kernel on CPU Diagram
 
 Step 5:
@@ -227,8 +227,8 @@ Following this you'll once again find the time it took for the program to run.  
 this time compare to the previous two programs?  Why is this?
 
 
-.. image:: /image/multithreadedGPUkernel.png
-  :width: 400
+.. image:: /image/multithreadedGPUKernel.png
+  :width: 600
   :alt: Multithreaded Kernel on GPU Diagram
 
 Recap
