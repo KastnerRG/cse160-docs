@@ -84,7 +84,7 @@ In addition to the convolutional layers (C1 and C3), you are expected to impleme
 3. **Fully Connected Layer** (Optional for extra credit):
     - Implement a fully connected layer using GPU.
     - Utilize local memory and tiled matrix multiplication for faster execution.
-    - Be careful with matrix notation used in the codebase and include the bias term for each output.
+    - Be careful with matrix notation used in the codebase.
 
 Optimization Tips
 -----------------
