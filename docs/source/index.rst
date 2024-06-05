@@ -22,7 +22,8 @@ Qualcomm Innovators Development Kit
 
    QIDK
 
-
+Assignments
+^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
    :caption: Programming Assignments
