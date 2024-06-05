@@ -1,11 +1,16 @@
 PA5 - Convolution
 =================
 
+.. figure:: /image/2D_Convolution_Animation.gif
+    :align: center
+    :alt: 2D Convolution GIF
+*Credit: Wikipedia*
+
 Objective
 ^^^^^^^^^
 The lab's objective is to implement a tiled image convolution using both shared and constant memory. We will have a constant 5x5 convolution mask, but will have arbitrarily sized image (assume the image dimensions are greater than 5x5 for this Lab).
 
-To use the constant memory for the convolution mask, you can first transfer the mask data to the device. Consider the case where the pointer to the device array for the mask is named M. You can use :code:`const float * __restrict__ M`` as one of the parameters during your kernel launch. This informs the compiler that the contents of the mask array are constants and will only be accessed through pointer variable :code:`M`. This will enable the compiler to place the data into constant memory and allow the SM hardware to aggressively cache the mask data at runtime.
+To use the constant memory for the convolution mask, you can first transfer the mask data to the device. Consider the case where the pointer to the device array for the mask is named M. You can use :code:`__constant float * M` as one of the parameters during your kernel launch. This informs the compiler that the contents of the mask array are constants and will only be accessed through pointer variable :code:`M`. This will enable the compiler to place the data into constant memory and allow the SM hardware to aggressively cache the mask data at runtime.
 
 Convolution is used in many fields, such as image processing for image filtering. A standard image convolution formula for a 5x5 convolution filter :code:`M` with an Image :code:`I` is:
 
@@ -36,7 +41,7 @@ Edit the code in the code tab to perform the following:
 * Allocate device memory
 * Copy host memory to device
 * Initialize thread block and kernel grid dimensions
-* Invoke CUDA kernel
+* Invoke OpenCL kernel
 * Copy results from device to host
 * Deallocate device memory
 * Implement the tiled 2D convolution kernel with adjustments for channels
@@ -84,47 +89,30 @@ where :code:`clamp` is defined as
 
 How to Compile
 ^^^^^^^^^^^^^^
-The :code:`template.cu` file contains the code for the programming assignment. There is a Makefile included which compiles it and links it with the libgputk CUDA library automatically. It can be run by typing :code:`make` from the PA5 folder. It generates a :code:`solution` output file. During development, make sure to run the :code:`make clean` command before running :code:`make`.
-
-To compile the program for debugging, use the :code:`make debug` command.
+The :code:`main.c` and :code:`kernel.cl` file contains the code for the programming assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the PA5 folder. It generates a :code:`solution` output file. During development, make sure to run the :code:`make clean` command before running :code:`make`.
 
 How to Test
 ^^^^^^^^^^^
-Use the :code:`make` run command to test your program. There are a total of 7 tests on which your program will be evaluated for (functional) correctness.
+Use the :code:`make run` command to test your program. There are a total of 9 tests on which your program will be evaluated for (functional) correctness.
 
 Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This will need to be updated
+
 The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the :code:`dataset_generator.cpp` file. You may compile this file using the :code:`make dataset_generator` command and run the executeable using the command :code:`./dataset_generator`.
 
 Extra Credit (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^
 We have provided you an additional :code:`make run_big` you can execute for larger images and larger kernel sizes. If you successfully implement both cases, we will consider your execution time for the leaderboard. You can test your execution time locally by running :code:`make time`.
 
-To complete this task, you will have to make your kernel size dynamic, meaning you can no longer use the following lines:
-
-.. code-block:: c
-
-    #define Mask_width 5
-    #define Mask_radius Mask_width / 2
-
-Consider how you can replace these with a dynamic version.
-
-Feel free to remove
-
-.. code-block:: c
-  
-  assert(maskRows == 5);    /* mask height is fixed to 5 in this mp */
-  assert(maskColumns == 5); /* mask width is fixed to 5 in this mp */
-
-as these lines are no longer relevant in our greater than 5x5 world.
-
-For the autograder to time your kernel function, it must be called :code:`convolution`. The profiler does not consider arguments passed into it as part of the signature. That said, a signature we used that worked was
-
-.. code-block:: c
-
-    __global__ void convolution(float *deviceInputImageData, const float * __restrict__ deviceMaskData,
-                            float *deviceOutputImageData, int imageChannels, int imageWidth, int imageHeight, int maskRows, int maskColumns)
-
 Submission
 ^^^^^^^^^^
-Submit the :code:`template.cu` file on gradescope. Preserve the file name before uploading to gradescope.
+Submit the :code:`main.c` and :code:`kernel.cl` file on gradescope. Preserve the file name before uploading to gradescope.
+
+Tips and Tricks
+^^^^^^^^^^^^^^^
+After you understand how convolution works, I would recommend starting by implementing the embarrassingly parallel portion of convolution. Make sure the naive implementation works before going forward and attempting to incoporate shared memory. It will be extremely difficult to debug your shared memory portion if your basic convolution does not work. In terms of complexity, strategy 3 is the easiest and strategy 1 is the hardest.
+
+.. figure:: /image/TilingStrategies.png
+    :align: center
+    :alt: Tiling Strategies
