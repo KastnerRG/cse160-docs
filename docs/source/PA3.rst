@@ -9,13 +9,25 @@ by writing the GPU kernel code as well as the associated host code.
 
 Instructions
 ^^^^^^^^^^^^^
-Edit the code in the code tab to perform the following:
+Given matrices :math:`A \in \mathbb{R}^{n \times m}` 
+and :math:`B \in \mathbb{R}^{m \times p}`, compute 
+their product :math:`C = AB`. 
+Recall that :math:`C` will be an :math:`n \times p` matrix that 
+can be computed with the following formula:
+
+.. math:: 
+    C_{ij} = \sum_{k = 1}^n A_{ik} B_{kj}
+
+Where :math:`M_{ij}` is the entry at the row :math:`i` and 
+column :math:`j` of matrix :math:`M`.
+
+
+Edit the code to perform the following:
 
 * Set the dimensions of the result matrix
 * Create device buffers for the matrices 
 * Copy host memory to device buffers
 * Create the kernel
-* Build the kernel program?
 * Set up arguments for the kernel
 * Define local and global work sizes
 * Invoke OpenCL kernel
@@ -35,11 +47,9 @@ During development, make sure to run the :code:`make clean` command before runni
 
 How to Test
 ^^^^^^^^^^^
-Use the :code:`make run` command to test your program. There are a total of 9 tests on which your program will be evaluated.
-
-Dataset Generation (Optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TODO
+Use the :code:`make run` command to test your program on the 
+test cases in the :code:`Dataset` foldeer. 
+There are a total of 9 tests on which your program will be evaluated.
 
 Submission
 ^^^^^^^^^^
