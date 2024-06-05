@@ -26,7 +26,6 @@ Programming Assignments:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Programming Assignments
    
    PA1 - Device Query <PA1>
    PA2 - Vector Addition <PA2>
@@ -39,6 +38,6 @@ Project Assignments:
 ^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Project Assignments
 
    PA8 - Quantisation in Machine Learning <pa8-quantisation>
+   PA8 - Convolutional Neural Network <pa8-cnn>
