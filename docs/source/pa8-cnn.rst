@@ -37,8 +37,7 @@ The network will be tested on the CIFAR-10 dataset, which contains 60,000 color 
 
 Instructions
 ------------
-
-This assignment requires you to complete a GPU implementation of the convolutional layer. Performance of the GPU implementation is not important as this assignment is intended to build functionality before optimizing. The only files you need to update to implement the forward convolution are:
+This project requires you to complete and fully optimize a GPU implementation of the convolutional layer. Performance of the GPU implementation is critical as this project aims to achieve maximum efficiency. The files you need to update to implement the forward convolution are:
 ``cnn_opencl.c`` and ``kernel.cl``. To understand which functions within these files are being called and when, it may be helpful to refer to ``cnn_seq.c``.
 
 Again, you are performing the following operation:
@@ -99,7 +98,7 @@ Optimization Tips
 How to Compile
 --------------
 
-The ``cnn_opencl.c`` and ``kernel.cl`` files contain the code for the programming assignment. Check the functions in the file for further guidance. There is a Makefile included which compiles it and links it with the necessary OpenCL libraries automatically. To compile and generate the executable:
+The ``cnn_opencl.c`` and ``kernel.cl`` files contain the code for the programming project. Check the functions in the file for further guidance. There is a Makefile included which compiles it and links it with the necessary OpenCL libraries automatically. To compile and generate the executable:
 
 For the sequential (CPU) version:
 
