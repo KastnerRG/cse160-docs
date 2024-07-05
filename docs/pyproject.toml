@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "cse160-docs"
+version = "0.1.0"
+description = ""
+authors = ["Christopher L. Crutchfield <ccrutchf@ucsd.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sphinx = "^7.3.7"
+breathe = "^4.35.0"
+sphinx-rtd-theme = "^2.0.0"
+sphinx-copybutton = "^0.5.2"
+sphinxcontrib-applehelp = "^1.0.8"
+sphinxcontrib-devhelp = "^1.0.6"
+sphinxcontrib-jquery = "^4.1"
+sphinxcontrib-jsmath = "^1.0.1"
+sphinxcontrib-qthelp = "^1.0.7"
+sphinxcontrib-serializinghtml = "^1.1.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

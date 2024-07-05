@@ -29,7 +29,8 @@ Make sure you have the following software installed:
 3. Install Sphinx and any necessary dependencies using pip:
 
     ```bash
-    pip install sphinx
+    pip install poetry
+    poetry install
     ```
 
 ### Writing Documentation
@@ -45,7 +46,7 @@ Make sure you have the following software installed:
 2. From the `docs` directory, run the following command:
 
     ```bash
-    make html
+    poetry run make html
     ```
 
 3. Sphinx will generate HTML files for your documentation in the `build/html` directory.
