@@ -1,5 +1,7 @@
 Qualcomm Innovators Development Kit (QIDK)
 ==========================================
+In this guide, "your system" or "your computer" refers to your development machine.
+We often refer to the QIDK as "the/your device".
 
 Android Debug Bridge (ADB)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -7,12 +9,20 @@ Installation:
     1. Install Android Studio `here <https://developer.android.com/studio>`_
     2. Follow these `instructions <https://developer.android.com/tools/adb>`_ to install ADB using Android Studio's SDK Manager
     3. Add the path to :code:`android_sdk/platform-tools/` to your system's PATH variable or navigate to the directory and run the commands from there
-
+Alternative Installation:
+    1. Install `Android SDK Platform Tools <https://developer.android.com/tools/releases/platform-tools>`_
+        a. If you have Homebrew `brew install --cask android-platform-tools`
 Usage:
     - Connect your device to your computer via USB-C to USB-A cable
     - Enable USB debugging on your device
     - Run the following command to verify that your device is connected: :code:`adb devices`
     - Run the following command to start an interactive shell on your device: :code:`adb shell`
+Alternatively, you can get shell access by:
+    1. Enable development mode on your device by going to `Settings -> About phone` and tapping the "Build number" tag 7 times
+    2. Go to `Developer Settings` and enable Wireless debugging
+    3. Search for the button called `Pair device with pairing code` and press it
+    4. On your computer's terminal, type `adb pair ip:port` where `ip:port` is the ip address and port of your QIDK.
+    5. Once paired, you can type `adb shell` to access a read only shell of your device
 
 Termux
 ^^^^^^
