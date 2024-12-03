@@ -40,5 +40,3 @@ Assignments
    :maxdepth: 2
    :caption: Project Assignments
 
-   PA8 - Quantisation in Machine Learning <pa8-quantisation>
-   PA8 - Convolutional Neural Network <pa8-cnn>
