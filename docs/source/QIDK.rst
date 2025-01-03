@@ -69,7 +69,8 @@ Installation:
     1. Open Termux on your Android device or SSH into your device
     2. Run the following command to install the OpenCL package: :code:`pkg install ocl-icd`
     3. Run the following command to install the OpenCL headers: :code:`pkg install opencl-headers`
-    4. Run the following command to add the device OpenCL drivers to the dynamic linker path: :code:`export LD_LIBRARY_PATH=/system/vendor/lib64:$LD_LIBRARY_PATH`
+    4. Run the following command on to add the device OpenCL drivers to the dynamic linker path: :code:`export LD_LIBRARY_PATH=/system/vendor/lib64:$LD_LIBRARY_PATH`
+
 
 Debugging
 ^^^^^^^^^

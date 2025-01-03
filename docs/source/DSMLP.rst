@@ -12,7 +12,27 @@ Follow the steps in this `link <https://docs.github.com/en/authentication/connec
 
 DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/nvcr-cuda:main -W CSE160_WI24_A00`
 
-Once you have that container, you can compile and run the Makefiles in the PA directories.
+Once you have the container, try to running the command :code:`nvidia-smi` to see if you have access to a GPU.
+If it yeilds an error something along the lines of :code: `Command not found`, We nee to point the path to the nvcc implementation. Follow the steps below to do so.
+
+.. code-block:: bash
+    # This is the path to the nvcc implementation
+    export PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:$PATH
+
+    LD_LIBRARY_PATH=/usr/local/nvidia/lib64:/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+
+    #  Lets see if there is openCL implementations in the container
+    ls -l /usr/local/nvidia/lib64 2>/dev/null
+
+    # It creates a local ICD config that points to the nvidia openCL implementation we found
+    mkdir -p $HOME/.opencl/vendors
+    echo "/usr/local/nvidia/lib64/libnvidia-opencl.so.525.53" > $HOME/.opencl/vendors/nvidia.icd
+    export OCL_ICD_VENDORS=$HOME/.opencl/vendors
+
+    # Finally, lets see if it works now
+    nvidia-smi
+    
+Now you can compile and run the Makefiles in the PA directories.
 
 Please be considerate on your use of the GPUs. The GPUs in DSMLP are shared within this class and across campus. If you are not actively using the GPU, you should shut down the container to allow others to access it.
 

@@ -12,7 +12,6 @@ Data Science & Machine Learning Platform
    :caption: Getting Started with DSMLP
 
    DSMLP
-   Sample
 
 Qualcomm Innovators Development Kit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
