@@ -10,21 +10,27 @@ You can login to DSMLP using by :code:`ssh USERNAME@dsmlp-login.ucsd.edu`. Your 
 
 Follow the steps in this `link <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac#about-ssh-key-passphrases>`_ to generate a key pair (Follow the guide till step 3 under 'Adding your SSH key to the ssh-agent').
 
-DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/cse160-notebook:main -W CSE160_WI25_A00`
+DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/nvcr-cuda:main -W CSE160_WI25_A00`
 
 Once you have the container, try to running the command :code:`nvidia-smi` to see if you have access to a GPU.
-
-Then run the following commands to set up the OpenCL environment:
+If it yeilds an error something along the lines of :code:`Command not found`, We nee to point the path to the nvcc implementation. Follow the steps below to do so.
 
 .. code-block:: bash
 
-    # This creates a local ICD config that points to the nvidia openCL implementation we found (one time setup)
+    # This is the path to the nvcc implementation
+    export PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:$PATH
+    LD_LIBRARY_PATH=/usr/local/nvidia/lib64:/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+    
+    #  Lets see if there is openCL implementations in the container
+    ls -l /usr/local/nvidia/lib64 2>/dev/null
+    
+    # This creates a local ICD config that points to the nvidia openCL implementation we found
     mkdir -p $HOME/.opencl/vendors
     echo "/usr/local/nvidia/lib64/libnvidia-opencl.so.525.53" > $HOME/.opencl/vendors/nvidia.icd
-
-    # Add this to your bashrc so that OpenCL can find the ICD and its presistent across sessions
-    export 'OCL_ICD_VENDORS=$HOME/.opencl/vendors' >> ~/.bashrc
-    source ~/.bashrc
+    export OCL_ICD_VENDORS=$HOME/.opencl/vendors
+    
+    # Finally, lets see if it works now
+    nvidia-smi
     
 Now you can compile and run the Makefiles in the PA directories.
 
