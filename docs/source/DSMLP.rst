@@ -12,25 +12,18 @@ Follow the steps in this `link <https://docs.github.com/en/authentication/connec
 
 DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/nvcr-cuda:main -W CSE160_WI25_A00`
 
-Once you have the container, try to running the command :code:`nvidia-smi` to see if you have access to a GPU.
-If it yeilds an error something along the lines of :code:`Command not found`, We nee to point the path to the nvcc implementation. Follow the steps below to do so.
+Once you have the container, try to running the command :code:`nvidia-smi` and :code:`clinfo` to see if you have access to a GPU.
 
 .. code-block:: bash
-
-    # This is the path to the nvcc implementation
-    export PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:$PATH
-    LD_LIBRARY_PATH=/usr/local/nvidia/lib64:/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-    
-    #  Lets see if there is openCL implementations in the container
-    ls -l /usr/local/nvidia/lib64 2>/dev/null
-    
-    # This creates a local ICD config that points to the nvidia openCL implementation we found
-    mkdir -p $HOME/.opencl/vendors
-    echo "/usr/local/nvidia/lib64/libnvidia-opencl.so.525.53" > $HOME/.opencl/vendors/nvidia.icd
-    export OCL_ICD_VENDORS=$HOME/.opencl/vendors
-    
-    # Finally, lets see if it works now
+    # First, let's see if we have access to cuda
     nvidia-smi
+
+    # Next let's make sure OpenCL is found.  This should return multiple.
+    # Note that this includes both CPU and GPU OpenCL implementations
+    clinfo
+
+    # Request just the cuda OpenCL driver
+    export POCL_DEVICES=cuda
     
 Now you can compile and run the Makefiles in the PA directories.
 
