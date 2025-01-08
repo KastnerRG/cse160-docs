@@ -15,6 +15,7 @@ DSMLP uses containers to set up its software environment. You must create a cont
 Once you have the container, try to running the command :code:`nvidia-smi` and :code:`clinfo` to see if you have access to a GPU.
 
 .. code-block:: bash
+
     # First, let's see if we have access to cuda
     nvidia-smi
     
