@@ -17,11 +17,11 @@ Once you have the container, try to running the command :code:`nvidia-smi` and :
 .. code-block:: bash
     # First, let's see if we have access to cuda
     nvidia-smi
-
+    
     # Next let's make sure OpenCL is found.  This should return multiple.
     # Note that this includes both CPU and GPU OpenCL implementations
     clinfo
-
+    
     # Request just the cuda OpenCL driver
     export POCL_DEVICES=cuda
     
