@@ -10,7 +10,7 @@ You can login to DSMLP using by :code:`ssh USERNAME@dsmlp-login.ucsd.edu`. Your 
 
 Follow the steps in this `link <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac#about-ssh-key-passphrases>`_ to generate a key pair (Follow the guide till step 3 under 'Adding your SSH key to the ssh-agent').
 
-DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/nvcr-cuda:main -W CSE160_WI25_A00`
+DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`https://krg-ucsd.slack.com/archives/C0848PZEG2K/p1736313454793779`
 
 Once you have the container, try to running the command :code:`nvidia-smi` and :code:`clinfo` to see if you have access to a GPU.
 
