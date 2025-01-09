@@ -189,47 +189,22 @@ the correct context and command queues to map the kernel to a compute device
 and run it.  This is done in ``main.c`` (the one in ``raytracer_kernel``, not to
 be confused with the first ``main.c`` in ``raytracer_sequential``).
 
-What's nice about kernels in OpenCL is that they can be mapped to any compute device,
-whether that be a CPU, a GPU, even an FPGA.  That's great for us, as we have more
-devices to run our raytracer on to test its performance!
-
-Let's test our kernel implementation of our raytracer.  We've already run it as 
-a single-threaded program on one CPU core; now that we have a kernel, let's try
-running it as a multi-threaded program on multiple CPU cores!
-
-Run ``make cpu`` in the ``raytracer_kernel`` directory to compile and run the program
-using a CPU as a compute device.  This should yield a new output image, titled ``output_cpu.png``.
-It is an exact copy of the image generated with the sequential implemenation to prove that
-it works the same way!
-
-In the terminal, you'll be met with some information.  The first is the compute device
-that the kernel is running on.  The second is how much time the program took to run.
-Compare this time with the first (sequential) implemenation we did in Step 2.
-How do they compare?  Why might this be?
+What's nice about kernels in OpenCL is that they can be mapped to any compute device (in theory),
+whether that be a CPU, a GPU, even an FPGA. That's great for us! 
+Depending on Operating system support, we can try running the kernel on a variety of devices.
 
 .. image:: /image/multithreadedCPUkernel.png
   :width: 600
   :alt: Multithreaded Kernel on CPU Diagram
 
-Step 5:
-+++++++
-Our final test is to run our kernel implemenation on our most parallelized compute 
-device: a GPU!  While our kernel ran on multiple cores already in Part 4, we have access
-to much more cores on a GPU.  Let's see how that affects performance!
-
-Run ``make gpu`` in the ``raytracer_kernel`` directory to compile and run the program
-using a GPU as a compute device.  This should yield a new output image, titled ``output_gpu.png``.
-Once again, it is an exact copy of the image generated with the sequential implemenation to prove that
-it works the same way.
-
-Checking the terminal, you'll see that the compute device we're running on is now a GPU.  
-Following this you'll once again find the time it took for the program to run.  How does
-this time compare to the previous two programs?  Why is this?
-
 
 .. image:: /image/multithreadedGPUKernel.png
   :width: 600
   :alt: Multithreaded Kernel on GPU Diagram
+
+Recall from Part 1 that each device that OpenCL recognizes on your computer is associated with an index.
+Typically a computer will have a device for the GPU and may have a device for the GPU.
+Try running the parallel raytracer on the devices available on your system with ``raytracer_parallel <device_index>``.
 
 Recap
 ^^^^^
@@ -241,8 +216,8 @@ We have two programs:
 
 The sequential implementation runs on a single thread on the CPU.
 
-The Kernel implemenation can be run on both the CPU and the GPU.  Depending on the device,
-the number of cores accessible (and thus the number of active threads) differs.  
+The Kernel implemenation will run on the GPU. Depending on your computer, it may also run on the CPU.
+Depending on the device, the number of cores accessible (and thus the number of active threads) differs.  
 This causes differences in performance; that is, the more threads we have access to, 
 the greater the degree of parallelization.
 
