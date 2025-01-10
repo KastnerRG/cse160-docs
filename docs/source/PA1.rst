@@ -177,7 +177,7 @@ Step 3:
 Now that we have a benchmark performance of how long a sequential, single-threaded
 implemenation of a raytracer on the CPU is, let's compare it with a parallelized 
 implemenation!  You can find the kernel (the program meant to run on a compute device)
-in the directory ``raytracer_kernel`` as a file titled ``kernel.cl``.  This is an 
+in the directory ``raytracer_parallel`` as a file titled ``kernel.cl``.  This is an 
 OpenCL kernel.  Compare this with ``main.c`` in the sequential implementation; 
 what do you notice (hint: what happened to the for-loop? Why might this be?).
 
@@ -186,7 +186,7 @@ Step 4:
 The kernel doesn't actually run by itself; instead, it needs to be built by 
 some main program that will read the kernel program as a string and build
 the correct context and command queues to map the kernel to a compute device
-and run it.  This is done in ``main.c`` (the one in ``raytracer_kernel``, not to
+and run it.  This is done in ``main.c`` (the one in ``raytracer_parallel``, not to
 be confused with the first ``main.c`` in ``raytracer_sequential``).
 
 What's nice about kernels in OpenCL is that they can be mapped to any compute device (in theory),
@@ -212,7 +212,7 @@ Recap
 We have two programs:
 
 * Sequential implementation (``main.c`` standalone in ``raytracer_sequential``)
-* Kernel implementation (``main.c`` and ``kernel.cl`` in ``raytracer_kernel``)
+* Kernel implementation (``main.c`` and ``kernel.cl`` in ``raytracer_parallel``)
 
 The sequential implementation runs on a single thread on the CPU.
 
