@@ -45,17 +45,17 @@ After generating the key, append it to DSMLP using:
 
 Make sure to replace ``your-username`` with your actual UCSD username.
 
-2. Install VS Code
-^^^^^^^^^^^^^^^^^^
+**2. Install VS Code**
+
 Install VS Code if you haven't already: `VS Code Download <https://code.visualstudio.com/download>`_
 
-3. Install Remote-SSH Extension
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**3. Install Remote-SSH Extension**
+
 Install Remote-SSH plugin by searching for it in the extensions view.
 Extension Identifier: `` ms-vscode-remote.remote-ssh``
 
-4. Configure SSH Connection
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**4. Configure SSH Connection**
+
 1. Click on the indicator on the bottom left corner
 
     .. image:: image/vscode_indictor.png
