@@ -33,8 +33,8 @@ Please be considerate on your use of the GPUs. The GPUs in DSMLP are shared with
 Access DSMLP Using VSCode
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Create SSH Key and Add to DSMLP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**1. Create SSH Key and Add to DSMLP**
+
 Create an SSH Key on your local machine and append the public key to DSMLP's ``~/.ssh/authorized_keys`` file. Follow the steps in this `link <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac#about-ssh-key-passphrases>`_ to generate a key pair (Follow the guide till step 3 under 'Adding your SSH key to the ssh-agent').
 
 After generating the key, append it to DSMLP using:
