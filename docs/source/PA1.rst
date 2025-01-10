@@ -116,7 +116,7 @@ would look something like this:
 ::
 
   for x in image_width:
-    for y in image_width:
+    for y in image_height:
       create ray through pixel (x, y)
       get color and display color on pixel (x, y)
   
