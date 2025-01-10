@@ -52,6 +52,7 @@ Install VS Code if you haven't already: `VS Code Download <https://code.visualst
 **3. Install Remote-SSH Extension**
 
 Install Remote-SSH plugin by searching for it in the extensions view.
+
 Extension Identifier: ``ms-vscode-remote.remote-ssh``
 
 **4. Configure SSH Connection**
@@ -87,7 +88,6 @@ Important Notes
 You already have access to GPU infrastructure on DSMLP; i.e. it starts a container with GPU access and loads it with a software image that contains CUDA and other basic packages. You must be within GPU container in order to properly compile. If you get an error about not having access to nvcc, then you are not in the container. Please only use the container when you are compiling and release it when you are completed.
 
 **Note**
-
 When you close VSCode, the kubernetes pod is not released automatically. You have to manually delete the pod using:
 
 .. code-block:: bash
