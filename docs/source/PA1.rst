@@ -151,7 +151,7 @@ how effective parallelization can be!
 Step 1:
 +++++++
 
-The first program to look at is in the ``raytracerCPU`` directory.  Here, open up
+The first program to look at is in the ``raytracer_sequential`` directory.  Here, open up
 ``main.c``.  This is the implementation of a raytracer **for a single-threaded program
 running on the CPU**.  Given that there is only one thread, the naive implementation of 
 iterating through every pixel is used, resulting in a nested for loop.  Scan through this
