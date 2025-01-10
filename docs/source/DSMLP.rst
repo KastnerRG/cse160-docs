@@ -86,8 +86,8 @@ Important Notes
 ^^^^^^^^^^^^^^^
 You already have access to GPU infrastructure on DSMLP; i.e. it starts a container with GPU access and loads it with a software image that contains CUDA and other basic packages. You must be within GPU container in order to properly compile. If you get an error about not having access to nvcc, then you are not in the container. Please only use the container when you are compiling and release it when you are completed.
 
-Note
-^^^^
+**Note**
+
 When you close VSCode, the kubernetes pod is not released automatically. You have to manually delete the pod using:
 
 .. code-block:: bash
