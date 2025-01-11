@@ -158,6 +158,9 @@ iterating through every pixel is used, resulting in a nested for loop.  Scan thr
 code and understand where this for-loop is located and how it is used to determine
 which pixel is being drawn to.
 
+**On the DSMLP** OpenCL can only access the CPU if the environment variable ``POCL_DEVICES`` is unset.
+If you have already set it, you can unset it with ``unset POCL_DEVICES``.
+
 Step 2:
 +++++++
 
@@ -205,6 +208,9 @@ Depending on Operating system support, we can try running the kernel on a variet
 Recall from Part 1 that each device that OpenCL recognizes on your computer is associated with an index.
 Typically a computer will have a device for the GPU and may have a device for the GPU.
 Try running the parallel raytracer on the devices available on your system with ``raytracer_parallel <device_index>``.
+
+**On the DSMLP** OpenCL can only access the GPU (and not the CPU) if the environment variable ``POCL_DEVICES`` is set to ``cuda``.
+This can be set with ``export POCL_DEVICES=cuda``.
 
 Recap
 ^^^^^
