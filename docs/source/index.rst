@@ -21,6 +21,14 @@ Qualcomm Innovators Development Kit
 
    QIDK
 
+macOS
+^^^^^
+.. toctree::
+   :maxdepth: 2
+   :caption: Developing on macOS 
+
+   macOS 
+
 Assignments
 ^^^^^^^^^^^
 .. toctree::
