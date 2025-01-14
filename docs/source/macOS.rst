@@ -40,7 +40,7 @@ For each of these paths, try searching the header::
 
     find <root_path> -name cl.h
 
-If the header is missing, you can get the OpenCL framework through the xcode command line tools: `xcode-select --install`.
+If the header is missing, you can get the OpenCL framework through the xcode command line tools: ``xcode-select --install``.
 
 The ``cl.h`` header file is in a different location on macOS.
 For any files that require the header, use the following conditional compilation clause::
@@ -65,8 +65,9 @@ Instead of linking the OpenCL library, you want to use link the framework::
     endif
 
 Additionally, the helper library uses the ``ar`` command line tool.
-This should come with macOS, but its usage is slightly different than on Linux.
-You should remove the `-o` flag to get it to work on macos.::
+This tool is used to generate a the shared ``helper_lib.a`` static library.
+It should come with macOS, but its usage is slightly different than on Linux.
+You should remove the `-o` flag to get it to work on macOS.::
 
     # Linux
     ar rcs -o $@ $(OBJECTS)
@@ -76,9 +77,9 @@ You should remove the `-o` flag to get it to work on macos.::
 Older OpenCL
 ------------
 
-macOS supports OpenCL ``1.2``.
+macOS supports OpenCL 1.2
 Programming assignments are written with a higher version in mind.
-In particular, the ``clCreateCommandQueueWithProperties`` requires OpenCL ``2.0``.
+In particular, the ``clCreateCommandQueueWithProperties`` requires OpenCL 2.0
 On macOS, you must use the deprecated ``clCreateCommandQueue`` function::
 
     // Create a command queue
