@@ -17,11 +17,11 @@ Edit the code in the code tab to perform the following:
 - Free device memory
 - Write the OpenCL kernel
 
-Instructions about where to place each part of the code is demarcated by the `//@@` comment lines.
+Instructions about where to place each part of the code is demarcated by the `//@@` comment lines.  You will need to implement two kernels.  The first will take two vector inputs and produce the sum.  The second will take 4 vector inputs and produce the sum.
 
 How to Compile
 ^^^^^^^^^^^^^^
-The :code:`main.c` and :code:`kernel.cl` files contain the code for the programming assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the PA2 folder. It generates a :code:`solution` output file. During development, make sure to run the :code:`make clean` command before running :code:`make`. 
+The :code:`main.c`, :code:`vector_add_2.cl`, and :code:`vector_add_4.cl` files contain the code for the programming assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the PA2 folder. It generates a :code:`solution` output file. During development, make sure to run the :code:`make clean` command before running :code:`make`. 
 
 How to Test
 ^^^^^^^^^^^
@@ -29,10 +29,8 @@ Use the :code:`make run` command to test your program. There are a total of 10 t
 
 Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-DISCLAIMER: NEEDS TO BE CONVERTED TO C FOR HELPER LIBRARY
-
 The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the :code:`dataset_generator.py` file in the :code:`Dataset` directory. You may run this script using :code:`python dataset_generator.py`.
 
 Submission
 ^^^^^^^^^^
-Submit the :code:`main.c` and :code:`kernel.cl` files on gradescope. Preserve the file name while uploading to gradescope.
+Submit the :code:`main.c` and :code:`vector_add_2.cl`, and :code:`vector_add_4.cl` files on gradescope. Preserve the file name while uploading to gradescope.
