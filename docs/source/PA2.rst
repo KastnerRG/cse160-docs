@@ -9,7 +9,6 @@ Instructions
 ^^^^^^^^^^^^^
 Edit the code in the code tab to perform the following:
 
-- Create memory buffers on device
 - Copy host memory to device
 - Initialize global size and local size
 - Invoke OpenCL kernel
@@ -18,6 +17,8 @@ Edit the code in the code tab to perform the following:
 - Write the OpenCL kernel
 
 Instructions about where to place each part of the code is demarcated by the `//@@` comment lines.  You will need to implement two kernels.  The first will take two vector inputs and produce the sum.  The second will take 4 vector inputs and produce the sum.
+
+For this assignment, we have created the memory buffers for you.  In future assignments, you will need to do so yourself.  Ensure that you understand what these lines do.
 
 How to Compile
 ^^^^^^^^^^^^^^
