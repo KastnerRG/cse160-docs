@@ -29,6 +29,14 @@ macOS
 
    macOS 
 
+Ubuntu 24.04
+^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 2
+   :caption: Developing on Ubuntu 24.04
+
+   ubuntu
+
 Assignments
 ^^^^^^^^^^^
 .. toctree::
