@@ -14,6 +14,8 @@ We will look at Nvidia and x86_64. You may have other drivers on your machine.
 
 To check, make sure you have the necessary packages installed.
 
+.. code-block:: bash
+
     sudo apt-get update
     sudo apt-get install -y ocl-icd-libopencl1 clinfo
 
@@ -24,6 +26,8 @@ x86_64
 ++++++
 If you do not have any other hardware available, you can still execute OpenCL directly on your CPU.
 To do so, you can install the Intel OneAPI.  This will run on both AMD and Intel CPUs.
+
+.. code-block:: bash
 
     # download the key to system keyring
     wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
@@ -40,6 +44,8 @@ Other Dependencies
 ^^^^^^^^^^^^^^^^^^
 You also need a few development libraries installed to be able to develop for OpenCL.
 You can installed them with the following CommandLineTools
+
+.. code-block:: bash
 
     sudo apt-get update
     sudo apt-get install -y build-essential ocl-icd-opencl-dev ocl-icd-dev
