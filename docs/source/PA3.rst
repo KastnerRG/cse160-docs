@@ -4,19 +4,19 @@ PA3 - Matrix Multiplication
 Objective
 ^^^^^^^^^
 The purpose of this lab is to get you familiar with mapping computations onto the GPU 
-and multi-dimensional local and global work sizes. You will implement matrix multiplication 
+and multi-dimensional local and global work sizes. You will implement transposed matrix multiplication 
 by writing the GPU kernel code as well as the associated host code.
 
 Instructions
 ^^^^^^^^^^^^^
-Given matrices :math:`A \in \mathbb{R}^{n \times m}` 
+Given matrices :math:`A \in \mathbb{R}^{m \times n}` 
 and :math:`B \in \mathbb{R}^{m \times p}`, compute 
-their product :math:`C = AB`. 
+their product :math:`C = A^T B`. 
 Recall that :math:`C` will be an :math:`n \times p` matrix that 
 can be computed with the following formula:
 
 .. math:: 
-    C_{ij} = \sum_{k = 1}^n A_{ik} B_{kj}
+    C_{ij} = \sum_{k = 1}^m (A^T)_{ik} B_{kj}
 
 Where :math:`M_{ij}` is the entry at the row :math:`i` and 
 column :math:`j` of matrix :math:`M`.
