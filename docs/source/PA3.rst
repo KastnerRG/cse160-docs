@@ -39,7 +39,7 @@ Instructions about where to place each part of the code is demarcated by the :co
 
 How to Compile
 ^^^^^^^^^^^^^^
-The :code:`template.c` file contains the host code for the programming assignment. 
+The :code:`main.c` file contains the host code for the programming assignment. 
 THe :code:`kernel.cl` file contains the device code.
 There is a Makefile included which compiles it and links it with library helper functions.
 It can be run by typing :code:`make` from the PA3 folder. It generates a :code:`solution` output file. 
