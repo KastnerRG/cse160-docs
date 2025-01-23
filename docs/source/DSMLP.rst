@@ -13,8 +13,9 @@ Follow the steps in this `link <https://docs.github.com/en/authentication/connec
 DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/cse160-notebook:main -W CSE160_WI25_A00 -P Always`
 
 .. note::
+
 If you run into issues while getting GPUs in DSMLP, you can use -n #, e.g., -n 1, to avoid that node until we can reset it.
-Check the GPU status here `link <https://datahub.ucsd.edu/hub/status>`_
+Check the GPU status here `DSMLP STATUS <https://datahub.ucsd.edu/hub/status>`_
 
 Once you have the container, try to running the command :code:`nvidia-smi` and :code:`clinfo` to see if you have access to a GPU.
 
