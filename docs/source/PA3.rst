@@ -53,4 +53,4 @@ There are a total of 9 tests on which your program will be evaluated.
 
 Submission
 ^^^^^^^^^^
-TODO
+Submit the :code:`main.c` and :code:`kernel.cl` files on gradescope. Preserve the file name while uploading to gradescope.
