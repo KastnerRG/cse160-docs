@@ -49,7 +49,9 @@ How to Test
 ^^^^^^^^^^^
 Use the :code:`make run` command to test your program on the 
 test cases in the :code:`Dataset` foldeer. 
-There are a total of 9 tests on which your program will be evaluated.
+There are a total of 10 tests on which your program will be evaluated. 
+
+Use the :code:`make debug` command to compile your program on CPU and test using gdb. 
 
 Submission
 ^^^^^^^^^^
