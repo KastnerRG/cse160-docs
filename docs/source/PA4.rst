@@ -18,8 +18,6 @@ Edit the code in the code tab to perform the following:
 * Deallocate device memory
 * Implement the matrix-matrix multiplication routine using shared memory and tiling
 
-.. Recommended Block dimensions are 16 x 16.
-
 Files and Directories
 ---------------------
 
@@ -27,11 +25,6 @@ Files and Directories
 - **main.c**: Source code for the tiled matrix multiplication using OpenCL.
 - **Dataset/dataset_generator.py**: Source code for generating random matrices.
 - **kernel.cl**: OpenCL kernel file for performing tiled matrix multiplication.
-
-.. - **test.sh**: Script to run the matrix multiplication on all generated matrix sets.
-.. - **datagen.sh**: Script to generate multiple sets of matrices.
-.. - **matrices/**: Directory to store the generated matrix sets.
-.. - **timing_log.txt**: File to log the execution time for each matrix multiplication run.
 
 How to Compile
 ^^^^^^^^^^^^^^
@@ -48,7 +41,7 @@ The dataset required to test the program is already generated. If you are intere
 
 Submission
 ^^^^^^^^^^
-Submit the :code:`main.c` and :code:`kernel.cl` files on Gradescope. Preserve the file name and kernel file name as the kernel name is used to identify and time the kernel code.
+Submit the :code:`main.c` and :code:`kernel.cl` files on Gradescope. Preserve the file name and kernel file name as the kernel name is used to identify and time the kernel code. Gradescope will only accept 1 submission per hour.  Please do not use Gradescope to time your code.
 
 .. Further Documentation
 .. ^^^^^^^^^^^^^^^^^^^^^
