@@ -37,6 +37,14 @@ Ubuntu 24.04
 
    ubuntu
 
+Windows
+^^^^^^^
+.. toctree::
+   :maxdepth: 2
+   :caption: Developing on Windows 11 x64
+
+   windows
+
 Assignments
 ^^^^^^^^^^^
 .. toctree::
