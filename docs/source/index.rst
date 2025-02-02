@@ -11,6 +11,8 @@ Gradescope Autograder
    :maxdepth: 2
    :caption: Debugging Gradescope Autograder
 
+   Gradescope
+
 Data Science & Machine Learning Platform
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
