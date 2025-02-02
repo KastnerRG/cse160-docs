@@ -5,6 +5,12 @@ This course aims to provide knowledge and hands-on experience in developing soft
 
 The course involves a series of programming assignments of steadily growing complexity. All assignments will involve programming a massively parallel GPU system using OpenCL, a popular open source language extension of C/C++ for GPU programming. 
 
+Gradescope Autograder
+^^^^^^^^^^^^^^^^^^^^^
+.. tooctree::
+   :maxdepth: 2
+   :caption: Debugging Gradescope Autograder
+
 Data Science & Machine Learning Platform
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
