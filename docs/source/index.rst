@@ -7,7 +7,7 @@ The course involves a series of programming assignments of steadily growing comp
 
 Gradescope Autograder
 ^^^^^^^^^^^^^^^^^^^^^
-.. tooctree::
+.. toctree::
    :maxdepth: 2
    :caption: Debugging Gradescope Autograder
 
