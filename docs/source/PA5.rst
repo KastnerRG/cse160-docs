@@ -8,9 +8,9 @@ PA5 - Convolution
 
 Objective
 ^^^^^^^^^
-The lab's objective is to implement a tiled image convolution using both shared and constant memory. We will have a constant 5x5 convolution mask, but will have arbitrarily sized image (assume the image dimensions are greater than 5x5 for this Lab).
+The lab's objective is to implement a tiled image convolution using both shared and constant memory. 
 
-To use the constant memory for the convolution mask, you can first transfer the mask data to the device. Consider the case where the pointer to the device array for the mask is named M. You can use :code:`__constant float * M` as one of the parameters during your kernel launch. This informs the compiler that the contents of the mask array are constants and will only be accessed through pointer variable :code:`M`. This will enable the compiler to place the data into constant memory and allow the SM hardware to aggressively cache the mask data at runtime.
+To use the constant memory for the convolution mask, you can first transfer the mask data to the device. Consider the case where the pointer to the device array for the mask is named maskData. You can use :code:`__constant float * maskData` as one of the parameters during your kernel launch. This informs the compiler that the contents of the mask array are constants and will only be accessed through pointer variable :code:`maskData`. This will enable the compiler to place the data into constant memory and allow the SM hardware to aggressively cache the mask data at runtime.
 
 Convolution is used in many fields, such as image processing for image filtering. A standard image convolution formula for a 5x5 convolution filter :code:`M` with an Image :code:`I` is:
 
@@ -20,6 +20,8 @@ Convolution is used in many fields, such as image processing for image filtering
 
 
 where :math:`P_{i,j,c}` is the output pixel at position :code:`i,j` in channel :code:`c`, :math:`I_{i,j,c}` is the input pixel at :code:`i,j` in channel :code:`c` (the number of channels will always be 3 for this PA corresponding to the RGB values), and :math:`M_{x,y}` is the mask at position :code:`x,y`.
+
+Note that for this PA, you should preform VALID padding on the input image like in the animation at the top of the page or in the equaiton above. This means that you should not include any output elements of which the computation will access index that is out of bounds for the input matrix. i.e. for the equation above, :code:`i+x` and :code:`j+y` should not exceed the dimension of the original image. For more information, you can checkout this video: https://www.youtube.com/watch?v=ph4LrdntONo  
 
 Input Data
 ^^^^^^^^^^
@@ -51,7 +53,7 @@ Instructions about where to place each part of the code is demarcated by the :co
 
 Psuedo Code
 ^^^^^^^^^^^
-A sequential pseudo code would look something like this:
+A sequential pseudo code for convolution with SAME padding on the original image would look something like this (you should preform VALID padding instead of SAME padding for this PA):
 
 .. code-block:: none
 
@@ -99,11 +101,13 @@ Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This will need to be updated
 
-The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the :code:`dataset_generator.cpp` file. You may compile this file using the :code:`make dataset_generator` command and run the executeable using the command :code:`./dataset_generator`.
+The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the :code:`dataset_generator.py` file. You may run this file to generate random datasets for testing.
 
 Extra Credit (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^
-We have provided you an additional :code:`make run_big` you can execute for larger images and larger kernel sizes. If you successfully implement both cases, we will consider your execution time for the leaderboard. You can test your execution time locally by running :code:`make time`.
+The matrix convvolution we have discussed so far has a default stride number of 1. For convolution with stride denoted :code:`s`, you should discard any pixel not at position :code:`s*i` or :code:`s*j` in the convoluted image with stride 1. For the optional extra credit task, you should preform convolution given :code:`stride` in :code:`main.c`. 
+
+We have provided you an additional :code:`make with_stride` for stridded convolution. If you successfully implement both cases, we will consider your execution time for the leaderboard. You can test your execution time locally by running :code:`make time`.
 
 Submission
 ^^^^^^^^^^
