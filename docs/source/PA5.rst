@@ -101,9 +101,9 @@ Use the :code:`make run` command to test your program. There are a total of 15 t
 
 Timing for CPU and GPU
 ^^^^^^^^^^^^^^^^^^^^^^
-If you want to see time using the GPU : `make time`
+If you want to see time using the GPU :code:`make time`
 
-If you want to see time using the CPU : `PLATFORM_INDEX=1 DEVICE_INDEX=0 make time`
+If you want to see time using the CPU :code:`PLATFORM_INDEX=1 DEVICE_INDEX=0 make time`
 
 Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -118,6 +118,7 @@ The matrix convvolution we have discussed so far has a default stride number of 
 
 We have provided you an additional :code:`make with_stride` for stridded convolution. If you successfully implement both cases, we will consider your execution time for the leaderboard. You can test your execution time locally by running :code:`make time`.
 
+Similarly if you want to time the strided code: code:`make time_with_stride`
 
 Submission
 ^^^^^^^^^^
