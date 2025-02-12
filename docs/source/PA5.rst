@@ -109,8 +109,8 @@ Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the :code:`dataset_generator.py` file. You may run this file to generate random datasets for testing.
-To generate dataset with stride : `python dataset_generator.py --with_strides`
-To generate dataset without stride: ` python dataset_generator.py`
+To generate dataset with stride :code:`python dataset_generator.py --with_strides`
+To generate dataset without stride:code:` python dataset_generator.py`
 
 Extra Credit (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^
