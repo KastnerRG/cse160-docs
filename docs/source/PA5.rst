@@ -96,19 +96,28 @@ The :code:`main.c` and :code:`kernel.cl` file contains the code for the programm
 
 How to Test
 ^^^^^^^^^^^
-Use the :code:`make run` command to test your program. There are a total of 9 tests on which your program will be evaluated for (functional) correctness.
+Use the :code:`make run` command to test your program. There are a total of 15 tests on which your program will be evaluated for (functional) correctness.
+
+
+Timing for CPU and GPU
+^^^^^^^^^^^^^^^^^^^^^^
+If you want to see time using the GPU : `make time`
+
+If you want to see time using the CPU : `PLATFORM_INDEX=1 DEVICE_INDEX=0 make time`
 
 Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This will need to be updated
 
 The dataset required to test the program is already generated. If you are interested in how the dataset is generated please refer to the :code:`dataset_generator.py` file. You may run this file to generate random datasets for testing.
+To generate dataset with stride : `python dataset_generator.py --with_strides`
+To generate dataset without stride: ` python dataset_generator.py`
 
 Extra Credit (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^
 The matrix convvolution we have discussed so far has a default stride number of 1. For convolution with stride denoted :code:`s`, you should discard any pixel not at position :code:`s*i` or :code:`s*j` in the convoluted image with stride 1. For the optional extra credit task, you should preform convolution given the variable :code:`stride` in :code:`main.c`. 
 
 We have provided you an additional :code:`make with_stride` for stridded convolution. If you successfully implement both cases, we will consider your execution time for the leaderboard. You can test your execution time locally by running :code:`make time`.
+
 
 Submission
 ^^^^^^^^^^
