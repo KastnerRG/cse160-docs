@@ -118,7 +118,7 @@ The matrix convvolution we have discussed so far has a default stride number of 
 
 We have provided you an additional :code:`make with_stride` for stridded convolution. If you successfully implement both cases, we will consider your execution time for the leaderboard. You can test your execution time locally by running :code:`make time`.
 
-Similarly if you want to time code with stride: code:`make time_with_stride`
+Similarly if you want to time code with stride:code:`make time_with_stride`
 
 Submission
 ^^^^^^^^^^
