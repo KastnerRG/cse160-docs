@@ -60,6 +60,7 @@ A sequential pseudo code for convolution with SAME padding on the original image
 
     maskWidth := 5
     maskRadius := maskWidth/2 # this is integer division, so the result is 2
+    
     for i from 0 to height do
         for j from 0 to width do
             for k from 0 to channels
@@ -68,27 +69,19 @@ A sequential pseudo code for convolution with SAME padding on the original image
                     for x from -maskRadius to maskRadius do
                         xOffset := j + x
                         yOffset := i + y
-                        if xOffset >= 0 && xOffset < width &&
-                            yOffset >= 0 && yOffset < height then
+                        if xOffset >= 0 and xOffset < width && 
+                            yOffset >= 0 and yOffset < height then
                             imagePixel := I[(yOffset * width + xOffset) * channels + k]
-                            maskValue := K[(y+maskRadius)*maskWidth+x+maskRadius]
-                            accum += imagePixel * maskValue
+                            maskValue := K[(y + maskRadius) * maskWidth + (x + maskRadius)]
+                            accum := accum + imagePixel * maskValue
                         end
                     end
                 end
-                # pixels are in the range of 0 to 1
-                P[(i * width + j)*channels + k] = clamp(accum, 0, 1)
+                P[(i * width + j) * channels + k] := accum
             end
         end
     end
 
-where :code:`clamp` is defined as
-
-.. code-block:: c
-
-    def clamp(x, lower, upper)
-        return min(max(x, lower), upper)
-    end
 
 How to Compile
 ^^^^^^^^^^^^^^
