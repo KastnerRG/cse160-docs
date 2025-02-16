@@ -9,7 +9,7 @@ PA5 - Convolution
 Objective
 ^^^^^^^^^
 .. The lab's objective is to implement a tiled image convolution using both shared and constant memory. 
-The lab's objective is to implement a tiled image convolution. 
+The lab's objective is to implement a tiled image convolution with some optimization. 
 
 .. To use the constant memory for the convolution mask, you can first transfer the mask data to the device. Consider the case where the pointer to the device array for the mask is named maskData. You can use :code:`__constant float * maskData` as one of the parameters during your kernel launch. This informs the compiler that the contents of the mask array are constants and will only be accessed through pointer variable :code:`maskData`. This will enable the compiler to place the data into constant memory and allow the SM hardware to aggressively cache the mask data at runtime.
 
@@ -109,13 +109,17 @@ Extra Credit (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^
 The matrix convvolution we have discussed so far has a default stride number of 1. For convolution with stride denoted :code:`s`, you should discard any pixel not at position :code:`s*i` or :code:`s*j` in the convoluted image with stride 1. For the optional extra credit task, you should preform convolution given the variable :code:`stride` in :code:`main.c`. 
 
-We have provided you an additional :code:`make with_stride` for stridded convolution. If you successfully implement both cases, we will consider your execution time for the leaderboard. You can test your execution time locally by running :code:`make time`.
+We have provided you an additional :code:`make with_stride` for stridded convolution. You can test your execution time locally by running :code:`make time`.
 
 Similarly if you want to time code with stride:code:`make time_with_stride`
 
 Submission
 ^^^^^^^^^^
 Submit the :code:`main.c` and :code:`kernel.cl` file on gradescope. Preserve the file name before uploading to gradescope.
+
+Grading
+^^^^^^^
+Only 85% of this assignment will be graded on correctness of the outputs. To gain full credits, your implementation on GPU should run correctly within 40ms.   
 
 .. Tips and Tricks
 .. ^^^^^^^^^^^^^^^
