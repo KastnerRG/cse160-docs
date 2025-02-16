@@ -15,7 +15,7 @@ You can read about the original network:
 
 Source: http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf
 
-Your optimized CUDA implementation of the convolutional layer will be used to perform inference for layers C1 and C3 (shown in red) in the figure above. This leverages the `mini-dnn-cpp <http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf>`_ (Mini-DNN) framework for implementing the modified LeNet-5.
+Your optimized OpenCL implementation of the convolutional layer will be used to perform inference for layers C1 and C3 (shown in red) in the figure above. This leverages the `mini-dnn-cpp <http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf>`_ (Mini-DNN) framework for implementing the modified LeNet-5.
 
 Input Data
 ^^^^^^^^^^
@@ -24,7 +24,11 @@ The network will be tested on the `Fashion MNIST dataset <https://github.com/zal
 
 Instructions
 ^^^^^^^^^^^^^
-This assignment requires you to complete a GPU implementation of the convolutional layer. Performance of the GPU implementation is not important as this assignment is intended to build functionality before optimizing. The only file you need to update to implement the forward convolution is: :code:`src/layer/custom/new-forward.cu`. To understand which functions within :code:`new-forward.cu` are being called and when, it may be helpful ot refer to :code:`src/layer/conv_cust.cc`.
+This assignment requires you to complete a GPU implementation of the convolutional layer. Performance of the GPU implementation is not important as this assignment is intended to build functionality before optimizing. The only file you need to update to implement the forward convolution is:
+:code:`cnn/src/layer/custom/new-forward-kernel.cl`.
+
+To understand which functions within :code:`new-forward-kernel.cl` are being called and when, it may be helpful ot refer to :code:`cnn/src/layer/custom/gpu.cc`.
+
 
 Again, you are performing the following operation:
 
@@ -52,23 +56,27 @@ Source: https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-
 
 How to Compile
 ^^^^^^^^^^^^^^
-The :code:`src/layer/custom/new-forward.cu` file contains the code for the programming assignment. There is a Makefile included which compiles it and links it with the libgputk CUDA library automatically. It can be run by typing :code:`make m2` from the PA7 folder. It generates a :code:`m2` output executable.
+The :code:`cnn/src/layer/custom/new-forward-kernel.cl` file contains the code for the programming assignment. It can be run by typing :code:`make gpu` from the PA6 folder. It generates a :code:`m2` output executable.
 
 How to Test
 ^^^^^^^^^^^
-Use the :code:`make run` command to test your program which will run your program on a batch size of 1000 images. This will automatically compile your source (equivilent to executing :code:`make m2` and then running :code:`./m2 1000`).
+Use the :code:`make gpu` command to test your program which will run your program on a batch size of 1000 images on GPU. The command will print out the run time and accuracy. To test your program on CPU, use the command :code:`make cpu`.
 
 Test Output
 ^^^^^^^^^^^
 
-You will need to checkout a GPU for this assignment, but please avoid editing while accessing a device. You can accomplish this with: :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/nvcr-cuda:main`
+You will need to checkout a GPU for this assignment, but please avoid editing while accessing a device. You can accomplish this with:
+:code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/cse160-notebook:main -W CSE160_WI25_A00 -P Always`
 
 The accuracy of your implementation should meet the 0.886 that our implementation does.
 
+
 Submission
 ^^^^^^^^^^
-Submit the :code:`src/layer/custom/new-forward.cu` file on gradescope.
+Submit the :code:`PA6/cnn/src/layer/custom/new-forward-kernel.cl` file on gradescope.
 
 Credit
 ^^^^^^
 This project is originally from UIUC ECE408 and builds off a number of open source projects including the Fashion MNIST dataset, mini-dnn-cpp, and the Eigen project.
+
+
