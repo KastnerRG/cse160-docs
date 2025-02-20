@@ -24,10 +24,10 @@ The network will be tested on the `Fashion MNIST dataset <https://github.com/zal
 
 Instructions
 ^^^^^^^^^^^^^
-This assignment requires you to complete a GPU implementation of the convolutional layer. Performance of the GPU implementation is not important as this assignment is intended to build functionality before optimizing. The only file you need to update to implement the forward convolution is:
-:code:`cnn/src/layer/custom/new-forward-kernel.cl`.
+This assignment requires you to complete a CPU implementation of the convolutional layer. The files you need to update to implement the forward convolution is:
+:code:`PA6/src/layer/custom/new-forward-kernel.cl` and :code:`new-forward.cc`.
 
-To understand which functions within :code:`new-forward-kernel.cl` are being called and when, it may be helpful ot refer to :code:`cnn/src/layer/custom/gpu.cc`.
+.. To understand which functions within :code:`new-forward-kernel.cl` are being called and when, it may be helpful ot refer to :code:`cnn/src/layer/custom/gpu.cc`.
 
 
 Again, you are performing the following operation:
@@ -54,26 +54,26 @@ This animation can help visualize this process better:
 
 Source: https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks#layer
 
-How to Compile
+How to Compile & Test
 ^^^^^^^^^^^^^^
-The :code:`cnn/src/layer/custom/new-forward-kernel.cl` file contains the code for the programming assignment. It can be run by typing :code:`make gpu` from the PA6 folder. It generates a :code:`m2` output executable.
+The :code:`PA6/src/layer/custom/new-forward-kernel.cl` and :code:`new-forward.cc` files contain the code for the programming assignment. It can be run by typing :code:`make gpu` from the PA6 folder. It generates a :code:`m1` output executable.
 
-How to Test
+.. How to Test
 ^^^^^^^^^^^
-Use the :code:`make gpu` command to test your program which will run your program on a batch size of 1000 images on GPU. The command will print out the run time and accuracy. To test your program on CPU, use the command :code:`make cpu`.
+.. Use the :code:`make gpu` command to test your program which will run your program on a batch size of 1000 images on GPU. The command will print out the run time and accuracy. To test your program on CPU, use the command :code:`make cpu`.
 
 Test Output
 ^^^^^^^^^^^
 
-You will need to checkout a GPU for this assignment, but please avoid editing while accessing a device. You can accomplish this with:
-:code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/cse160-notebook:main -W CSE160_WI25_A00 -P Always`
+.. You will need to checkout a GPU for this assignment, but please avoid editing while accessing a device. You can accomplish this with:
+.. :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/cse160-notebook:main -W CSE160_WI25_A00 -P Always`
 
 The accuracy of your implementation should meet the 0.886 that our implementation does.
 
 
 Submission
 ^^^^^^^^^^
-Submit the :code:`PA6/cnn/src/layer/custom/new-forward-kernel.cl` file on gradescope.
+Submit the :code:`PA6/src/layer/custom/new-forward-kernel.cl` and :code:`new-forward.cc` files on gradescope.
 
 Credit
 ^^^^^^
