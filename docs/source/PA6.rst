@@ -3,7 +3,7 @@ PA6 - Convolutional Neural Network Forward Layer GPU Implementation
 
 Objective
 ^^^^^^^^^
-This is the second part of a three part project implementing and optimizing the forward pass of a convolution layer using CUDA. Convolutional layers are the primary building blocks of convolutional neural networks (CNNs), which are used for tasks like image classification, object detection, natural language processing and recommendation systems.
+This is the second part of a three part project implementing and optimizing the forward pass of a convolution layer using OpenCL. Convolutional layers are the primary building blocks of convolutional neural networks (CNNs), which are used for tasks like image classification, object detection, natural language processing and recommendation systems.
 
 You will be working with a modified version of the LeNet5 architceture shown bellow:
 
@@ -27,7 +27,7 @@ Instructions
 This assignment requires you to complete a CPU implementation of the convolutional layer. The files you need to update to implement the forward convolution is:
 :code:`PA6/src/layer/custom/new-forward-kernel.cl` and :code:`new-forward.cc`.
 
-.. To understand which functions within :code:`new-forward-kernel.cl` are being called and when, it may be helpful ot refer to :code:`cnn/src/layer/custom/gpu.cc`.
+To understand which functions within :code:`new-forward-kernel.cl` are being called and when, it may be helpful ot refer to :code:`cnn/src/layer/custom/gpu.cc`.
 
 
 Again, you are performing the following operation:
@@ -58,9 +58,9 @@ How to Compile & Test
 ^^^^^^^^^^^^^^
 The :code:`PA6/src/layer/custom/new-forward-kernel.cl` and :code:`new-forward.cc` files contain the code for the programming assignment. It can be run by typing :code:`make gpu` from the PA6 folder. It generates a :code:`m1` output executable.
 
-.. How to Test
+How to Test
 ^^^^^^^^^^^
-.. Use the :code:`make gpu` command to test your program which will run your program on a batch size of 1000 images on GPU. The command will print out the run time and accuracy. To test your program on CPU, use the command :code:`make cpu`.
+Use the :code:`make gpu` command to test your program which will run your program on a batch size of 1000 images on GPU. The command will print out the run time and accuracy. To test your program on CPU, use the command :code:`make cpu`.
 
 Test Output
 ^^^^^^^^^^^
