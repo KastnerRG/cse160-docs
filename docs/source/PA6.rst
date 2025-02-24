@@ -11,11 +11,9 @@ You will be working with a modified version of the LeNet5 architecture shown bel
     :align: center
     :alt: LeNet-5 Architecture
 
-You can read about the original network:
+You can read about the original network in `Gradient-based learning applied to document recognition <https://ieeexplore.ieee.org/abstract/document/726791>`_
 
-Source: http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf
-
-Your optimized OpenCL implementation of the convolutional layer will be used to perform inference for layers C1 and C3 (shown in red) in the figure above. This leverages the `mini-dnn-cpp <http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf>`_ (Mini-DNN) framework for implementing the modified LeNet-5.
+Your optimized OpenCL implementation of the convolutional layer will be used to perform inference for layers C1 and C3 (shown in red) in the figure above. This leverages the `mini-dnn-cpp <https://github.com/iamhankai/mini-dnn-cpp>`_ (Mini-DNN) framework for implementing the modified LeNet-5.
 
 Input Data
 ----------
