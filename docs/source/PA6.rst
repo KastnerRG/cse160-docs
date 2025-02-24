@@ -93,7 +93,7 @@ Test Output
 .. You will need to checkout a GPU for this assignment, but please avoid editing while accessing a device. You can accomplish this with:
 .. :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/cse160-notebook:main -W CSE160_WI25_A00 -P Always`
 
-The accuracy of your implementation should meet the 0.886 that our implementation does.
+The accuracy of your implementation should meet the 0.886 that our implementation does. 90% of this assignment will be grad on correctness. To gain full credits, your implementation on 1080ti GPU should run correctly within 60ms.  
 
 
 Submission
