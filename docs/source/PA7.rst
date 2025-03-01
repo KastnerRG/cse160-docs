@@ -1,4 +1,5 @@
 PA7 - Convolutional Neural Network Forward Layer GPU Optimization
+===================================================================
 
 Objective
 ---------
