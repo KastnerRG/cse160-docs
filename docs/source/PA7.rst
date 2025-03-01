@@ -14,7 +14,7 @@ You will be graded on your GPU execution time:
 
 
 .. PA6 - Convolutional Neural Network Forward Layer GPU Implementation
-===================================================================
+.. ===================================================================
 
 .. Objective
 .. ---------
