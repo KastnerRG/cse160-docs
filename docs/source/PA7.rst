@@ -3,12 +3,14 @@ PA7 - Convolutional Neural Network Forward Layer GPU Optimization
 
 Objective
 ---------
-This project requires you to further optimize your implementation of the forward layer in PA6. See PA6 for more details. 
+This project requires you to further optimize your implementation of the forward layer in PA6. See PA6<PA6> for more details. 
 
 You will be graded on your GPU execution time: 
 
 \< 25ms: 100 points
+
 \< 30ms: 90 points
+
 \< 40ms: 80 points
 
 
