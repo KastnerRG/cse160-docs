@@ -29,29 +29,13 @@ Qualcomm Innovators Development Kit
 
    QIDK
 
-macOS
+Developing on your Computer
 ^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Developing on macOS 
+   :caption: Visual Studio Code with DevContainers
 
-   macOS 
-
-Ubuntu 24.04
-^^^^^^^^^^^^
-.. toctree::
-   :maxdepth: 2
-   :caption: Developing on Ubuntu 24.04
-
-   ubuntu
-
-Windows
-^^^^^^^
-.. toctree::
-   :maxdepth: 2
-   :caption: Developing on Windows 11 x64
-
-   windows
+   devcontainers
 
 Assignments
 ^^^^^^^^^^^
