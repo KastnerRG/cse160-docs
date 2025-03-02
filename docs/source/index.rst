@@ -49,7 +49,7 @@ Assignments
    PA4 - Tiled Matrix Multiplication <PA4>
    PA5 - Convolution <PA5>
    PA6 - Convolutional Neural Network <PA6>
-   PA7 - Optimized Convolutional Neural Network <PA6>
+   PA7 - Optimized Convolutional Neural Network <PA7>
 
 
 .. toctree::
