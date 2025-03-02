@@ -24,4 +24,4 @@ Setting up DevContainers
 4. Visual Studio Code will detect the presence of the `.devcontainer` folder and prompt you to reopen the project in a container.
 5. Click on the "Reopen in Container" button.
 6. Visual Studio Code will prompt you to choose a container configuration. Choose the one the one that matches your available accelerators.
-6. Visual Studio Code will build the container and open the project in the container.
+7. Visual Studio Code will build the container and open the project in the container.
