@@ -25,3 +25,5 @@ Setting up DevContainers
 5. Click on the "Reopen in Container" button.
 6. Visual Studio Code will prompt you to choose a container configuration. Choose the one the one that matches your available accelerators.
 7. Visual Studio Code will build the container and open the project in the container.
+
+Confirm that your development environment is set up correctly by running :code:`clinfo` in the terminal. If you see the OpenCL information, then your development environment is set up correctly.
