@@ -73,9 +73,9 @@ File Descriptions
 - **src/layer/relu.cc**: Implementation of the ReLU activation function on CPU.
 - **src/layer/sigmoid.cc**: Implementation of the sigmoid activation function on CPU.
 - **src/layer/softmax.cc**: Implementation of the softmax activation function on CPU.
-- **src/layer/custom/new-forward-kernel.cl**: The OpenCL kernel file that contains the implementation of the forward pass of the convolutional layer.
-- **src/layer/custom/new-forward.cc**: The file that contains the implementation of the forward pass of the convolutional layer on OpenCL.
-- **src/layer/custom/opencl.cc**: The file that contains the OpenCL helper functions. **It is important that you use this file to initialize OpenCL and create the context, command queue, and program.**
+- **src/layer/custom/new-forward-kernel.cl**: The OpenCL kernel file that contains the implementation of the forward pass of the convolutional layer. Feel free to create additional functions for to optimize CPU and GPU independently.
+- **src/layer/custom/new-forward.cc**: The file that contains the implementation of the forward pass of the convolutional layer on OpenCL. You can use :code:`opencl->platform` and `opencl->device` to get information about the platform and device you are running on.
+- **src/layer/custom/opencl.cc**: The file that contains the OpenCL helper functions. It also contains information about the platform and device you are running on. **It is important that you use this file to initialize OpenCL and create the context, command queue, and program.**
 
 How to Compile & Test
 --------------
