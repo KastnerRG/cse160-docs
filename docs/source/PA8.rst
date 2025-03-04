@@ -1,9 +1,6 @@
 PA8 - GeMM Convolution
 ======================
 
-PA8 Will Be Released Soon
--------------------------
-
 Introduction
 ------------
 You will be implementing convolution via matrix multiplication. This PA has the most challenging indexing of all the PAs. We highly recommend that you draft your code in a separate file and test it on small test cases. Some test cases are provided at the bottom of this writeup.
