@@ -59,13 +59,14 @@ Batched GeMM
 ^^^^^^^^^^^^
 
 Call `clblast::GemmBatched` to compute the product of :math:`k` and :math:`x_{\text{unroll}}`. The documentation for it is `here <https://github.com/CNugteren/CLBlast/blob/master/doc/api.md#xgemmbatched-batched-version-of-gemm>`_. For additional context:
-- The formula for batched GeMM is :math:`C_i <- alpha_i A_i B_i + beta_i C_i` where
+
+- The formula for batched GeMM is :math:`C_i <- \alpha_i A_i B_i + \beta_i C_i` where
   
   - :math:`i` is the batch index
   - :math:`A_i` is :math:`m \times k`
   - :math:`B_i` is :math:`k \times n`
   - :math:`C_i` is :math:`m \times n` and modified in place
-  - :math:`alpha_i, beta_i \in \mathbb{R}`
+  - :math:`\alpha_i, \beta_i \in \mathbb{R}`
   
 - `a_offsets[i]` should be the (1 dimensional) index of the first element of matrix :math:`i` in :math:`A`
   
