@@ -50,6 +50,7 @@ Assignments
    PA5 - Convolution <PA5>
    PA6 - Convolutional Neural Network <PA6>
    PA7 - Optimized Convolutional Neural Network <PA7>
+   PA8 - GeMM Convolution <PA8>
 
 
 .. toctree::
