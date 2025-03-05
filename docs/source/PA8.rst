@@ -3,7 +3,7 @@ PA8 - GeMM Convolution
 
 Introduction
 ------------
-You will be implementing convolution via matrix multiplication. This PA has the most challenging indexing of all the PAs. We highly recommend that you draft your code in a separate file and test it on small test cases. Some test cases are provided at the bottom of this writeup.
+You will be implementing convolution via matrix multiplication. We will be building on a similar CNN skeleton as the previous 2 PAs. This PA has the most challenging indexing of all the PAs. We highly recommend that you draft your code in a separate file and test it on small test cases. Some test cases are provided at the bottom of this writeup.
 
 Your Tasks
 -----------
@@ -57,7 +57,7 @@ Batched GeMM
 
 Call `clblast::GemmBatched` to compute the product of :math:`k` and :math:`x_{\text{unroll}}`. The documentation for it is `here <https://github.com/CNugteren/CLBlast/blob/master/doc/api.md#xgemmbatched-batched-version-of-gemm>`_. For additional context:
 
-- The formula for batched GeMM is :math:`C_i <- \alpha_i A_i B_i + \beta_i C_i` where
+- The formula for batched GeMM is :math:`C_i \leftarrow \alpha_i A_i B_i + \beta_i C_i` where
   
   - :math:`i` is the batch index
   - :math:`A_i` is :math:`m \times k`
