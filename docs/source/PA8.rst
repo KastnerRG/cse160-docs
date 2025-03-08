@@ -13,7 +13,7 @@ Your Tasks
 im2col
 ^^^^^^
 
-Copy the elements of the input :math:`x` with shape :math:`(B, C, W, H)` to :math:`x_{\text{unroll}}` which has shape :math:`(B, C \times K \times K, (H - K + 1) \times (W - K + 1))`. Here, :math:`x_{\text{unroll}}` is a list of matrices with one matrix for each batch element. For a given matrix :math:`M` in :math:`x_{\text{unroll}}`:
+Copy the elements of the input :math:`x` with shape :math:`(B, C, H, W)` to :math:`x_{\text{unroll}}` which has shape :math:`(B, C \times K \times K, (H - K + 1) \times (W - K + 1))`. Here, :math:`x_{\text{unroll}}` is a list of matrices with one matrix for each batch element. For a given matrix :math:`M` in :math:`x_{\text{unroll}}`:
 
 - each column of :math:`M` corresponds to one (row_o, col_o) pair in the **output of the convolution** (NOT the output of im2col)
   
