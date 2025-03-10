@@ -44,7 +44,7 @@ Partial pseudocode is given below:
                               col_u = ??
                               row_u = ??
                               
-                              x_unroll[b, col_u, row_u] = x[b, c_in, row_i, col_i]
+                              x_unroll[b, row_u, col_u] = x[b, c_in, row_i, col_i]
 
 Guiding Questions
 """""""""""""""""
