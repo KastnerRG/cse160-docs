@@ -7,9 +7,9 @@ In this assignment, you’ll implement an implicit GEMM-based convolution from s
 
 By the end of this assignment, you’ll have hands-on experience with:
 
-    Mapping convolution operations to implicit GEMM formulations
-    Optimizing memory access patterns for speed and efficiency
-    Appreciating the magic of matrix multiplications without blowing up your memory footprint
+    * Mapping convolution operations to implicit GEMM formulations
+    * Optimizing memory access patterns for speed and efficiency
+    * Appreciating the magic of matrix multiplications without blowing up your memory footprint
 
 And if you ever feel overwhelmed—don’t worry. We’re never gonna give you up, never gonna let you down, never gonna run around and desert you.
 
