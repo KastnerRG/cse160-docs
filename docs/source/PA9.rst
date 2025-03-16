@@ -14,6 +14,14 @@ By the end of this assignment, you’ll have hands-on experience with:
 And if you ever feel overwhelmed—don’t worry. We’re never gonna give you up, never gonna let you down, never gonna run around and desert you.
 
 (Yes, this is exactly what you think it is. Here’s your totally serious technical resource. You’re welcome.)
-<iframe width="1005" height="565" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  .. youtube:: dQw4w9WgXcQ
+    :width: 1005
+    :height: 565
+    :align: center
+    :rel: 0
+    :autoplay: 1
+    :controls: 1
+    :loop: 1
+    :mute: 0
 
 Now that we’ve got that out of the way, let’s get to work and make some fast convolutions happen!
