@@ -11,7 +11,11 @@ By the end of this assignment, you'll have hands-on experience with:
     * Optimizing memory access patterns for speed and efficiency
     * Appreciating the magic of matrix multiplications without blowing up your memory footprint
 
-And if you ever feel overwhelmed—don't worry. We're never gonna give you up, never gonna let you down, never gonna run around and desert you.
+Implementation Suggestions
+------------
+- Never give up
+- Don't let the PA let you down
+- There might be a bit of run around but don't desert it
 
 Here's a `video <https://www.youtube.com/watch?v=dQw4w9WgXcQ>`_. that will explain how to do the PA. Good luck and you're welcome.
 
