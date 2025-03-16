@@ -13,6 +13,6 @@ By the end of this assignment, you’ll have hands-on experience with:
 
 And if you ever feel overwhelmed—don’t worry. We’re never gonna give you up, never gonna let you down, never gonna run around and desert you.
 
-(Here’s your totally serious technical `resource <https://www.youtube.com/embed/dQw4w9WgXcQ>`_. You’re welcome.)
+(Here’s your totally serious technical `resource <https://www.youtube.com/watch?v=dQw4w9WgXcQ>`_. You’re welcome.)
 
 Now that we’ve got that out of the way, let’s get to work and make some fast convolutions happen!
