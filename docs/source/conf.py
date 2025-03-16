@@ -43,8 +43,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.imgmath',
     'sphinx.ext.todo',
-    'breathe',
-    'sphinxcontrib.youtube'
+    'breathe'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
