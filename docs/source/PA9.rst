@@ -17,6 +17,6 @@ Implementation Suggestions
 - Don't let the PA let you down
 - There might be a bit of run around but don't desert it
 
-Here's a `video <https://www.youtube.com/watch?v=dQw4w9WgXcQ>`_. that will explain how to do the PA. Good luck and you're welcome.
+Here's a `video <https://www.youtube.com/watch?v=dQw4w9WgXcQ>`_ that will explain how to do the PA. Good luck and you're welcome.
 
 Now that we've got that out of the way, let's get to work and make some fast convolutions happen!
