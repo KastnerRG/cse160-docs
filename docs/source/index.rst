@@ -25,9 +25,10 @@ Qualcomm Innovators Development Kit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Getting Started with QIDK
+   :caption: Getting Started with Qualcomm Kits
 
    QIDK
+   RB3
 
 Developing on your Computer
 ^^^^^
