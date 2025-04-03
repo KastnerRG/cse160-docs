@@ -4,10 +4,12 @@ RB3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
 .. note::
     This guide is compiled using the official Qualcomm documentation. If you need 
     further guidance, please refer to: `Qualcomm Documentation <https://docs.qualcomm.com/bundle/publicresource/topics/80-82645-1/Integrate_and_flash_software_2.html?product=1601111740057201>`_.
+    `RB3 Quick Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#edl-mode>`_.
 
 .. important::
     This guide is specifically for Linux machines. For Windows users, please follow 
-    the Qualcomm instructions `here <https://docs.qualcomm.com/bundle/publicresource/topics/80-82645-1/Integrate_and_flash_software_2.html?product=1601111740057201#panel-0-V2luZG93cyBob3N0>`_.
+    the Qualcomm instructions `here <https://docs.qualcomm.com/bundle/publicresource/topics/80-82645-1/Integrate_and_flash_software_2.html?product=1601111740057201#panel-0-V2luZG93cyBob3N0>`_ 
+    to install QUTS/PCAT/Qualcomm USB drivers before flashing Ubuntu.
 
 Prerequisites
 ^^^^^^^^^^^^
@@ -106,13 +108,15 @@ Configure udev rules to recognize the device in EDL mode:
 
 .. code-block:: bash
 
-    # Create a udev rule file
-    sudo bash -c 'cat > /etc/udev/rules.d/51-qcom-usb.rules << EOF
+    # update udev rules
+    cd /etc/udev/rules.d
+    sudo vi 51-qcom-usb.rules
+    # and add the following content to the file:
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0666", GROUP="plugdev"
-    EOF'
-
-    # Restart udev
+    # restart udev
     sudo systemctl restart udev
+
+For more information, refer to the `Qualcomm EDL Mode documentation <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#edl-mode>`_.
 
 Enter EDL Mode
 -------------
