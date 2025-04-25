@@ -252,7 +252,6 @@ The ``clinfo`` utility displays information about available OpenCL platforms:
     # Try running the find command to see if you find the OpenCL library
     sudo find / -name libOpenCL.so
 
-
     # Clone required repositories
     git clone https://github.com/Oblomov/clinfo
     git clone https://github.com/KhronosGroup/OpenCL-Headers
