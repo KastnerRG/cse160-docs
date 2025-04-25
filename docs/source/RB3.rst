@@ -4,7 +4,6 @@ RB3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
 .. note::
     This guide is compiled using the official Qualcomm documentation. If you need 
     further guidance, please refer to: `Qualcomm Documentation <https://docs.qualcomm.com/bundle/publicresource/topics/80-82645-1/Integrate_and_flash_software_2.html?product=1601111740057201>`_.
-    `RB3 Quick Setup Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#edl-mode>`_.
 
 .. important::
     This guide is specifically for Linux machines. For Windows users, please follow 
@@ -204,6 +203,32 @@ After Ubuntu is installed and running on your RB3 board, set up a network connec
     # Find your board's IP address
     ip -4 addr
 
+Logging in to Ubuntu
+^^^^^^^^^^^^^^^^^^^
+After flashing, the RB3 board will boot into Ubuntu. 
+
+Three are two ways to access the system:
+1. **Serial Console**: Connect to the board using a serial console (e.g., PuTTY, minicom) on your host machine. The default baud rate is 115200.
+2. **SSH**: Connect to the board over SSH using the IP address assigned by your network.
+
+To connect via Minicom use the instructions provided here: `Minicom Serial Console <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#set-up-debug-uart>`
+
+To connect via SSH, you can use the following command:
+.. code-block:: bash
+
+    ssh ubuntu@RB3_IP_ADDRESS
+Replace ``RB3_IP_ADDRESS`` with the actual IP address of your RB3 board.
+
+
+If you are using the serial console, plese hit enter to get the login prompt. The default username and password are:
+.. code-block:: bash
+
+    Username: ubuntu
+    Password: ubuntu
+
+If you are using SSH, the default username and password are the same. You will be prompted to change the password on first login.
+
+
 OpenCL Configuration
 ^^^^^^^^^^^^^^^^^^^
 Now you can set up OpenCL on your RB3 board.
@@ -213,6 +238,15 @@ Building clinfo
 The ``clinfo`` utility displays information about available OpenCL platforms:
 
 .. code-block:: bash
+
+    # Install required packages
+    sudo add-apt-repository ppa:ubuntu-qcom-iot/qcom-ppa
+    sudo apt update
+    sudo apt install gstreamer1.0-qcom-sample-apps weston-qcom
+
+    # Try running the find command to see if you find the OpenCL library
+    sudo find / -name libOpenCL.so
+
 
     # Clone required repositories
     git clone https://github.com/Oblomov/clinfo
