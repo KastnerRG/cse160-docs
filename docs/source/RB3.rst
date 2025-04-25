@@ -180,6 +180,36 @@ A successful flash operation will show output similar to this::
 
 This indicates that all necessary partitions have been successfully flashed and the device is ready to boot Ubuntu.
 
+Logging in to Ubuntu
+^^^^^^^^^^^^^^^^^^^
+
+After flashing, the RB3 board will boot into Ubuntu.
+
+There are two ways to access the system:
+
+1. **Serial Console**: Connect to the board using a serial console (e.g., PuTTY, minicom) on your host machine. The default baud rate is 115200.
+2. **SSH**: Connect to the board over SSH using the IP address assigned by your network.
+
+To connect via Minicom use the instructions provided here: `Minicom Serial Console <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#set-up-debug-uart>`_
+
+To connect via SSH, you can use the following command:
+
+.. code-block:: bash
+
+    ssh ubuntu@RB3_IP_ADDRESS
+
+Replace ``RB3_IP_ADDRESS`` with the actual IP address of your RB3 board.
+
+If you are using the serial console, please hit enter to get the login prompt. The default username and password are:
+
+.. code-block:: bash
+
+    Username: ubuntu
+    Password: ubuntu
+
+If you are using SSH, the default username and password are the same. You will be prompted to change the password on first login.
+
+
 Network Setup
 ^^^^^^^^^^^^
 After Ubuntu is installed and running on your RB3 board, set up a network connection to work with your board more easily:
@@ -202,31 +232,6 @@ After Ubuntu is installed and running on your RB3 board, set up a network connec
 
     # Find your board's IP address
     ip -4 addr
-
-Logging in to Ubuntu
-^^^^^^^^^^^^^^^^^^^
-After flashing, the RB3 board will boot into Ubuntu. 
-
-Three are two ways to access the system:
-1. **Serial Console**: Connect to the board using a serial console (e.g., PuTTY, minicom) on your host machine. The default baud rate is 115200.
-2. **SSH**: Connect to the board over SSH using the IP address assigned by your network.
-
-To connect via Minicom use the instructions provided here: `Minicom Serial Console <https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-253/ubuntu_host.html#set-up-debug-uart>`
-
-To connect via SSH, you can use the following command:
-.. code-block:: bash
-
-    ssh ubuntu@RB3_IP_ADDRESS
-Replace ``RB3_IP_ADDRESS`` with the actual IP address of your RB3 board.
-
-
-If you are using the serial console, plese hit enter to get the login prompt. The default username and password are:
-.. code-block:: bash
-
-    Username: ubuntu
-    Password: ubuntu
-
-If you are using SSH, the default username and password are the same. You will be prompted to change the password on first login.
 
 
 OpenCL Configuration
