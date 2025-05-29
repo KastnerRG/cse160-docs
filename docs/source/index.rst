@@ -28,7 +28,8 @@ Qualcomm Innovators Development Kit
    :caption: Getting Started with Qualcomm Kits
 
    QIDK
-   RB3
+   RB3-linux
+   RB3-windows
 
 Developing on your Computer
 ^^^^^

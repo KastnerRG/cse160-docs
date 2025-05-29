@@ -1,4 +1,4 @@
-RB3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
+RB3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration (Linux)
 ==========================================
 
 .. note::
