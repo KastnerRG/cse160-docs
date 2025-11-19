@@ -1,4 +1,4 @@
-RB3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
+Rubik Pi 3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
 ==========================================
 
 .. note::
@@ -134,7 +134,7 @@ Click Finish Setup and verify that the setup process is complete.
 
 OpenCL Installation
 ^^^^^^^^^^^^^^^^^^
-Now you can set up OpenCL on your Rubik Pi board.
+Now you can set up OpenCL on the Rubik Pi board.
 
 Connect to Rubik Pi
 ------------------
@@ -190,7 +190,7 @@ Run ``clinfo`` to verify that OpenCL is working correctly:
 
     clinfo
 
-This should display information about the OpenCL platforms and devices available on your Rubik Pi.
+This should display information about the OpenCL platforms and devices available on the Rubik Pi.
 
 Running OpenCL Examples
 ^^^^^^^^^^^^^^^^^^^^^
@@ -204,4 +204,4 @@ To copy files from your host computer to the RB3 board:
     # On your host computer
     scp /path/to/file ubuntu@RP3_IP_ADDRESS:/home/ubuntu/
 
-Replace ``RP3_IP_ADDRESS`` with the actual IP address of your Rubik Pi board.
+Replace ``RP3_IP_ADDRESS`` with the actual IP address of the Rubik Pi board.
