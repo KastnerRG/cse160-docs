@@ -17,11 +17,11 @@ Prerequisites
 ^^^^^^^^^^^^
 Before you begin, you will need:
 
-* A computer with an OS supported by Qualcomm Launcher
+* A host computer with an OS supported by Qualcomm Launcher
 * A Thundercomm Rubik Pi 3 development board
 * USB Type-C PD 3.0 compilant power supply
 * USB Type-C PD 3.0 compilant cable for power supply
-* USB 3.1 compatible Type-C cable to the computer for flashing
+* USB 3.1 compatible Type-C cable to the host computer for flashing
 * USB 2.0 to Micro-B cable for UART connection
 * Accessible LAN via WiFi or Ethernet
 
@@ -47,7 +47,7 @@ Open Qualcomm Launcher and select **Rubik Pi** as the development kit, and **Ubu
 
 *Credits: Thundercomm*
 
-Do not connect the board to your computer yet
+Do not connect the board to your host computer yet
 
 Enter EDL Mode
 -------------
@@ -65,7 +65,7 @@ While continuing to hold the [EDL] button, connect the power supply into [PWR] U
     :scale: 30%
     :alt: PWR port location
 
-While continuing to hold the [EDL] button, insert the Type-C cable into [USB 3.1] port and connect to your computer.
+While continuing to hold the [EDL] button, insert the Type-C cable into [USB 3.1] port and connect to your host computer.
 
 .. figure:: /image/RubikPi/RubikPiUSB.png
     :scale: 30%
@@ -109,7 +109,7 @@ Click Configure Login, the launcher will then prompt to setup UART connection.
 .. note::
     If the MicroUSB COM port on the host system is currently in use by another tool (e.g., PuTTY, Tera Term), please close it before proceeding.
 
-Without disconnecting any cable from the device, connect your computer to the device with a USB Micro-B cable at the [DEBUG] port
+Without disconnecting any cable from the device, connect your host computer to the device with a USB Micro-B cable at the [DEBUG] port
 
 .. figure:: /image/RubikPi/RubikPiUART.png
     :scale: 30%
@@ -123,7 +123,7 @@ Once the USB Micro-B cable is connected, a serial terminal will open. When asked
 The terminal will ask you to reset the password immediately, type in the default password again when prompted, then set your password.
 
 The launcher will prompt you to configure the Wi-Fi once finished. Configure the Wi-Fi by entering the SSID and password, or connect the device to Ethernet.
-Once connected, the launcher will display the device IP address and the `ssh` command to connect to the device. Save this information.
+Once connected, the launcher will display the device IP address and the ``ssh`` command to connect to the device. Save this information.
 
 .. figure:: https://www.thundercomm.com/rubik-pi-3/en/assets/images/wi-fi_completed-6c17fb871952826a717480f620f4c29f.png
     :align: center
@@ -131,3 +131,77 @@ Once connected, the launcher will display the device IP address and the `ssh` co
 *Credits: Thundercomm*
 
 Click Finish Setup and verify that the setup process is complete.
+
+OpenCL Installation
+^^^^^^^^^^^^^^^^^^
+Now you can set up OpenCL on your Rubik Pi board.
+
+Connect to Rubik Pi
+------------------
+
+Open a terminal window on your host computer. Please use the ``ssh`` command displayed by the qualcomm launcher to connect to the Rubik Pi
+
+.. code-block:: bash
+    ssh ubuntu@RP3_IP_ADDRESS
+
+.. note::
+    When connecting for the first time, the terminal may prompt:
+    
+        The authenticity of host '192.168.0.*' can't be established.
+        ED25519 key fingerprint is SHA256:FINGERPRINT.
+        This key is not known by any other names. Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+    This is normal when conncting for the first time. However, if you see a big **WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!**,
+    and you have not caused the board's fingerprint to change, you may be a victim of a man-in-the-middle attack. (This should be *very* unlikely, but it’s good to be aware of them.)
+
+Package Installation
+-------------------
+OpenCL runrime should be pre-installed on the device, verify this by running:
+
+.. code-block:: bash
+    dpkg -L qcom-adreno1
+
+Verify that ``libOpenCL.so.1`` is present.
+
+If it is missing, install the Qualcomm Adreno user space libraries from the ``apt`` directory
+
+.. code-block:: bash
+    sudo apt-get update
+    sudo apt-get install qcom-adreno1
+
+.. note::
+    Your account has root privileges by default, please practice caution with ``sudo`` commands
+
+Update existing packages and install Qualcomm Adreno developer libraries in the ``qcom-adreno-dev`` package.
+
+The ``clinfo`` utility displays information about available OpenCL platforms, you can install it from the package manager.
+Also install the ``build-essential`` and ``gdb`` packages for development
+
+.. code-block:: bash
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install qcom-adreno-dev clinfo build-essential gdb
+
+Testing OpenCL
+-------------
+Run ``clinfo`` to verify that OpenCL is working correctly:
+
+.. code-block:: bash
+
+    clinfo
+
+This should display information about the OpenCL platforms and devices available on your Rubik Pi.
+
+Running OpenCL Examples
+^^^^^^^^^^^^^^^^^^^^^
+
+Transferring Files to Rubik Pi
+-----------------------------
+To copy files from your host computer to the RB3 board:
+
+.. code-block:: bash
+
+    # On your host computer
+    scp /path/to/file ubuntu@RP3_IP_ADDRESS:/home/ubuntu/
+
+Replace ``RP3_IP_ADDRESS`` with the actual IP address of your Rubik Pi board.
