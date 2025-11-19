@@ -156,7 +156,7 @@ Open a terminal window on your host computer. Please use the ``ssh`` command dis
 
 Package Installation
 -------------------
-OpenCL runrime should be pre-installed on the device, verify this by running:
+OpenCL runtime should be pre-installed on the device, verify this by running:
 
 .. code-block:: bash
     dpkg -L qcom-adreno1
