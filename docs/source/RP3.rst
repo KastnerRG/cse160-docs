@@ -164,7 +164,7 @@ OpenCL runtime should be pre-installed on the device, verify this by running:
 .. code-block:: bash
     dpkg -L qcom-adreno1
 
-Verify that ``libOpenCL.so.1`` is present.
+Verify that ``libOpenCL.so.1`` and ``libOpenCL_adreno.so.1`` are present.
 
 If it is missing, install the Qualcomm Adreno user space libraries from the package manager (``apt``)
 
