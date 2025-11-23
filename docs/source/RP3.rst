@@ -25,6 +25,8 @@ Before you begin, you will need:
 * USB 2.0 to Micro-B cable for UART connection
 * Accessible LAN via WiFi or Ethernet
 
+.. important::
+    Please make sure to discharge static electricity by touching a metal object first before touching the Rubik Pi every time to prevent damage
 
 .. note::
     The Rubik Pi does not support IEEE 802.11ax (Wifi 6) or 802.11be (WiFi 7)
