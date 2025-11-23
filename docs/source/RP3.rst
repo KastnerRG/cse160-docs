@@ -78,7 +78,8 @@ Flashing the board
 
 The RUBIK Pi will be automatically detected by Qualcomm Launcher. Select the device and click Flash button to begin updating the Renesas USB firmware.
 
-After successful USB firmware flashing, a dialog box will appear. Once the Launcher is waiting for user action to put the device into EDL mode again, you will see the following screen:
+After successful USB firmware flashing, a dialog box will appear. Once the Launcher is waiting for user action to put the device into EDL mode again,
+the dialog box will display exactly: *Waiting for EDL device*, as seen in the following screen:
 
 .. figure:: https://www.thundercomm.com/rubik-pi-3/en/assets/images/Renesas_USB_firmware_flashing_completed_R-9c4eee492f90429747c3460a84d717cf.png
     :align: center
