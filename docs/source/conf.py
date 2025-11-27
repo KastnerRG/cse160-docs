@@ -71,6 +71,10 @@ default_dark_mode = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_css_files = [
+    'css/custom.css',
+]
+
 # -- Options for Breathe output ----------------------------------------------
 
 # NOTE: Relative path might not work, try your system's absolute path
