@@ -5,11 +5,11 @@ Rubik Pi 3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
     Expect setup, including download, to take around an hour.
 
 .. note::
-    This guide is compiled using the official Thundercomm documentation. If you need 
-    further guidance, please refer to: `Thundercomm Documentation <https://www.thundercomm.com/rubik-pi-3/en/docs/rubik-pi-3/en/docs/1.0.0-u>`_.
+    This guide is compiled using the official Thundercomm documentation.
+    If you need further guidance, please refer to: `Thundercomm Documentation <https://www.thundercomm.com/rubik-pi-3/en/docs/rubik-pi-3/en/docs/1.0.0-u>`_.
 
 .. note::
-    This guide is for Linux, Windows, and macOS systems; however, Qualcomm Launcher is currently only avaliable for Windows on X86 or ARM64, macOS on ARM64, and Linux with a Debian-based distribution
+    This guide is for Linux, Windows, and macOS systems; however, Qualcomm Launcher is currently only avaliable for Windows on X86 or ARM64, macOS on ARM64, and Linux with a Debian-based distribution.
 
 .. important::
     A Type-C 12V 3A power adapter compliant with PD 3.0 is required for input power.
@@ -29,10 +29,10 @@ Before you begin, you will need:
 * Accessible LAN via WiFi or Ethernet
 
 .. important::
-    Please make sure to discharge static electricity by touching a metal object first before touching the Rubik Pi every time to prevent damage
+    Please make sure to discharge static electricity by touching a metal object first before touching the Rubik Pi every time to prevent damage.
 
 .. note::
-    The Rubik Pi does not support IEEE 802.11ax (WiFi 6) or 802.11be (WiFi 7)
+    The Rubik Pi does not support IEEE 802.11ax (WiFi 6) or 802.11be (WiFi 7).
 
 Ubuntu Installation
 ^^^^^^^^^^^^^^^^^^^
@@ -44,7 +44,7 @@ Download Qualcomm Launcher from `Qualcomm Software Center web portal <https://so
 .. note::
     On Linux hosts, Qualcomm Launcher v1.2.2 or later is required.
 
-Open Qualcomm Launcher and select **Rubik Pi** as the development kit, and **Ubuntu** as the target OS
+Open Qualcomm Launcher and select **Rubik Pi** as the development kit, and **Ubuntu** as the target OS.
 
 .. figure:: https://www.thundercomm.com/rubik-pi-3/en/assets/images/Flashing_OS_NoDeviceConnected-0bb76bdccf3d91b71344a8910de03be9.png
     :align: center
@@ -52,31 +52,31 @@ Open Qualcomm Launcher and select **Rubik Pi** as the development kit, and **Ubu
 
 *Credits: Thundercomm*
 
-Do not connect the board to your host computer yet
+Do not connect the board to your host computer yet.
 
 Enter EDL Mode
 --------------
 EDL Mode is required to flash firmware and OS images to RubikPi 3 using Qualcomm's QDL tool. To Enter EDL mode, please disconnect everything from the board.
 
-Press and hold the [EDL] button
+Press and hold the [EDL] button:
 
 .. figure:: /image/RubikPi/RubikPiEDL.png
     :scale: 30%
     :alt: EDL button location
 
-While continuing to hold the [EDL] button, connect the power supply into [PWR] USB port
+While continuing to hold the [EDL] button, connect the power supply into the [PWR] USB port:
 
 .. figure:: /image/RubikPi/RubikPiPWR.png
     :scale: 30%
     :alt: PWR port location
 
-While continuing to hold the [EDL] button, insert the Type-C cable into [USB 3.1] port and connect to your host computer.
+While continuing to hold the [EDL] button, insert the Type-C cable into the [USB 3.1] port and connect to your host computer:
 
 .. figure:: /image/RubikPi/RubikPiUSB.png
     :scale: 30%
     :alt: USB 3.1 port location
 
-Wait three seconds to enter 9008 mode, then release [EDL] button
+Wait three seconds to enter 9008 mode, then release the [EDL] button.
 
 Flashing the board
 ------------------
@@ -101,7 +101,7 @@ As soon as the device is placed into EDL mode, the flashing operation begins aut
 
 *Credits: Thundercomm*
 
-After the OS image is successfully flashed, the following confirmation screen will appear, and the LED on the board will flash bright green for around 2 seconds
+After the OS image is successfully flashed, the following confirmation screen will appear, and the LED on the board will flash bright green for around 2 seconds.
 
 .. figure:: https://www.thundercomm.com/rubik-pi-3/en/assets/images/OS_image_flashing_completed-ff45bd2899b7b3e02bdb63f28a862f42.png
     :align: center
@@ -117,7 +117,7 @@ Click Configure Login, the launcher will then prompt to setup UART connection.
 .. note::
     If the MicroUSB COM port on the host system is currently in use by another tool (e.g., PuTTY, Tera Term), please close it before proceeding.
 
-Without disconnecting any cable from the device, connect your host computer to the device with a USB Micro-B cable at the [DEBUG] port
+Without disconnecting any cable from the device, connect your host computer to the device with a USB Micro-B cable at the [DEBUG] port.
 
 .. figure:: /image/RubikPi/RubikPiUART.png
     :scale: 30%
@@ -126,7 +126,7 @@ Without disconnecting any cable from the device, connect your host computer to t
 Once the USB Micro-B cable is connected, a serial terminal will open.
 
 .. note::
-    This will take some time as the device boots up
+    This will take some time as the device boots up.
 
 When asked, type in the default username and password:
 
@@ -136,7 +136,7 @@ When asked, type in the default username and password:
 .. important::
     The serial terminal does not support copy and pasting, please type in the username and password manually.
 
-The terminal will ask you to reset the password immediately, type in the default password again when prompted, then set your password. **Save this password, you will not be able to retrieve it**
+The terminal will ask you to reset the password immediately, type in the default password again when prompted, then set your password. **Save this password, you will not be able to retrieve it**.
 
 The launcher will prompt you to configure the Wi-Fi once finished. Configure the Wi-Fi by entering the SSID and password, or connect the device to Ethernet.
 Please make sure the network you are using allows you to access LAN devices.
@@ -163,7 +163,7 @@ Now you can set up OpenCL on the Rubik Pi board.
 Connect to Rubik Pi
 -------------------
 
-Open a terminal window on your host computer. Please use the ``ssh`` command displayed by the qualcomm launcher to connect to the Rubik Pi
+Open a terminal window on your host computer. Please use the ``ssh`` command displayed by the qualcomm launcher to connect to the Rubik Pi.
 
 .. code-block:: bash
 
@@ -189,7 +189,7 @@ OpenCL runtime should be pre-installed on the device, verify this by running:
 
 Verify that ``libOpenCL.so.1`` and ``libOpenCL_adreno.so.1`` are present.
 
-If it is missing, install the Qualcomm Adreno user space libraries from the package manager (``apt``)
+If it is missing, install the Qualcomm Adreno user space libraries from the package manager (``apt``).
 
 .. code-block:: bash
 
@@ -197,13 +197,13 @@ If it is missing, install the Qualcomm Adreno user space libraries from the pack
     sudo apt-get install qcom-adreno1
 
 .. note::
-    Your account has root privileges by default, please practice caution with ``sudo`` commands
+    Your account has root privileges by default, please practice caution with ``sudo`` commands.
 
 Development Package Installation
 --------------------------------
 Install the following:
 
-* Qualcomm Adreno GPU developer libraries in the ``qcom-adreno-dev`` package.
+* Qualcomm Adreno GPU developer libraries in the ``qcom-adreno-dev`` package
 * The ``clinfo`` utility to display information about available OpenCL platforms
 * The ``build-essential`` and ``gdb`` packages for C development
 
