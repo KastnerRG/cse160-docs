@@ -240,10 +240,67 @@ This should display information about the OpenCL platforms and devices available
     Platform Name                          QUALCOMM Snapdragon(TM)
     Number of devices                      1
     Device Name                            QUALCOMM Adreno(TM) 643
+    ...
 
+Vulkan Installation
+^^^^^^^^^^^^^^^^^^^
+Install the ``vulkan-tools`` package:
+
+.. code-block:: bash
+    sudo apt-get install vulkan-tools
+
+Because Vulkan ICD loader interface version 5 is required for this version, but Qualcomm's divers only support interface version 3 at the moment,
+you must downgrade the Vulkan library manually and exclude it from auto-updates as the packages are only avaliable in Ubuntu Jammy:
+
+.. code-block:: bash
+    wget http://ports.ubuntu.com/ubuntu-ports/pool/main/v/vulkan-loader/libvulkan1_1.3.204.1-2_arm64.deb
+    sudo dpkg -i libvulkan1_1.3.204.1-2_arm64.deb
+    sudo apt --fix-broken install
+    sudo apt-mark hold libvulkan1
+
+Also install Vulkan development library of the same version:
+
+.. code-block:: bash
+    wget http://ports.ubuntu.com/ubuntu-ports/pool/main/v/vulkan-loader/libvulkan-dev_1.3.204.1-2_arm64.deb
+    sudo dpkg -i libvulkan-dev_1.3.204.1-2_arm64.deb
+    sudo apt --fix-broken install
+    sudo apt-mark hold libvulkan-dev
+
+Testing Vulkan
+--------------
+Run ``vulkaninfo`` to verify that Vulkan is working correctly:
+
+.. code-block:: bash
+    vulkaninfo
+
+Similar to ``clinfo``, this should display information about the Vulkan platforms, and you should see the following:
+
+.. code-block:: bash
+
+    ===== BEGIN DUMP OF OVERRIDDEN SETTINGS =====
+    ===== END DUMP OF OVERRIDDEN SETTINGS =====
+    QUALCOMM build          : cf15361b28, Iece42f3fbd
+    Build Date              : 09/10/25
+    Shader Compiler Version : E031.49.02.00
+    Local Branch            :
+    Remote Branch           :
+    Remote Branch           :
+    Reconstruct Branch      :
+
+    Build Config            : G QGL_C_COMPILER_OPT 2.2.0 AArch64
+    Driver Path             : /usr/lib/aarch64-linux-gnu/libvulkan_adreno.so.1
+    Driver Version          : 0808.11
+    PFP                     : 0x016dc112
+    ME                      : 0x00000000
+    Application Name    : vulkaninfo
+    Application Version : 0x00000001
+    Engine Name         : (null)
+    Engine Version      : 0x00000000
+    Api Version         : 0x004030cc
+    ...
 
 Transferring Files to Rubik Pi
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To copy files from your host computer to the RB3 board:
 
 .. code-block:: bash
