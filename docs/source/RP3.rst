@@ -249,7 +249,7 @@ Install the ``vulkan-tools`` package:
 .. code-block:: bash
     sudo apt-get install vulkan-tools
 
-Because Vulkan ICD loader interface version 5 is required for this version, but Qualcomm's divers only support interface version 3 at the moment,
+Because Vulkan ICD loader interface version 5 is required for this library version, but Qualcomm's drivers only support interface version 3 at the moment,
 you must downgrade the Vulkan library manually and exclude it from auto-updates as the packages are only avaliable in Ubuntu Jammy:
 
 .. code-block:: bash
