@@ -1,8 +1,5 @@
 Rubik Pi 3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
 ==========================================================================
-.. note::
-    Start by flashing the board according to this documentation, do not use the start guide provided in the box.
-    Expect setup, including download, to take around an hour.
 
 .. note::
     This guide is compiled using the official Thundercomm documentation.
@@ -16,8 +13,16 @@ Rubik Pi 3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
     The power indicator LED near the power port will turn on if the power adapter meets requirements and power negotiation succeeds.
     If the adapter does not meet requirements, the LED will remain off and the device will not boot.
 
+.. warning::
+    Do not use a desktop or laptop computer to power the RUBIK Pi 3. This may cause damage to both the computer and the RUBIK Pi 3.
+
 Prerequisites
 ^^^^^^^^^^^^^
+
+.. note::
+    Start by flashing the board according to this documentation, do not use the start guide provided in the box.
+    Expect setup, including download, to take around an hour.
+
 Before you begin, you will need:
 
 * A host computer with an OS supported by Qualcomm Launcher
@@ -196,7 +201,7 @@ If it is missing, install the Qualcomm Adreno user space libraries from the pack
     sudo apt-get update
     sudo apt-get install qcom-adreno1
 
-.. note::
+.. warning::
     Your account has root privileges by default, please practice caution with ``sudo`` commands.
 
 Development Package Installation
@@ -247,12 +252,14 @@ Vulkan Installation
 Install the ``vulkan-tools`` package:
 
 .. code-block:: bash
+
     sudo apt-get install vulkan-tools
 
 Because Vulkan ICD loader interface version 5 is required for this library version, but Qualcomm's drivers only support interface version 3 at the moment,
 you must downgrade the Vulkan library manually and exclude it from auto-updates as the packages are only avaliable in Ubuntu Jammy:
 
 .. code-block:: bash
+
     wget http://ports.ubuntu.com/ubuntu-ports/pool/main/v/vulkan-loader/libvulkan1_1.3.204.1-2_arm64.deb
     sudo dpkg -i libvulkan1_1.3.204.1-2_arm64.deb
     sudo apt --fix-broken install
@@ -261,6 +268,7 @@ you must downgrade the Vulkan library manually and exclude it from auto-updates 
 Also install Vulkan development library of the same version:
 
 .. code-block:: bash
+
     wget http://ports.ubuntu.com/ubuntu-ports/pool/main/v/vulkan-loader/libvulkan-dev_1.3.204.1-2_arm64.deb
     sudo dpkg -i libvulkan-dev_1.3.204.1-2_arm64.deb
     sudo apt --fix-broken install
@@ -269,6 +277,7 @@ Also install Vulkan development library of the same version:
 Add yourself to the ``renderer`` group
 
 .. code-block:: bash
+
     sudo usermod -aG render $USER
     newgrp render
 
@@ -277,6 +286,7 @@ Testing Vulkan
 Run ``vulkaninfo`` to verify that Vulkan is working correctly:
 
 .. code-block:: bash
+
     vulkaninfo
 
 Similar to ``clinfo``, this should display information about the Vulkan platforms, and you should see the following:
