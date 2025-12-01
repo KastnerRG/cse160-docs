@@ -266,6 +266,12 @@ Also install Vulkan development library of the same version:
     sudo apt --fix-broken install
     sudo apt-mark hold libvulkan-dev
 
+Add yourself to the ``renderer`` group
+
+.. code-block:: bash
+    sudo usermod -aG render $USER
+    newgrp render
+
 Testing Vulkan
 --------------
 Run ``vulkaninfo`` to verify that Vulkan is working correctly:
