@@ -37,7 +37,7 @@ Qualcomm Innovators Development Kit
    RB3_Mac
 
 Thundercomm Rubik Pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started with Rubik Pi 3
