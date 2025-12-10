@@ -45,7 +45,7 @@ Thundercomm Rubik Pi
    RP3
 
 Developing on your Computer
-^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
    :caption: Visual Studio Code with DevContainers
