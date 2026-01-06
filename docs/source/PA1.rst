@@ -37,6 +37,8 @@ The student is encouraged to relate the device-specific information to the OpenC
 
 How to Run
 ^^^^^^^^^^
+See `example </devcontainers.html>` to learn how to configure devcontainers for vscode. These will create docker containers that will hold your programming environment. 
+
 The :code:`main.c` file contains the host code for the programming assignment; there is no associated device kernel code for this assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the DeviceQuery folder. It generates a :code:`device_query` output file.  Simply run this with :code:`./device_query`, which will print device information to the console.
 
 Submission
@@ -142,10 +144,9 @@ With the context out of the way, let's dive into the code!
 
 Instructions
 ^^^^^^^^^^^^
-
-The code for a basic raytracer has already been provided.  The goal of this part
-is not to have you be able to write your own raytracer from scratch, but to understand
-its overall structure and see how it can be parallelized.  By extension, to demonstrate
+The code for a basic sequential raytracer has already been provided as well as the kernel for the parallel raytracer.  
+The goal of this part is not to have you be able to write your own raytracer from scratch, but to understand
+its overall structure of OpenCL host code and see how it can be parallelized.  By extension, to demonstrate
 how effective parallelization can be!
 
 Step 1:
@@ -190,7 +191,11 @@ The kernel doesn't actually run by itself; instead, it needs to be built by
 some main program that will read the kernel program as a string and build
 the correct context and command queues to map the kernel to a compute device
 and run it.  This is done in ``main.c`` (the one in ``raytracer_parallel``, not to
-be confused with the first ``main.c`` in ``raytracer_sequential``).
+be confused with the first ``main.c`` in ``raytracer_sequential``). 
+
+**Implement the arguments needed in order to build the correct context and command queue and free memory**.
+Everything that needs your attention in the ``main.c`` in ``raytracer_parallel`` marked with ``//@@``.
+See the OpenCL documentation for how to fill out these arguments. 
 
 What's nice about kernels in OpenCL is that they can be mapped to any compute device (in theory),
 whether that be a CPU, a GPU, even an FPGA. That's great for us! 
@@ -207,7 +212,7 @@ Depending on Operating system support, we can try running the kernel on a variet
 
 Recall from Part 1 that each device that OpenCL recognizes on your computer is associated with an index.
 Typically a computer will have a device for the GPU and may have a device for the GPU.
-Try running the parallel raytracer on the devices available on your system with ``raytracer_parallel <device_index>``.
+Try running the parallel raytracer on the devices available on your system with ``raytracer_parallel gpu/cpu`` (``make cpu`` or ``make gpu`` also work).
 
 **On the DSMLP** OpenCL can only access the GPU (and not the CPU) if the environment variable ``POCL_DEVICES`` is set to ``cuda``.
 This can be set with ``export POCL_DEVICES=cuda``.
@@ -218,7 +223,7 @@ Recap
 We have two programs:
 
 * Sequential implementation (``main.c`` standalone in ``raytracer_sequential``)
-* Kernel implementation (``main.c`` and ``kernel.cl`` in ``raytracer_parallel``)
+* Kernel implementation (``main.c`` and ``kernel.cl`` in ``raytracer_parallel``), ``main.c`` needs to be implemented. 
 
 The sequential implementation runs on a single thread on the CPU.
 
@@ -231,8 +236,7 @@ From this example, you should have been able to witness firsthand the power of p
 
 Submission
 ^^^^^^^^^^
-You do not need to submit any code for this assignment.  You must answer the questions
-in Gradescope.
+Submit the :code:`PA1/raytracer_parallel/main.c`. You must answer the questions in Gradescope.
 
 
 
