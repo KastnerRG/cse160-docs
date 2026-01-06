@@ -1,6 +1,6 @@
-=======================================
-Programming Assignment 1 - Device Query
-=======================================
+===================================================
+Programming Assignment 1 - Device Query & Raytracer
+===================================================
 
 ******
 Part 1
@@ -37,7 +37,7 @@ The student is encouraged to relate the device-specific information to the OpenC
 
 How to Run
 ^^^^^^^^^^
-See `example </devcontainers.html>` to learn how to configure devcontainers for vscode. These will create docker containers that will hold your programming environment. 
+See <devcontainers> to learn how to configure devcontainers for vscode. These will create docker containers that will hold your programming environment. 
 
 The :code:`main.c` file contains the host code for the programming assignment; there is no associated device kernel code for this assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the DeviceQuery folder. It generates a :code:`device_query` output file.  Simply run this with :code:`./device_query`, which will print device information to the console.
 
@@ -237,7 +237,3 @@ From this example, you should have been able to witness firsthand the power of p
 Submission
 ^^^^^^^^^^
 Submit the :code:`PA1/raytracer_parallel/main.c`. You must answer the questions in Gradescope.
-
-
-
-
