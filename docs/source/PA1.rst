@@ -10,11 +10,11 @@ Objective
 ^^^^^^^^^
 The purpose of this programming assignment is to familiarize the student with the underlying hardware and how it relates to the OpenCL hardware model.  By extension, the program will familiarize the student with the processing resources at hand along with their capabilities.  By the end of this assignment, one should understand the process of compiling and running code that will be used in subsequent modules.
 
-
+All relevant code is located in the ``PA1`` directory for this homework. For this homework, run everything on your local machine. 
 
 Instructions
 ^^^^^^^^^^^^
-The file :code:`main.c` queries for devices across all platforms, and displays information about each device.
+The file :code:`device_query/main.c` queries for devices across all platforms, and displays information about each device.
 
 Some properties to pay attention to:
 
@@ -37,9 +37,9 @@ The student is encouraged to relate the device-specific information to the OpenC
 
 How to Run
 ^^^^^^^^^^
-See <devcontainers> to learn how to configure devcontainers for vscode. These will create docker containers that will hold your programming environment. 
+See <devcontainers> to learn how to configure devcontainers for vscode. These will create docker containers that will hold your programming environment. You should use the devcontainer for both part 1 and part 2. 
 
-The :code:`main.c` file contains the host code for the programming assignment; there is no associated device kernel code for this assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the DeviceQuery folder. It generates a :code:`device_query` output file.  Simply run this with :code:`./device_query`, which will print device information to the console.
+The :code:`device_query/main.c` file contains the host code for the programming assignment; there is no associated device kernel code for this assignment. There is a Makefile included which compiles it. It can be run by typing :code:`make` from the DeviceQuery folder. It generates a :code:`device_query` output file.  Simply run this with :code:`./device_query`, which will print device information to the console.
 
 Submission
 ^^^^^^^^^^
@@ -153,7 +153,7 @@ Step 1:
 +++++++
 
 The first program to look at is in the ``raytracer_sequential`` directory.  Here, open up
-``main.c``.  This is the implementation of a raytracer **for a single-threaded program
+``raytracer_sequential/main.c``.  This is the implementation of a raytracer **for a single-threaded program
 running on the CPU**.  Given that there is only one thread, the naive implementation of 
 iterating through every pixel is used, resulting in a nested for loop.  Scan through this
 code and understand where this for-loop is located and how it is used to determine
@@ -182,7 +182,7 @@ Now that we have a benchmark performance of how long a sequential, single-thread
 implemenation of a raytracer on the CPU is, let's compare it with a parallelized 
 implemenation!  You can find the kernel (the program meant to run on a compute device)
 in the directory ``raytracer_parallel`` as a file titled ``kernel.cl``.  This is an 
-OpenCL kernel.  Compare this with ``main.c`` in the sequential implementation; 
+OpenCL kernel.  Compare this with ``raytracer_sequential/main.c`` in the sequential implementation; 
 what do you notice (hint: what happened to the for-loop? Why might this be?).
 
 Step 4:
@@ -190,11 +190,10 @@ Step 4:
 The kernel doesn't actually run by itself; instead, it needs to be built by 
 some main program that will read the kernel program as a string and build
 the correct context and command queues to map the kernel to a compute device
-and run it.  This is done in ``main.c`` (the one in ``raytracer_parallel``, not to
-be confused with the first ``main.c`` in ``raytracer_sequential``). 
+and run it.  This is done in ``raytracer_parallel/main.c``. 
 
 **Implement the arguments needed in order to build the correct context and command queue and free memory**.
-Everything that needs your attention in the ``main.c`` in ``raytracer_parallel`` marked with ``//@@``.
+Everything that needs your attention in the ``raytracer_parallel/main.c`` marked with ``//@@``.
 See the OpenCL documentation for how to fill out these arguments. 
 
 What's nice about kernels in OpenCL is that they can be mapped to any compute device (in theory),
@@ -222,8 +221,8 @@ Recap
 
 We have two programs:
 
-* Sequential implementation (``main.c`` standalone in ``raytracer_sequential``)
-* Kernel implementation (``main.c`` and ``kernel.cl`` in ``raytracer_parallel``), ``main.c`` needs to be implemented. 
+* Sequential implementation (``raytracer_sequential/main.c``)
+* Kernel implementation (``raytracer_parallel/main.c`` and ``raytracer_parallel/kernel.cl``), ``raytracer_parallel/main.c`` needs to be implemented. 
 
 The sequential implementation runs on a single thread on the CPU.
 
@@ -236,4 +235,4 @@ From this example, you should have been able to witness firsthand the power of p
 
 Submission
 ^^^^^^^^^^
-Submit the :code:`PA1/raytracer_parallel/main.c`. You must answer the questions in Gradescope.
+Submit the :code:`raytracer_parallel/main.c`. You must answer the questions in Gradescope.
