@@ -51,6 +51,7 @@ Assignments
    :caption: Programming Assignments
    
    PA1 - Device Query & Raytracer <PA1>
+   PA2 - Vector Addition <PA2>
 
 .. toctree::
    :maxdepth: 2

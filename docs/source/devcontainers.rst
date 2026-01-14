@@ -13,6 +13,7 @@ This configuration is not officially supported by the course staff, but we hope 
 
 Prerequisites
 -------------
+0. WINDOWS ONLY: Set up WSL before you set up Docker Desktop: https://learn.microsoft.com/en-us/windows/wsl/install
 1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
 2. Install Visual Studio Code: https://code.visualstudio.com/
 
@@ -27,3 +28,9 @@ Setting up DevContainers
 7. Visual Studio Code will build the container and open the project in the container.
 
 Confirm that your development environment is set up correctly by running :code:`clinfo` in the terminal. If you see the OpenCL information, then your development environment is set up correctly.
+
+Common Pitfalls
+----------------
+- For Windows users, if you are seeing the error `Error response from daemon: accessing specified distro mount service` or
+    `distro-services/ubuntu.sock: no such file or directory`, open Docker Desktop and go to Resources>WSL Integration and check the box that says
+    `Enable integration with my default WSL distro`. Then restart docker. This should spin docker up in your WSL distro.
