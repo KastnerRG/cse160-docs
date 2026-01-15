@@ -5,7 +5,7 @@ Objective
 ^^^^^^^^^
 The purpose of this lab is to introduce the student to the OpenCL Device Programming by implementing vector addition 
 as well as the start of some optimization techniques such as coalescing. The student will implement vector addition by
- writing the GPU kernel code as well as the associated host code.
+writing the GPU kernel code as well as the associated host code.
 
 Instructions
 ^^^^^^^^^^^^^
@@ -17,12 +17,11 @@ Edit the code in the code tab to perform the following:
 - Copy results from device to host
 - Free device memory
 - Write the OpenCL kernel
+- Coalescing
 
-Instructions about where to place each part of the code is demarcated by the `//@@` comment lines.  
+Instructions about where to place each part of the code is demarcated by the `//@@` comment lines. UNLIKE in PA1, you will need to write lines of code, not just fill in arguments.  
 You will need to implement three kernels.  The first will take two vector inputs and produce the sum.  The second will take 4 vector inputs and produce the sum.
 The last one will be an optimized version of the 4 vector input kernel that uses coalesced memory accesses with a much smaller global size. 
-
-For this assignment, we have created the memory buffers for you.  In future assignments, you will need to do so yourself.  Ensure that you understand what these lines do.
 
 How to Compile
 ^^^^^^^^^^^^^^
