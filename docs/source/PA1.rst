@@ -61,6 +61,8 @@ The goal of this part of the assignment is to demonstrate the visible speedup th
 arises from a program running on one thread, to a program running in parallel on slightly more 
 threads, and finally to a program that runs in parallel on many threads.
 
+**Note:** You are not expected to understand what local size is for this PA.
+
 Context 
 ^^^^^^^
 
