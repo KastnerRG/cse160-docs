@@ -3,7 +3,7 @@ RB3 Board Setup Guide: Ubuntu Installation and OpenCL Configuration
 
 .. note::
     This guide is compiled using the official Qualcomm documentation. If you need 
-    further guidance, please refer to: `Qualcomm Documentation <https://docs.qualcomm.com/bundle/publicresource/topics/80-82645-1/Integrate_and_flash_software_2.html?product=1601111740057201>`_.
+    further guidance, please refer to: `Qualcomm Documentation <https://docs.qualcomm.com/bundle/publicresource/topics/80-90441-1/Integrate_and_flash_software_2.html?product=1601111740013077&facet=Ubuntu%20quickstart>`_.
 
 .. important::
     This guide is specifically for Linux machines. For Windows users, please follow 
@@ -15,7 +15,7 @@ Prerequisites
 Before you begin, you will need:
 
 * A Linux machine (Ubuntu recommended)
-* A Qualcomm RB3 development board
+* A Qualcomm RB3 Gen2 development board
 * 12V power supply for the RB3 board
 * USB Type-C cable
 
@@ -41,18 +41,23 @@ Download the Ubuntu Server 22.04 image and boot files:
 .. code-block:: bash
 
     # Download boot image
-    wget https://artifacts.codelinaro.org/artifactory/qli-ci/flashable-binaries/ubuntu-fw/QLI.1.2-Ver.1.1-ubuntu-nhlos-bins.tar.gz
+    wget https://artifacts.codelinaro.org/artifactory/qli-ci/flashable-binaries/ubuntu-fw/QCM6490/QLI.1.5-Ver.1.1/QLI.1.5-Ver.1.1-ubuntu-nhlos-bins.tar.gz
+
+    # Download dtb.bin image
+    wget https://people.canonical.com/~platform/images/qualcomm-iot/ubuntu-24.04/ubuntu-24.04-x06/ubuntu-server-24.04/dtb.bin
 
     # Download Ubuntu Server image
-    wget https://people.canonical.com/~platform/images/qualcomm-iot/rb3-22.04/rb3-server-22.04-x08/ubuntu-22.04-preinstalled-server-arm64+rb3g2-x08.img.xz
+    wget https://people.canonical.com/~platform/images/qualcomm-iot/ubuntu-24.04/ubuntu-24.04-x06/ubuntu-server-24.04/iot-qualcomm-dragonwing-classic-server-2404-x06-20251024.img.xz
 
-    # Download checksums and manifest files
-    wget https://people.canonical.com/~platform/images/qualcomm-iot/rb3-22.04/rb3-server-22.04-x08/ubuntu-22.04-preinstalled-server-arm64+rb3g2-x08.img.xz.sha256sum
-    wget https://people.canonical.com/~platform/images/qualcomm-iot/rb3-22.04/rb3-server-22.04-x08/ubuntu-22.04-preinstalled-server-arm64+rb3g2-x08.manifest
-    wget https://people.canonical.com/~platform/images/qualcomm-iot/rb3-22.04/rb3-server-22.04-x08/ubuntu-22.04-preinstalled-server-arm64+rb3g2-x08.manifest.sha256sum
-    wget https://people.canonical.com/~platform/images/qualcomm-iot/rb3-22.04/rb3-server-22.04-x08/rawprogram0.xml
+    # Download the programming and manifest files
+    wget https://people.canonical.com/~platform/images/qualcomm-iot/ubuntu-24.04/ubuntu-24.04-x06/ubuntu-server-24.04/iot-qualcomm-dragonwing-classic-server-2404-x06-20251024.manifest
+    wget https://people.canonical.com/~platform/images/qualcomm-iot/ubuntu-24.04/ubuntu-24.04-x06/ubuntu-server-24.04/rawprogram0.xml
 
-For more information, refer to the `Qualcomm Ubuntu Host Build Guide <https://docs.qualcomm.com/bundle/publicresource/topics/80-82645-1/build-on-ubuntu-host.html>`_.
+    # Download checksums
+    wget https://people.canonical.com/~platform/images/qualcomm-iot/ubuntu-24.04/ubuntu-24.04-x06/ubuntu-server-24.04/SHA256SUMS
+
+    # Validate the downloads
+    sha256sum -c SHA256SUMS
 
 Extract and Prepare Files
 ------------------------
@@ -64,22 +69,30 @@ Create a directory for the image files and prepare them:
     mkdir rb3_ubuntu_images
 
     # Extract boot image to the directory
-    tar xvf QLI.1.2-Ver.1.1-ubuntu-nhlos-bins.tar.gz -C ./rb3_ubuntu_images
+    unxz iot-qualcomm-dragonwing-classic-server-2404-x06-20251024.img.xz
+    cp iot-qualcomm-dragonwing-classic-server-2404-x06-20251024.img ./rb3_ubuntu_images
 
     # Copy rawprogram0.xml to the directory
     cp rawprogram0.xml ./rb3_ubuntu_images
 
-    # Remove patch0.xml if it exists
-    rm rb3_ubuntu_images/patch0.xml 2>/dev/null
-
-    # Verify checksum
-    sha256sum -c ubuntu-22.04-preinstalled-server-arm64+rb3g2-x08.img.xz.sha256sum
-
     # Extract the OS image
     unxz ubuntu-22.04-preinstalled-server-arm64+rb3g2-x08.img.xz
 
-    # Copy OS image to the directory
-    cp ubuntu-22.04-preinstalled-server-arm64+rb3g2-x08.img ./rb3_ubuntu_images
+Download Flashing Tool
+----------------------
+The QDL tool is required to flash the Ubuntu image onto the RB3 board.
+
+.. code-block:: bash
+
+    # Download the QDL zip file
+    wget https://softwarecenter.qualcomm.com/api/download/software/tools/Qualcomm_Device_Loader/Linux/Debian/2.3.9/QDL_2.3.9_Linux_x64.zip
+
+    # Unzip the QDL tool
+    unzip QDL_2.3.9_Linux_x64.zip
+
+    # Copy the QDL binary to the image directory and set permissions
+    cp QDL_2.3.9_Linux_x64/qdl rb3_ubuntu_images 
+    chmod +x rb3_ubuntu_images/qdl
 
 Compile Flash Tool
 -----------------
