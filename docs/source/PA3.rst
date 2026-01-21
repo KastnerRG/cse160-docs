@@ -33,7 +33,7 @@ Edit the code to perform the following:
 * Invoke OpenCL kernel
 * Copy result matrix from device to host
 * Release memory on device 
-* Write the OpenCL kernel to perform matrix multiplication
+* Write the OpenCL kernel to perform matrix multiplication with row wise coarsening
 
 Instructions about where to place each part of the code is demarcated by the :code:`//@@` comment lines.
 
@@ -49,10 +49,15 @@ How to Test
 ^^^^^^^^^^^
 Use the :code:`make run` command to test your program on the 
 test cases in the :code:`Dataset` foldeer. 
-There are a total of 10 tests on which your program will be evaluated. 
+There are a total of 11 tests on which your program will be evaluated for correctness. 
 
-Use the :code:`make debug` command to compile your program on CPU and test using gdb. 
+We will use the last test case (testcase 10) to verify if your programs meet the speedup requirements that you should get using coarsening on the row. 
+Use the :code:`make time` command to see timing details for your kernel.  Your kernel must produce a time less than 500ms. 
+
+For debugging tools, you can use `oclgrind`, see https://github.com/jrprice/Oclgrind?tab=readme-ov-file#usage for usage documentation
 
 Submission
 ^^^^^^^^^^
-Submit the :code:`main.c` and :code:`kernel.cl` files on gradescope. Preserve the file name while uploading to gradescope.
+Submit the :code:`main.c` and :code:`kernel.cl` files on gradescope. Preserve the file name while uploading to gradescope. 
+
+Gradescope submissions are heavily rate limited starting this PA. See <rate_limit> for more details. Please do not use Gradescope to time your code.
