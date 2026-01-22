@@ -10,13 +10,16 @@ You can login to DSMLP using by :code:`ssh USERNAME@dsmlp-login.ucsd.edu`. Your 
 
 Follow the steps in this `link <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac#about-ssh-key-passphrases>`_ to generate a key pair (Follow the guide till step 3 under 'Adding your SSH key to the ssh-agent').
 
-DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/ucsd-ets/cse160-notebook:main -W CSE160_WI25_A00 -P Always`
+DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/kastnerrg/cse160-opencl:dsmlp -W CSE160_WI26_A00 -P Always`
 
 .. note::
-    If you run into issues while getting GPUs in DSMLP, you can use -n #, e.g., -n 1, to avoid that node until we can reset it.
+    If you run into issues while getting GPUs in DSMLP, you can use :code:`-n` #, e.g., :code:`-n 1`, to avoid that node until we can reset it.
     Check the GPU status here `DSMLP STATUS <https://datahub.ucsd.edu/hub/status>`_
 
-Once you have the container, try to running the command :code:`nvidia-smi` and :code:`clinfo` to see if you have access to a GPU.
+.. note::
+    You can request a specific GPU type by appending :code:`-v GPU_TYPE` to the command above. For example, to request a GTX 1080Ti GPU, you would use :code:`-v 1080ti`. You can see the available GPU types on the `DSMLP STATUS <https://datahub.ucsd.edu/hub/status>`_ page.
+
+Once you have the container, try running the command :code:`nvidia-smi` and :code:`clinfo -l` to see if you have access to a GPU.
 
 .. code-block:: bash
 
@@ -25,10 +28,7 @@ Once you have the container, try to running the command :code:`nvidia-smi` and :
     
     # Next let's make sure OpenCL is found.  This should return multiple.
     # Note that this includes both CPU and GPU OpenCL implementations
-    clinfo
-    
-    # Request just the cuda OpenCL driver
-    export POCL_DEVICES=cuda
+    clinfo -l
     
 Now you can compile and run the Makefiles in the PA directories.
 
@@ -61,31 +61,45 @@ Extension Identifier: ``ms-vscode-remote.remote-ssh``
 
 **4. Configure SSH Connection**
 
-1. Click on the indicator on the bottom left corner
+1. Login to DSMLP using the terminal as shown above.
+2. While logged in, run the following command to create a script that launches the container with GPU access which we will use in VSCode:
+
+.. code-block:: bash
+
+    echo '#!/bin/bash' > start-vscode.sh
+    echo '/opt/launch-sh/bin/launch.sh -c 2 -m 8 -H -g 1 -s -i ghcr.io/kastnerrg/cse160-opencl:dsmlp -W CSE160_WI26_A00 -P Always -N vscode-dsmlp' >> start-vscode.sh
+    chmod +x start-vscode.sh
+
+3. While still logged in, type :code:++`pwd` to get your home directory path on DSMLP and note it down for later use.
+4. Click on the indicator on the bottom left corner
 
     .. image:: image/vscode_indictor.png
         :alt: VS Code SSH Configuration
         :width: 600px
 
 
-2. Click on ``Connect to Host...``
-3. Click on ``Configure SSH Hosts...``
-4. Click on the ``Users/name/.ssh/config``
-5. Add the following lines (make sure to change ``your-username`` to your username):
+5. Click on ``Connect to Host...``
+6. Click on ``Configure SSH Hosts...``
+7. Click on the ``Users/name/.ssh/config``
+8. Add the following lines (make sure to change ``<your-username>`` to your username and ``<home-directory>`` to your home directory on DSMLP, e.g., ``/home/username/``):
 
 .. code-block:: text
 
     Host vscode-dsmlp
-    HostName dsmlp-login.ucsd.edu
-    HostKeyAlias vscode-dsmlp
-    IdentitiesOnly yes
-    User your-username
-    ProxyCommand ssh -i ~/.ssh/id_ed25519 your-username@dsmlp-login.ucsd.edu /opt/launch-sh/bin/launch-cse160-opencl-ssh.sh
+        HostName dsmlp-login.ucsd.edu
+        HostKeyAlias vscode-dsmlp
+        IdentitiesOnly yes
+        User <your-username>
+        ConnectTimeout 100
+        ProxyCommand ssh -i ~/.ssh/id_ed25519 <your-username>@dsmlp-login.ucsd.edu <home-directory>/start-vscode.sh
 
-6. Save the configuration
-7. Click on the >< key at the bottom left corner and then click on ``Connect to Host...``
-8. You should see a ``vscode-dsmlp`` option. Click on it to start your session.
-9. You may be asked to insert the passphrase you created - do that and happy coding!
+9. Save the configuration
+10. Click on the >< key at the bottom left corner and then click on ``Connect to Host...``
+11. You should see a ``vscode-dsmlp`` option. Click on it to start your session. You may get a popup window asking what os, always select linux as you are connecting to a linux machine.
+12. You may be asked to insert the passphrase you created - do that and happy coding!
+
+You may get an error if you already have a pod attached with a GPU. Make sure you aren't running any jobs on DSMLP when connecting with vscode.
+This isn't a container, so make sure to clone your github repo into DSMLP. Commit always and often. 
 
 Important Notes
 ^^^^^^^^^^^^^^^
