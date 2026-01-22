@@ -68,6 +68,6 @@ Grading
 ^^^^^^^
 Part 1: You implement naive matrix multiply without any coarsening for correctness.
 
-Part 2: You will implement matrix multiply coarsened by row for correctness. 
+Part 2: You will implement coarsened matrix multiply for correctness. You MUST coarsen by row.
 
-Part 3: This is an optional kernel where you will implement matrix multiply using any optimizations from class or outside sources. This will be timed and placed on a public gradescope leaderboard. This is NOT graded, bragging rights only.
+Part 3: This is an optional kernel where you will implement matrix multiply using any optimizations from class or outside sources, be creative. This will be timed on a Nvidia 1080 ti and placed on a public gradescope leaderboard showcasing your time. This is NOT graded, bragging rights only.
