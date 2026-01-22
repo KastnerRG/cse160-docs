@@ -12,6 +12,7 @@ Gradescope Autograder
    :caption: Debugging Gradescope Autograder
 
    Gradescope
+   Rate Limiting <rate_limit>
 
 Data Science & Machine Learning Platform
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,14 +53,13 @@ Assignments
    
    PA1 - Device Query & Raytracer <PA1>
    PA2 - Vector Addition <PA2>
+   PA3 - Matrix Multiplication <PA3>
 
 .. toctree::
    :maxdepth: 2
    :caption: Project Assignments
 
 ..
-   PA2 - Vector Addition <PA2>
-   PA3 - Matrix Multiplication <PA3>
    PA4 - Tiled Matrix Multiplication <PA4>
    PA5 - Convolution <PA5>
    PA6 - Convolutional Neural Network <PA6>

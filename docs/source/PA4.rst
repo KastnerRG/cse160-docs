@@ -32,7 +32,7 @@ The :code:`main.c, kernel.cl` files contains the code for the programming assign
 
 How to Test
 ^^^^^^^^^^^
-Use the :code:`make run` command to test your program. here are a total of 9 tests on which your program will be evaluated for (functional) correctness. We will use the last test case (testcase 10) to verify if your programs meet the speedup requirements that you should get using shared memory. The timing requirements will only be strict enough to ensure students cannot submit PA3's solution in PA4 and get credit.
+Use the :code:`make run` command to test your program. here are a total of 11 tests on which your program will be evaluated for (functional) correctness. We will use the last test case (testcase 10) to verify if your programs meet the speedup requirements that you should get using shared memory. The timing requirements will only be strict enough to ensure students cannot submit PA3's solution in PA4 and get credit.
 Use the :code:`make time` command to see timing details for your kernel.  Your kernel must produce a time less than 50ms. 
 
 Dataset Generation (Optional)
