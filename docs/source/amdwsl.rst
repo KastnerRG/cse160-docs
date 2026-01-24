@@ -143,6 +143,51 @@ See `Uninstallation`_.
 Course specific dependencies installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Run:
+
+.. code:: bash
+
+    sudo apt-get update
+    sudo apt-get install -y build-essential git llvm-20 llvm-20-dev clang-20 libclang-20-dev libclang-cpp20-dev cmake pkg-config make ninja-build libhwloc-dev clinfo dialog apt-utils libxml2-dev vim gdb valgrind oclgrind python3-numpy
+
+Run ``clinfo`` to verify that OpenCL is working correctly:
+
+.. code-block:: bash
+
+    clinfo
+
+This should display information about the OpenCL platforms and devices available, you should see similar to the following:
+
+.. code-block:: bash
+
+    Number of platforms                               1
+      Platform Name                                   AMD Accelerated Parallel Processing
+      Platform Vendor                                 Advanced Micro Devices, Inc.
+      Platform Version                                OpenCL 2.1 AMD-APP (3649.0)
+      Platform Profile                                FULL_PROFILE
+      Platform Extensions                             cl_khr_icd cl_amd_event_callback
+      Platform Extensions function suffix             AMD
+      Platform Host timer resolution                  1ns
+
+      Platform Name                                   AMD Accelerated Parallel Processing
+    Number of devices                                 1
+      Device Name                                     gfx1100
+      Device Vendor                                   Advanced Micro Devices, Inc.
+      Device Vendor ID                                0x1002
+      Device Version                                  OpenCL 2.0
+      Driver Version                                  3649.0 (HSA1.1,LC)
+      Device OpenCL C Version                         OpenCL C 2.0
+      Device Type                                     GPU
+      Device Board Name (AMD)                         AMD Radeon RX 7900 XT
+      Device PCI-e ID (AMD)                           0x744c
+      Device Topology (AMD)                           PCI-E, 0000:67:00.0
+      Device Profile                                  FULL_PROFILE
+      Device Available                                Yes
+      Compiler Available                              Yes
+      Linker Available                                Yes
+    ...
+
+
 Visual Studio Code integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -203,9 +248,9 @@ AMD Radeon
 ====================== ============ ===========
 Name                   Architecture LLVM target
 ====================== ============ ===========
-AMD Radeon RX 9070XT   RDNA4        gfx1201
+AMD Radeon RX 9070 XT  RDNA4        gfx1201
 AMD Radeon RX 9070     RDNA4        gfx1201
-AMD Radeon RX 9070GRE  RDNA4        gfx1201
+AMD Radeon RX 9070 GRE RDNA4        gfx1201
 AMD Radeon RX 9060XT   RDNA4        gfx1200
 AMD Radeon RX 9060     RDNA4        gfx1200
 AMD Radeon RX 7900 XTX RDNA3        gfx1100
