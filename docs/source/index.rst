@@ -44,6 +44,7 @@ Developing on your Computer
    :caption: Visual Studio Code with DevContainers
 
    devcontainers
+   amdwsl
 
 Assignments
 ^^^^^^^^^^^
