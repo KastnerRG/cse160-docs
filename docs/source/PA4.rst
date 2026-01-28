@@ -33,7 +33,7 @@ The :code:`main.c, kernel.cl` files contains the code for the programming assign
 How to Test
 ^^^^^^^^^^^
 Use the :code:`make run` command to test your program. here are a total of 11 tests on which your program will be evaluated for (functional) correctness. We will use the last test case (testcase 10) to verify if your programs meet the speedup requirements that you should get using shared memory. The timing requirements will only be strict enough to ensure students cannot submit PA3's solution in PA4 and get credit.
-Use the :code:`make time` command to see timing details for your kernel.  Your kernel must produce a time less than 50ms. 
+Use the :code:`make time` command to see timing details for your kernel.  Your kernel must produce a time less than 43ms. 
 
 Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -42,6 +42,29 @@ The dataset required to test the program is already generated. If you are intere
 Submission
 ^^^^^^^^^^
 Submit the :code:`main.c` and :code:`kernel.cl` files on Gradescope. Preserve the file name and kernel file name as the kernel name is used to identify and time the kernel code. Gradescope will only accept 1 submission per hour.  Please do not use Gradescope to time your code.
+
+Grading
+^^^^^^^
+You will be graded on correctness (85pts) and on your best time on a 1080ti. 
+- kernel runtime :math:`\leq 43`ms :math:`+0` pts
+- :math:`15`ms :math:`\leq`` kernel runtime :math:`< 43`ms :math:`+5`pts 
+- kernel runtime :math:`< 15`ms :math:`+10`pts
+
+These times will be on the leaderboard
+
+Optional
+^^^^^^^^
+Like last PA, we have a optional section on the PA for bragging rights. A major point behind using OpenCL is applying the same kernel to many devices so also on the leaderboard are three other devices:
+- Device: Qalcomm RubicPi
+- Device: Pixel Folds
+- Device: DSMLP CPU 
+
+Good implementations may optimize for one device, great implementations will optimize for many devices that you are targeting for. 
+
+Hint 0: if you looked for "//@@ Hint", you will find how to identify the platform and device name, in case that is useful for optimizing per device.
+Hint 1: You will not have access to the RubricPis and phones and the rate limit still applies on gradescope. What kind of optimizations can you do just without device access but with publically available information about the device? How do you reduce trial and error here?
+
+
 
 .. Further Documentation
 .. ^^^^^^^^^^^^^^^^^^^^^

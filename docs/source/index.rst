@@ -55,13 +55,14 @@ Assignments
    PA1 - Device Query & Raytracer <PA1>
    PA2 - Vector Addition <PA2>
    PA3 - Matrix Multiplication <PA3>
+   PA4 - Tiled Matrix Multiplication <PA4>
 
 .. toctree::
    :maxdepth: 2
    :caption: Project Assignments
 
 ..
-   PA4 - Tiled Matrix Multiplication <PA4>
+   
    PA5 - Convolution <PA5>
    PA6 - Convolutional Neural Network <PA6>
    PA7 - Optimized Convolutional Neural Network <PA7>
