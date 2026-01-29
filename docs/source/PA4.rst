@@ -33,7 +33,7 @@ The :code:`main.c, kernel.cl` files contains the code for the programming assign
 How to Test
 ^^^^^^^^^^^
 Use the :code:`make run` command to test your program. here are a total of 11 tests on which your program will be evaluated for (functional) correctness. We will use the last test case (testcase 10) to verify if your programs meet the speedup requirements that you should get using shared memory. The timing requirements will only be strict enough to ensure students cannot submit PA3's solution in PA4 and get credit.
-Use the :code:`make time` command to see timing details for your kernel.  Your kernel must produce a time less than 50ms. 
+Use the :code:`make time` command to see timing details for your kernel.  Your kernel must produce a time less than 43ms. 
 
 Dataset Generation (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,29 +43,27 @@ Submission
 ^^^^^^^^^^
 Submit the :code:`main.c` and :code:`kernel.cl` files on Gradescope. Preserve the file name and kernel file name as the kernel name is used to identify and time the kernel code. Gradescope will only accept 1 submission per hour.  Please do not use Gradescope to time your code.
 
-.. Further Documentation
-.. ^^^^^^^^^^^^^^^^^^^^^
+Grading
+^^^^^^^
+You will be graded on correctness (95pts) and on your time on a 1080ti. 
+Times subtract from your correctness.
 
-..     **float** allocateMatrix(int rows, int cols):
-..         Allocates memory for a 2D matrix with the given number of rows and columns.
-..         Returns a pointer to the allocated matrix.
+- kernel runtime :math:`\greq 43`ms :math:`-95` pts
+- :math:`40`ms :math:`\leq`` kernel runtime :math:`< 43`ms :math:`-10`pts 
+- :math:`15`ms :math:`\leq`` kernel runtime :math:`< 40`ms :math:`-5`pts 
+- kernel runtime :math:`< 15`ms :math:`-0`pts
 
-..     **void generateRandomMatrix(float** matrix, int rows, int cols):
-..         Fills a given matrix with random float values.
-..         Each element in the matrix is assigned a random float value between 0 and 1.
+These times will be on the leaderboard
 
-..     **float** multiplyMatrices(float** A, int A_rows, int A_cols, float** B, int B_cols):
-..         Multiplies two matrices A and B.
-..         A has dimensions A_rows x A_cols and B has dimensions A_cols x B_cols.
-..         Returns a new matrix C that is the product of A and B with dimensions A_rows x B_cols.
+Optional
+^^^^^^^^
+Like last PA, we have a optional section on the PA for bragging rights. A major point behind using OpenCL is applying the same kernel to many devices so also on the leaderboard are three other devices (A CPU, A Google Pixel Fold's GPU, andtThe Qalcomm RubicPis):
+- Platform: Intel(R) OpenCL \t| Device: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+- Platform: Portable Computing Language \t| Device: NVIDIA GeForce GTX 1080 Ti
+- Platform:  ARM Platform \t| Device: Mali-G710 r0p0
+- Platform:  QUALCOMM Snapdragon(TM) \t| Device: QUALCOMM Adreno(TM) 643
 
-..     **void saveMatrixToFile(const char* filename, float** matrix, int rows, int cols):
-..         Saves a given matrix to a file specified by filename.
-..         The matrix is written to the file with each element separated by a space and each row on a new line.
+Good implementations may optimize for one device, great implementations will optimize for many devices that you are targeting for. 
 
-..     **int main(int argc, char* argv[]):
-..         The entry point of the program.
-..         Expects three command-line arguments representing the dimensions of the matrices: A (rows of matrix1), B (columns of matrix1 and rows of matrix2), and C (columns of matrix2).
-..         Allocates and generates two random matrices of sizes A x B and B x C.
-..         Multiplies these matrices and saves the result in three files: A.txt, B.txt, and C.txt.
-..         Frees the allocated memory for all matrices before exiting.
+Hint 0: if you looked for "//@@ Hint", you will find how to identify the platform and device name, in case that is useful for optimizing per device.
+Hint 1: You will not have access to the RubricPis and phones and the rate limit still applies on gradescope. What kind of optimizations can you do just without device access but with publically available information about the device? How do you reduce trial and error here?
