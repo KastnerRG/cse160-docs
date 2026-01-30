@@ -48,10 +48,10 @@ Grading
 You will be graded on correctness (95pts) and on your time on a 1080ti. 
 Times subtract from your correctness.
 
-- kernel runtime :math:`\geq 43`ms :math:`-95` pts
-- :math:`40`ms :math:`\leq \text{kernel runtime}` :math:`< 43`ms :math:`-10`pts 
-- :math:`15`ms :math:`\leq \text{kernel runtime}` :math:`< 40`ms :math:`-5`pts 
-- kernel runtime :math:`< 15`ms :math:`-0`pts
+- :math:`\text{kernel runtime} \geq 43 \text{ms} : -95 \text{pts}`
+- :math:`40 \text{ms} \leq \text{kernel runtime} < 43 \text{ms} : -10 \text{pts}`
+- :math:`15 \text{ ms} \leq \text{kernel runtime} < 40 \text{ ms} : -5 \text{pts}`
+- :math:`\text{kernel runtime} < 15 \text{ ms} : -0 \text{pts}`
 
 These times will be on the leaderboard
 
