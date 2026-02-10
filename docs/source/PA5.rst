@@ -119,7 +119,16 @@ Submit the :code:`main.c` and :code:`kernel.cl` file on gradescope. Preserve the
 
 Grading
 ^^^^^^^
-Only 85% of this assignment will be graded on correctness of the outputs. To gain full credits, your implementation on GPU should run correctly within 40ms.   
+You will be graded on correctness (95pts) and on your time on a 1080ti. 
+Times subtract from your correctness.
+
+- :math:`\text{kernel runtime} \geq 40 \text{ms} : -95 \text{pts}`
+- :math:`20 \text{ms} \leq \text{kernel runtime} < 35 \text{ms} : -20 \text{pts}`
+- :math:`10 \text{ms} \leq \text{kernel runtime} < 20 \text{ms} : -10 \text{pts}`
+- :math:`8 \text{ms} \leq \text{kernel runtime} < 10 \text{ms} : -5 \text{pts}`
+- :math:`\text{kernel runtime} < 8 \text{ms} : -0 \text{pts}`
+
+These times will be on the leaderboard
 
 .. Tips and Tricks
 .. ^^^^^^^^^^^^^^^
