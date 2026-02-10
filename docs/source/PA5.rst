@@ -105,8 +105,8 @@ The dataset required to test the program is already generated. If you are intere
 To generate dataset with stride :code:`python dataset_generator.py --with_strides`
 To generate dataset without stride:code:` python dataset_generator.py`
 
-Extra Credit (Optional)
-^^^^^^^^^^^^^^^^^^^^^^^
+Strides (Optional)
+^^^^^^^^^^^^^^^^^^
 The matrix convvolution we have discussed so far has a default stride number of 1. For convolution with stride denoted :code:`s`, you should discard any pixel not at position :code:`s*i` or :code:`s*j` in the convoluted image with stride 1. For the optional extra credit task, you should preform convolution given the variable :code:`stride` in :code:`main.c`. 
 
 We have provided you an additional :code:`make with_stride` for stridded convolution. You can test your execution time locally by running :code:`make time`.
