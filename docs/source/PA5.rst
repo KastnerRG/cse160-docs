@@ -130,6 +130,16 @@ Times subtract from your correctness.
 
 These times will be on the leaderboard
 
+Optional
+^^^^^^^^
+Like last PA, we have a optional section on the PA for bragging rights. A major point behind using OpenCL is applying the same kernel to many devices so also on the leaderboard are three other devices (A CPU, A Google Pixel Fold's GPU, andtThe Qalcomm RubicPis):
+- Platform: Intel(R) OpenCL \t| Device: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+- Platform: Portable Computing Language \t| Device: NVIDIA GeForce GTX 1080 Ti
+- Platform:  ARM Platform \t| Device: Mali-G710 r0p0
+- Platform:  QUALCOMM Snapdragon(TM) \t| Device: QUALCOMM Adreno(TM) 643
+
+Good implementations may optimize for one device, great implementations will optimize for many devices that you are targeting for. 
+
 .. Tips and Tricks
 .. ^^^^^^^^^^^^^^^
 .. After you understand how convolution works, I would recommend starting by implementing the embarrassingly parallel portion of convolution. Make sure the naive implementation works before going forward and attempting to incoporate shared memory. It will be extremely difficult to debug your shared memory portion if your basic convolution does not work. In terms of complexity, strategy 3 is the easiest and strategy 1 is the hardest.
