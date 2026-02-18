@@ -115,7 +115,10 @@ This is the actual method that implements the OpenCL host code. This method is i
 
 **Go to PA6/opencl-functions/ocl_wrapper_torch.cpp and PA6/opencl-functions/linear.cl**
 In :code:`PA6/opencl-functions/ocl_wrapper_torch.cpp`, you will see the same host code from PA4, now edited to fit the shape of `matmul_impl`.
-So go in :code:`linear.cl`, paste in your matmul device code from that PA. Note we are working with floats now, not ints. Go ahead and make sure that each matrix, sub_tile and acc variables are set to floats.
+So go in :code:`linear.cl`, paste in your matmul device code from that PA. 
+
+Note we are working with floats now, not ints. Go ahead and make sure that each matrix, sub_tile and acc variables are set to floats. 
+If you made any changes to tiling, local_size shape, etc, go make those changes on host to make it work.
 
 Now, if you run `make gpt`, this will build and run `python3 inferance_gpt2.py`
 
