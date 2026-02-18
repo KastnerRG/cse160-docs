@@ -159,16 +159,16 @@ These docs will be particularly useful, especially when figuring out the size of
 Below is the pseudocode for this implementation for running this algorithm sequentially
 … code-block:: none
 for b = 0 … B                           // for each image in the batch
-for m = 0 … M                       // for each output feature maps
-for h = 0 … H_out               // for each output element
-for w = 0 … W_out
-{
-y[b][m][h][w] = bias[m]; //bias term, done per channel
-for c = 0 … C           // sum over all input feature maps
-for p = 0 … K       // KxK filter
-for q = 0 … K
-y[b][m][h][w] += x[b][c][h * stride_h + p * dilation_h][w * stride_w + q * dilation_w] * k[m][c][p][q]
-}
+    for m = 0 … M                       // for each output feature maps
+        for h = 0 … H_out               // for each output element
+            for w = 0 … W_out
+            {
+                y[b][m][h][w] = bias[m]; //bias term, done per channel
+                for c = 0 … C           // sum over all input feature maps
+                    for p = 0 … K       // KxK filter
+                        for q = 0 … K
+                            y[b][m][h][w] += x[b][c][h * stride_h + p * dilation_h][w * stride_w + q * dilation_w] * k[m][c][p][q]
+            }
 
 How to Compile
 --------------
