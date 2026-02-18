@@ -63,12 +63,12 @@ One such example can be seen below.
     model(torch.randn(1, 10))
 
 The key takeaway here is that the forward function actually does the operations on some input data.
-This forward function is automatically called when we call `model(torch.randn(1, 10))` (i.e., `model.forward(torch.randn(1, 10))`, its the same thing in this case). 
+This forward function is automatically called when we call :code:`model(torch.randn(1, 10))` (i.e., :code:`model.forward(torch.randn(1, 10))`, its the same thing in this case). 
 
-Each layer is composed of a fully connected layer, or `Linear` layer that is computing the function f(x) = w^Tx +b for a weight matrix W and some bias b. This is the most basic neural block you can imagine.
-So those fully connected (fc) layers, when we call, for example, `self.fc1(x)`, also call `self.fc1.forward(x)` that does the operation $w^Tx +b$ with a weight matrix W and some bias b saved in the model (<https://github.com/pytorch/pytorch/blob/v2.10.0/torch/nn/modules/linear.py#L53>). 
+Each layer is composed of a fully connected layer, or :code:`Linear` layer that is computing the function f(x) = w^Tx +b for a weight matrix W and some bias b. This is the most basic neural block you can imagine.
+So those fully connected (fc) layers, when we call, for example, :code:`self.fc1(x)`, also call :code:`self.fc1.forward(x)` that does the operation $w^Tx +b$ with a weight matrix W and some bias b saved in the model (<https://github.com/pytorch/pytorch/blob/v2.10.0/torch/nn/modules/linear.py#L53>). 
 
-Which means, technically, one could just replace the forward function of a Linear layer with a function that calls some OpenCL scripts to compute the operation $w^Tx + b$. So let's start there.
+Which means, technically, one could just replace the forward function of a linear layer with a function that calls some OpenCL scripts to compute the operation $w^Tx + b$. So let's start there.
 
 
 Part 1: Implement Large Language Models
@@ -79,7 +79,7 @@ Okay, that is a joke; we are just replacing the linear layers of GPT2 with OpenC
 Before we start messing with convolutions, we are going to walk through how we are working with PyTorch by replacing these linear layers. That should give you an idea of how the code in this PA works. So for this part, similar in many ways to PA1, we will go through the code step by step to show you how the new build scripts work. 
 
 
-LLMs like GPT2 (if you can even call GPT2 "large" nowadays) are made of transformer blocks that contain several feed-forward and Linear blocks that rely on torch.nn.Linear blocks in PyTorch implementations.
+LLMs like GPT2 (if you can even call GPT2 "large" nowadays) are made of transformer blocks that contain several feed-forward and linear blocks that rely on torch.nn.linear blocks in PyTorch implementations.
 As you can see in Figure 1 from `"Attention is All You Need" <https://arxiv.org/pdf/1706.03762>`
 
 .. TODO REWRITE THE NAME OF THIS IMAGE
@@ -113,12 +113,14 @@ One line 23 add `matmul_impl(a_ptr, b_ptr, c_ptr, m, n, k);`
 
 This is the actual method that implements the OpenCL host code. This method is implemented in :code:`PA6/opencl_functions/opencl-function.cpp`
 
-**Go to PA6/opencl-functions/ocl_wrapper_torch.cpp and PA6/opencl-functions/Linear.cl**
-In matmul_impl, go add your host code implementation from PA4, clean up the variable names, and in :code:`Linear.cl`, paste in your matmul device code from that PA.
+**Go to PA6/opencl-functions/ocl_wrapper_torch.cpp and PA6/opencl-functions/linear.cl**
+In :code:`PA6/opencl-functions/ocl_wrapper_torch.cpp`, you will see the same host code from PA4, now edited to fit the shape of `matmul_impl`.
+So go in :code:`linear.cl`, paste in your matmul device code from that PA. Note we are working with floats now, not ints. Go ahead and make sure that each matrix, sub_tile and acc variables are set to floats.
 
-Now, if you run `make`, you can run `python3 inferance_gpt2.py`
+Now, if you run `make gpt`, this will build and run `python3 inferance_gpt2.py`
 
 You should see the output as "Hello, I'm a language model, I'm a problem solver.\n\nWhen I started translating, I was trying to solve my."
+If you do not see this output but instead some random nonsense words, double check and make sure you made everything that should be a float in `linear.cl` a float. 
 
 At this point, you should have a decent idea of how everything links up and how we are implementing OpenCL for this particular PA. So now that we have done that. Let's get back to convolutions.
 
@@ -173,7 +175,7 @@ for b = 0 … B                           // for each image in the batch
 How to Compile
 --------------
 
-The :code:`PA6/opencl_functions/opencl-functions.cpp`, :code:`PA6/opencl_functions/Linear.cl` and :code:`PA6/opencl_functions/conv2d.cl` files contain the code for the programming assignment. It can be run by typing :code:`make run`` from the PA6 folder.
+The :code:`PA6/opencl_functions/opencl-functions.cpp`, :code:`PA6/opencl_functions/linear.cl` and :code:`PA6/opencl_functions/conv2d.cl` files contain the code for the programming assignment. It can be run by typing :code:`make run`` from the PA6 folder.
 
 How to Test
 ------------
@@ -190,7 +192,7 @@ Your grade is also determined by the optimizations you perform, which are assess
 Submission
 --------------
 
-Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` :code:`PA6/opencl_functions/Linear.cl`, and :code:`PA6/opencl_functions/conv2d.cl` files on gradescope.
+Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` :code:`PA6/opencl_functions/linear.cl`, and :code:`PA6/opencl_functions/conv2d.cl` files on gradescope.
 
 Optional
 ^^^^^^^^
