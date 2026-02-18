@@ -66,14 +66,13 @@ Assignments
    PA3 - Matrix Multiplication <PA3>
    PA4 - Tiled Matrix Multiplication <PA4>
    PA5 - Convolution <PA5>
-   PA6 - Convolutional Neural Network <PA6>
-
+   
 .. toctree::
    :maxdepth: 2
    :caption: Project Assignments
 
 ..
-
+   PA6 - Convolutional Neural Network <PA6>
    PA7 - Optimized Convolutional Neural Network <PA7>
    PA8 - Explicit GeMM Convolution <PA8>
    PA9 - Implicit GeMM Convolution <PA9>
