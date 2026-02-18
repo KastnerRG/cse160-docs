@@ -182,7 +182,7 @@ Grading
 -----------
 You will graded for correctness based on the tests in PA6/tests.py witch have some simple image filter tests for each of the types of padding, strides, dilations, and number of batches as well as running againsted some of the models in this PA.
 
-You will be graded for timing based on the performance of those models runs over each data point. 
+Grading based on timing are TBD as this PA was redone this year. 
 
 Submission
 ----------
