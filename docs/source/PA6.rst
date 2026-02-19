@@ -2,7 +2,7 @@ PA6  - Reinventing the (Pytorch) Wheel
 ============================================
 
 Objective
------------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 In the last PA, you implemented a tiled image convolution to create image filters. As it turns out, we can use those filters to extract meaningful information from the image (lines, shapes, textures, etc.)
 to help build some intelligent tasks.
@@ -12,7 +12,7 @@ In this project, you will be using OpenCL to build a batched, strided, dilated, 
 This project has a few stages to go through, so PLEASE READ THE DOCS FULLY before starting. Remember to start early and start often.
 
 Instructions
----------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Part 0: What is PyTorch and why is it Fire?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,7 +87,7 @@ As you can see in Figure 1 from `"Attention is All You Need" <https://arxiv.org/
     :align: center
     :alt: Transformer block from Attention is All You Need
 
-**Start by going to PA6/inferance_gpt2.py**
+**Start by going to PA6/inference_gpt2.py**
 On line 8, add `from opencl_functions import ocl_matmul.`
 On line 17, you will find a line of code that reads `output = torch.zeros(output.shape).to(input.device)`. Replace this with `output = ocl_matmul(input, self.weight.t())`
 
@@ -113,17 +113,21 @@ One line 23 add `matmul_impl(a_ptr, b_ptr, c_ptr, m, n, k);`
 
 This is the actual method that implements the OpenCL host code. This method is implemented in :code:`PA6/opencl_functions/opencl-function.cpp`
 
-**Go to PA6/opencl-functions/ocl_wrapper_torch.cpp and PA6/opencl-functions/linear.cl**
-In :code:`PA6/opencl-functions/ocl_wrapper_torch.cpp`, you will see the same host code from PA4, now edited to fit the shape of `matmul_impl`.
-So go in :code:`linear.cl`, paste in your matmul device code from that PA. 
+**Go to PA6/opencl-functions/ocl_wrapper_torch.cpp**
+In :code:`PA6/opencl-functions/ocl_wrapper_torch.cpp`, you will see the start of the code needed to run unbatched matrix mutliplication. We could replace this with our matrix mutliplication version or we could instead use clbast!
 
-Note we are working with floats now, not ints. Go ahead and make sure that each matrix, sub_tile and acc variables are set to floats. 
-If you made any changes to tiling, local_size shape, etc, go make those changes on host to make it work.
+Implement :codeL:`clBlast::Gemm` to make matrix mutliplication work correctly! Note no matricies are being transposed. 
 
-Now, if you run `make gpt`, this will build and run `python3 inferance_gpt2.py`
+A is of shape M by K
+B is of shape K by N
+C is of shape M by N
+
+If you need help here, check out `the clbast docs <https://github.com/CNugteren/CLBlast/blob/master/doc/api.md#xgemm-general-matrix-matrix-multiplication>`
+
+Now, if you run `make gpt`, this will build and run `python3 inference_gpt2.py`
 
 You should see the output as "Hello, I'm a language model, I'm a problem solver.\n\nWhen I started translating, I was trying to solve my."
-If you do not see this output but instead some random nonsense words, double check and make sure you made everything that should be a float in `linear.cl` a float. 
+If you do not see this output but instead some random nonsense charaters (like wswsws), the shapes are not quite right.
 
 At this point, you should have a decent idea of how everything links up and how we are implementing OpenCL for this particular PA. So now that we have done that. Let's get back to convolutions.
 
@@ -132,13 +136,13 @@ Part 2: Implement PyTorch's Conv2d Layer And Listen To Screaming Pihas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We will do the same sort of thing for Conv2d. And by we, I mean everything, for calling our Convolution Kernel from PyTorch is implemented (see :code:`PA6/utils/conv2d_forward.py`). We will use this forward function that mimics the behavior of the forward function in Conv2d for pytorch <https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html>
-(Hint: of all the things linked on this PA, PLEASE READ THE PYTORCH DOCS ON Conv2d. This was literally what this PA was designed against.
+(Hint: of all the things linked on this PA, PLEASE READ THE PYTORCH DOCS ON Conv2d. This was literally what this PA was designed against.)
 
 For this Part, we can look at two Python scripts to help us develop our implementation. Take a look at the following things:
 
 * :code:`PA6/simple_sanity_check.py` basically mirrors PA5 with image filters over CSE 160's favorite Legally Distant Character! This checks against the conv2d implementation from Pytorch, if you want to check your method with Mr. Legally.
-* :code:`PA6/inferance_resnet.py` will call Conv2d to identify some of the interesting animals that the CSE 160 students and teaching staff have submitted as pets. This Model uses a `resnet18 <https://arxiv.org/abs/1512.03385>`
-* :code:`PA6/inferance_bird.py` will call Conv2d mutliple times to classify if a spectrogram is a representation of one of 132 possible Peruvian Bird Species: The Screaming Piha (this model was actually trained with OpenCL! Check out extras/train_audio.py). This Model uses a `resnet50 <https://arxiv.org/abs/1512.03385>`.  The data from this comes from a subset of the PER train split of `birdset <https://huggingface.co/datasets/DBD-research-group/BirdSet>`, and you can listen to this bird on `xeno-canto <https://xeno-canto.org/species/lipaugus-vociferans>`
+* :code:`PA6/inference_resnet.py` will call Conv2d to identify some of the interesting animals that the CSE 160 students and teaching staff have submitted as pets. This Model uses a `resnet18 <https://arxiv.org/abs/1512.03385>`
+* :code:`PA6/inference_bird.py` will call Conv2d multiple times to classify if a spectrogram is a representation of one of 132 possible Peruvian Bird Species: The Screaming Piha (this model was actually trained with OpenCL! Check out extras/train_audio.py). This Model uses a `resnet50 <https://arxiv.org/abs/1512.03385>`.  The data from this comes from a subset of the PER train split of `birdset <https://huggingface.co/datasets/DBD-research-group/BirdSet>`, and you can listen to this bird on `xeno-canto <https://xeno-canto.org/species/lipaugus-vociferans>`
 
 Use both of those to help you develop this method.
 
@@ -153,7 +157,7 @@ These convolution masks in ML models, when stacked in this way, are referred to 
 
 You will also be implementing stride (both height and width), dilation (both height and width), and a bias term. Padding is already performed over the input by the host device. You will not implement groups for this PA.
 
-* Slide is how far the mask moves over the image. In the previous PA, the stride was set to 1 in both height and width, meaning every pixel was the center of the mask. In this PA, some of the masks will be skipped over.
+* Stride is how far the mask moves over the image. In the previous PA, the stride was set to 1 in both height and width, meaning every pixel was the center of the mask. In this PA, some of the masks will be skipped over.
 * dilation changes what input data points are included in each application of a mask (you can think of this as spreading out the mask over the image)
 Take a look at the animations provided here for what these parameters do to the `convolution <https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md>`
 
@@ -176,24 +180,24 @@ for b = 0 … B                           // for each image in the batch
             }
 
 How to Compile
---------------
+^^^^^^^^^^^^^^^^^^^^^^
 
-The :code:`PA6/opencl_functions/opencl-functions.cpp`, :code:`PA6/opencl_functions/linear.cl` and :code:`PA6/opencl_functions/conv2d.cl` files contain the code for the programming assignment. It can be run by typing :code:`make run`` from the PA6 folder.
+The :code:`PA6/opencl_functions/opencl-functions.cpp`, :code:`PA6/opencl_functions/linear.cl` and :code:`PA6/opencl_functions/conv2d.cl` files contain the code for the programming assignment. It can be run by typing :code:`make run` from the PA6 folder.
 
 How to Test
-------------
+^^^^^^^^^^^^^^^^^^^^^^
 
-Use the :code:`make run`` command to test your program, which will run :code:`python3 test.py``
+Use the :code:`make run`` command to test your program, which will run :code:`python3 test.py`
 
 Grading
----------
+^^^^^^^^^^^^^^^^^^^^^^
 
 You will be graded for correctness with respect to the PyTorch implementation. A portion of the correctness grading is based on the tests in :code:`PA6/tests.py`, which cover various padding, strides, dilations, and batch sizes. The other aspect of the correctness grading will insert your code into larger models and compare their results against the PyTorch implementation.
 
 Your grade is also determined by the optimizations you perform, which are assessed based on the execution time of your kernel.
 
 Submission
---------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` :code:`PA6/opencl_functions/linear.cl`, and :code:`PA6/opencl_functions/conv2d.cl` files on gradescope.
 
