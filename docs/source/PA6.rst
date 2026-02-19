@@ -162,7 +162,7 @@ A quick note before doing so: technically and confusingly speaking, convolution 
 These docs will be particularly useful, especially when figuring out the size of the output.
 
 Below is the pseudocode for this implementation for running this algorithm sequentially
-… code-block:: none
+.. code-block:: none
 for b = 0 … B                           // for each image in the batch
     for m = 0 … M                       // for each output feature maps
         for h = 0 … H_out               // for each output element
