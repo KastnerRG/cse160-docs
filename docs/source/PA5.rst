@@ -122,7 +122,7 @@ Grading
 You will be graded on correctness (95pts) and on your time on a 1080ti. 
 Times subtract from your correctness.
 
-- :math:`\text{kernel runtime} \geq 40 \text{ms} : -95 \text{pts}`
+- :math:`\text{kernel runtime} \geq 35 \text{ms} : -95 \text{pts}`
 - :math:`20 \text{ms} \leq \text{kernel runtime} < 35 \text{ms} : -20 \text{pts}`
 - :math:`10 \text{ms} \leq \text{kernel runtime} < 20 \text{ms} : -10 \text{pts}`
 - :math:`8 \text{ms} \leq \text{kernel runtime} < 10 \text{ms} : -5 \text{pts}`
