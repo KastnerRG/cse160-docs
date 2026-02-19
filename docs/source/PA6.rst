@@ -19,14 +19,14 @@ Part 0: What is PyTorch and why is it Fire?
 
 `PyTorch <https://pytorch.org/>`__ is a massive open-source machine learning framework frequently used for building and training machine learning models. By and large, most models made currently are in PyTorch. 
 Now Pytorch has several backends where these matrix operations can occur (think CUDA, Metal, some CPU vector library). For OpenCL, there is an external plugin that you can build and install to use 
-PyTorch with OpenCL (which we have done in the Docker container to get some models working with OpenCL! If you are interested in learning how this works, check out the docs on <PyTorch>
+PyTorch with OpenCL (which we have done in the Docker container to get some models working with OpenCL! If you are interested in learning how this works, check out the docs on `<PyTorch>`__
 
 But let's say we wanted to replace some of these Neural Network Operations with our own wonderful OpenCL kernels. This PA, we will pull PyTorch open slightly and get our kernels working. 
 
 Note, you are not expected to know or understand how to train models in pytorch, but for this assignment, we are going to be gutting open this library a little bit in order to add our custom conv2d implementation. 
 So we are going to dive into the anatomy of PyTorch Models.
 
-The basic building block of a PyTorch model is `Link nn.Module <https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html>`__, the basic class describing Neural Networks or their subcomponents 
+The basic building block of a PyTorch model is `nn.Module <https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html>`__, the basic class describing Neural Networks or their subcomponents 
 (which are themselves modules). This can describe at a high level what layers a model may contain. In addition, modules also define how these submodules can apply operations onto some input data `x` in the `forward` method of a module.
 
 One such example can be seen below.
@@ -66,7 +66,7 @@ The key takeaway here is that the forward function actually does the operations 
 This forward function is automatically called when we call :code:`model(torch.randn(1, 10))` (i.e., :code:`model.forward(torch.randn(1, 10))`, its the same thing in this case). 
 
 Each layer is composed of a fully connected layer, or :code:`Linear` layer that is computing the function f(x) = w^Tx +b for a weight matrix W and some bias b. This is the most basic neural block you can imagine.
-So those fully connected (fc) layers, when we call, for example, :code:`self.fc1(x)`, also call :code:`self.fc1.forward(x)` that does the operation :math:`w^Tx +b` with a weight matrix W and some bias b saved in the model (<https://github.com/pytorch/pytorch/blob/v2.10.0/torch/nn/modules/linear.py#L53>). 
+So those fully connected (fc) layers, when we call, for example, :code:`self.fc1(x)`, also call :code:`self.fc1.forward(x)` that does the operation :math:`w^Tx +b` with a weight matrix W and some bias b saved in the model (`see docs on nn.linear <https://github.com/pytorch/pytorch/blob/v2.10.0/torch/nn/modules/linear.py#L53>`__). 
 
 Which means, technically, one could just replace the forward function of a linear layer with a function that calls some OpenCL scripts to compute the operation :math:`w^Tx +b`. So let's start there.
 
@@ -95,6 +95,7 @@ Notice all of this is going to be used in our custom_forward function. :code:`oc
 
 **Go to PA6/setup.py**
 On line 13 after :code:`os.path.join(here, '../helper_lib'),` add also :code:`os.path.join(here, 'opencl_functions'),` so you have the following code:
+
 .. code-block:: python
     includes_dir = [
         os.path.join(here, '../helper_lib'),
@@ -135,7 +136,7 @@ At this point, you should have a decent idea of how everything links up and how 
 Part 2: Implement PyTorch's Conv2d Layer And Listen To Screaming Pihas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will do the same sort of thing for Conv2d. And by we, I mean everything, for calling our Convolution Kernel from PyTorch is implemented (see :code:`PA6/utils/conv2d_forward.py`). We will use this forward function that mimics the behavior of the forward function in Conv2d for pytorch <https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html>
+We will do the same sort of thing for Conv2d. And by we, I mean everything, for calling our Convolution Kernel from PyTorch is implemented (see :code:`PA6/utils/conv2d_forward.py`). We will use this forward function that mimics the behavior of the forward function in Conv2d for `pytorch <https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html>`__
 (Hint: of all the things linked on this PA, PLEASE READ THE PYTORCH DOCS ON Conv2d. This was literally what this PA was designed against.)
 
 For this Part, we can look at two Python scripts to help us develop our implementation. Take a look at the following things:
@@ -215,4 +216,4 @@ Super Optional
 The goal of this course is not to teach you Machine Learning. However, some of this PA was made by training on OpenCL with PyTorch. If you are curious how exactly that works, you can
 
 1. Go to PA6/extras/train_audio.py and run the training script yourself (make sure to have some space on your machine, BirdSet takes up a lot of space)
-2. Check out <PyTorch>
+2. Check out `<PyTorch>`__
