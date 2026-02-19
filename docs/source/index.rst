@@ -66,7 +66,7 @@ Assignments
    PA3 - Matrix Multiplication <PA3>
    PA4 - Tiled Matrix Multiplication <PA4>
    PA5 - Convolution <PA5>
-   PA6 - Convolutional Neural Network <PA6>
+   PA6 - Reinventing the (Pytorch) Wheel (CNNs) <PA6>
    
 .. toctree::
    :maxdepth: 2
