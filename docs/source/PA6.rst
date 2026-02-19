@@ -208,7 +208,7 @@ Again, we have an optional section on the PA for bragging rights. We cannot stre
 
 Super Optional
 ^^^^^^^^^^^^^^
-The goal of this course is not to teach you Machine Learning. However, some of this PA was made by training on OpenCL with PyTorch. If you are curious how extactly that works, you can
+The goal of this course is not to teach you Machine Learning. However, some of this PA was made by training on OpenCL with PyTorch. If you are curious how exactly that works, you can
 
 1. Go to PA6/extras/train_audio.py and run the training script yourself (make sure to have some space on your machine, BirdSet takes up a lot of space)
 2. Check out <PyTorch>
