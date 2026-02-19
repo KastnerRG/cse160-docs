@@ -182,7 +182,7 @@ for b = 0 … B                           // for each image in the batch
 How to Compile
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The :code:`PA6/opencl_functions/opencl-functions.cpp`, :code:`PA6/opencl_functions/linear.cl` and :code:`PA6/opencl_functions/conv2d.cl` files contain the code for the programming assignment. It can be run by typing :code:`make run` from the PA6 folder.
+The :code:`PA6/opencl_functions/opencl-functions.cpp` and :code:`PA6/opencl_functions/conv2d.cl` files contain the code for the programming assignment. It can be run by typing :code:`make run` from the PA6 folder.
 
 How to Test
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -199,7 +199,7 @@ Your grade is also determined by the optimizations you perform, which are assess
 Submission
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` :code:`PA6/opencl_functions/linear.cl`, and :code:`PA6/opencl_functions/conv2d.cl` files on gradescope.
+Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` and :code:`PA6/opencl_functions/conv2d.cl` files on gradescope.
 
 Optional
 ^^^^^^^^
