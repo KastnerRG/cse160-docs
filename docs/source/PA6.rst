@@ -83,7 +83,7 @@ LLMs like GPT2 (if you can even call GPT2 "large" nowadays) are made of transfor
 As you can see in Figure 1 from `"Attention is All You Need" <https://arxiv.org/pdf/1706.03762>`__
 
 .. TODO REWRITE THE NAME OF THIS IMAGE
-.. figure:: /image/transformer_arch.png
+.. figure:: /image/transformer_diagram.png
     :align: center
     :alt: Transformer block from Attention is All You Need
 
