@@ -131,7 +131,7 @@ At this point, you should have a decent idea of how everything links up and how 
 Part 2: Implement PyTorch's Conv2d Layer And Listen To Screaming Pihas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will do the same sort of thing for Conv2d. And by we, I mean everything, for calling our Convolution Kernel from PyTorch is implemented (see :code:`PA6/utils/conv2d_forward.py`). We will use this forward function that mimics the behavior of the forward function in Conv2d for pytorch <docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html>
+We will do the same sort of thing for Conv2d. And by we, I mean everything, for calling our Convolution Kernel from PyTorch is implemented (see :code:`PA6/utils/conv2d_forward.py`). We will use this forward function that mimics the behavior of the forward function in Conv2d for pytorch <https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html>
 (Hint: of all the things linked on this PA, PLEASE READ THE PYTORCH DOCS ON Conv2d. This was literally what this PA was designed against.
 
 For this Part, we can look at two Python scripts to help us develop our implementation. Take a look at the following things:
