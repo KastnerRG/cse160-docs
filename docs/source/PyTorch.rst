@@ -12,7 +12,7 @@ PyTorch currently supports a backends for parralization, as shown in `https://do
 However, custom backends can be implemented via `Autoloading <https://docs.pytorch.org/tutorials/unstable/python_extension_autoload.html>`. 
 
 This is where the work of Artyom Beilis comes into play. Around July of 2021, they started work on building out an OpenCL backend for Pytorch <https://dev-discuss.pytorch.org/t/implementing-opencl-backend-for-pytorch/283>. 
-They already had a library implemented in OpenCL call `dlprimitives <https://github.com/artyom-beilis/dlprimitives>` (Deep Learning Primitives) that could handle operations like Linear Layers and Convoultions. 
+They already had a library implemented in OpenCL call `dlprimitives <https://github.com/artyom-beilis/dlprimitives>` (Deep Learning Primitives) that could handle operations like Linear Layers and Convolutions. 
 
 The progress of this work can be tracked over various PyTorch forums `such as this <https://dev-discuss.pytorch.org/t/opencl-backend-dev-questions-support/2407>` ending up with `pytorch_dlprim <https://github.com/artyom-beilis/pytorch_dlprim>`
 
