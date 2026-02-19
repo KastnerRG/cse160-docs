@@ -133,10 +133,10 @@ These times will be on the leaderboard
 Optional
 ^^^^^^^^
 Like last PA, we have a optional section on the PA for bragging rights. A major point behind using OpenCL is applying the same kernel to many devices so also on the leaderboard are three other devices (A CPU, A Google Pixel Fold's GPU, andtThe Qalcomm RubicPis):
-- Platform: Intel(R) OpenCL \t| Device: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
-- Platform: Portable Computing Language \t| Device: NVIDIA GeForce GTX 1080 Ti
-- Platform:  ARM Platform \t| Device: Mali-G710 r0p0
-- Platform:  QUALCOMM Snapdragon(TM) \t| Device: QUALCOMM Adreno(TM) 643
+* Platform: Intel(R) OpenCL         | Device: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+* Platform: Portable Computing Language         | Device: NVIDIA GeForce GTX 1080 Ti
+* Platform:  ARM Platform        | Device: Mali-G710 r0p0
+* Platform:  QUALCOMM Snapdragon(TM)      | Device: QUALCOMM Adreno(TM) 643
 
 Good implementations may optimize for one device, great implementations will optimize for many devices that you are targeting for. 
 
