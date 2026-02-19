@@ -206,10 +206,10 @@ Optional
 ^^^^^^^^
 Again, we have an optional section on the PA for bragging rights. We cannot stress enough, this works on multiple machines.
 
-* Platform: Intel® OpenCL \t| Device: Intel® Xeon® Platinum 8275CL CPU @ 3.00GHz
-* Platform: Portable Computing Language \t| Device: NVIDIA GeForce GTX 1080 Ti
-* Platform:  ARM Platform \t| Device: Mali-G710 r0p0
-* Platform:  QUALCOMM Snapdragon™ \t| Device: QUALCOMM Adreno™ 643
+- Platform: Intel(R) OpenCL \t| Device: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+- Platform: Portable Computing Language \t| Device: NVIDIA GeForce GTX 1080 Ti
+- Platform:  ARM Platform \t| Device: Mali-G710 r0p0
+- Platform:  QUALCOMM Snapdragon(TM) \t| Device: QUALCOMM Adreno(TM) 643
 
 Super Optional
 ^^^^^^^^^^^^^^
