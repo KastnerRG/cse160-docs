@@ -19,7 +19,7 @@ Part 0: What is PyTorch and why is it Fire?
 
 `PyTorch <https://pytorch.org/>`__ is a massive open-source machine learning framework frequently used for building and training machine learning models. By and large, most models made currently are in PyTorch. 
 Now Pytorch has several backends where these matrix operations can occur (think CUDA, Metal, some CPU vector library). For OpenCL, there is an external plugin that you can build and install to use 
-PyTorch with OpenCL (which we have done in the Docker container to get some models working with OpenCL! If you are interested in learning how this works, check out the docs on `<PyTorch>`__
+PyTorch with OpenCL (which we have done in the Docker container to get some models working with OpenCL! If you are interested in learning how this works, see the bottom of the instruction docs!
 
 But let's say we wanted to replace some of these Neural Network Operations with our own wonderful OpenCL kernels. This PA, we will pull PyTorch open slightly and get our kernels working. 
 
@@ -216,4 +216,4 @@ Super Optional
 The goal of this course is not to teach you Machine Learning. However, some of this PA was made by training on OpenCL with PyTorch. If you are curious how exactly that works, you can
 
 1. Go to PA6/extras/train_audio.py and run the training script yourself (make sure to have some space on your machine, BirdSet takes up a lot of space)
-2. Check out `<PyTorch>`__
+2. Check out `<https://docs-cse160.readthedocs.io/en/latest/PyTorch.html>`__
