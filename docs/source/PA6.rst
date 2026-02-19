@@ -199,7 +199,7 @@ Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` :code:`PA6/opencl_f
 
 Optional
 ^^^^^^^^
-Again, we have an optional section on the PA for bragging rights. We cannot stress enough, this works on mutliple machines.
+Again, we have an optional section on the PA for bragging rights. We cannot stress enough, this works on multiple machines.
 
 * Platform: Intel® OpenCL \t| Device: Intel® Xeon® Platinum 8275CL CPU @ 3.00GHz
 * Platform: Portable Computing Language \t| Device: NVIDIA GeForce GTX 1080 Ti
