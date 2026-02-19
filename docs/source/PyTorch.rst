@@ -20,7 +20,7 @@ This PyTorch wrapper takes the OpenCL implementations in dlprimitives and connec
 So that means if you wanted to implement a Pytorch operation, you would need the OpenCL function for calling it to exist in dlprimitives and the function call in pytorch_dlprim to be able to use pytorch with that OpenCL function.
 
 Currently these libraries are built in our docker containers (on this `PR <https://github.com/KastnerRG/cse160-opencl-docker/pull/6>`) and installed into the base python path to be used in PyTorch. 
-The libraries are forked into the KastnerRG github in case people want ot build off this work.
+The libraries are forked into the KastnerRG github in case people want to build off this work.
 
 These libraries are fully capable of end to end training in OpenCL including autograd.
 
