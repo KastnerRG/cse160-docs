@@ -22,6 +22,15 @@ Data Science & Machine Learning Platform
 
    DSMLP
 
+
+PyTorch and OpenCL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 2
+   :caption: Getting Started with DSMLP
+
+   PyTorch
+
 Qualcomm Innovators Development Kit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
@@ -57,13 +66,12 @@ Assignments
    PA3 - Matrix Multiplication <PA3>
    PA4 - Tiled Matrix Multiplication <PA4>
    PA5 - Convolution <PA5>
-
+   
 .. toctree::
    :maxdepth: 2
    :caption: Project Assignments
 
 ..
-   
    PA6 - Convolutional Neural Network <PA6>
    PA7 - Optimized Convolutional Neural Network <PA7>
    PA8 - Explicit GeMM Convolution <PA8>
