@@ -26,7 +26,7 @@ But let's say we wanted to replace some of these Neural Network Operations with 
 Note, you are not expected to know or understand how to train models in pytorch, but for this assignment, we are going to be gutting open this library a little bit in order to add our custom conv2d implementation. 
 So we are going to dive into the anatomy of PyTorch Models.
 
-The basic building block of a PyTorch model is `nn.Module <https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html>`__, the basic class describing Neural Networks or their subcomponents 
+The basic building block of a PyTorch model is `Link nn.Module <https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html>`__, the basic class describing Neural Networks or their subcomponents 
 (which are themselves modules). This can describe at a high level what layers a model may contain. In addition, modules also define how these submodules can apply operations onto some input data `x` in the `forward` method of a module.
 
 One such example can be seen below.
