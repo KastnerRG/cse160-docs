@@ -1,17 +1,26 @@
-PA7 - Convolutional Neural Network Forward Layer GPU Optimization
+PA7 - Rounding Out the (Pytorch) Wheel
 ===================================================================
 
 Objective
 ---------
-This project requires you to further optimize your implementation of the forward layer in PA6. See PA6 for more details. 
+This project requires you to further optimize your implementation of the Conv2D forward layer in PA6. See PA6 for more details. 
 
 You will be graded on your GPU execution time: 
 
-\< 25ms: 100 points
+\< 400ms: 85 points
 
-\< 30ms: 90 points
+\< 351.69ms: 90 points (Beat the TA solution)
 
-\< 40ms: 80 points
+You will get additional points for your Leaderboard placement. Note the Leaderboard is considered frozen at 11:59 on the deadline date. Submissions afterwards will be removed from the leaderboard:
+* +5 points (Top 50)
+* +4 points (50 - 100)
+* +3 points (100 - 150)
+* +2 points (150 - 200)
+* +1 points (200 - 250)
+
+Leaderboard positions above 250 will recieve no additional points.
+
+Note all tests must be correct. If a single test case fails, you will get an 0 for the assignment. 
 
 
 

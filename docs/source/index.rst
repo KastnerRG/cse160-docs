@@ -67,6 +67,7 @@ Assignments
    PA4 - Tiled Matrix Multiplication <PA4>
    PA5 - Convolution <PA5>
    PA6 - Reinventing the (Pytorch) Wheel (CNNs) <PA6>
+   PA7 - Rounding Out the (Pytorch) Wheel <PA7>
    
 .. toctree::
    :maxdepth: 2
@@ -74,6 +75,6 @@ Assignments
 
 ..
 
-   PA7 - Optimized Convolutional Neural Network <PA7>
+
    PA8 - Explicit GeMM Convolution <PA8>
    PA9 - Implicit GeMM Convolution <PA9>
