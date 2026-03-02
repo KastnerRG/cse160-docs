@@ -12,6 +12,7 @@ You will be graded on your GPU execution time:
 \< 351.69ms: 90 points (Beat the TA solution)
 
 You will get additional points for your Leaderboard placement. Note the Leaderboard is considered frozen at 11:59 on the deadline date. Submissions afterwards will be removed from the leaderboard:
+
 * +5 points (Top 50)
 * +4 points (50 - 100)
 * +3 points (100 - 150)
@@ -22,6 +23,11 @@ Leaderboard positions above 250 will recieve no additional points.
 
 Note all tests must be correct. If a single test case fails, you will get an 0 for the assignment. 
 
+
+Submission
+^^^^^^^^^^^^^^^^^^^^^^
+
+Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` and :code:`PA6/opencl_functions/conv2d.cl` files on gradescope.
 
 
 .. PA6 - Convolutional Neural Network Forward Layer GPU Implementation
@@ -120,9 +126,9 @@ Note all tests must be correct. If a single test case fails, you will get an 0 f
 .. The accuracy of your implementation should meet the 0.886 that our implementation does. 90% of this assignment will be graded on correctness. To gain full credits, your implementation on 1080ti GPU should run correctly within 60ms.  
 
 
-Submission
-----------
-Submit the :code:`PA6/src/layer/custom/new-forward-kernel.cl` and :code:`new-forward.cc` files on gradescope.
+.. Submission
+.. ----------
+.. Submit the :code:`PA6/src/layer/custom/new-forward-kernel.cl` and :code:`new-forward.cc` files on gradescope.
 
 .. Credit
 .. ------
