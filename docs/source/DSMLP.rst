@@ -10,14 +10,22 @@ You can login to DSMLP using by :code:`ssh USERNAME@dsmlp-login.ucsd.edu`. Your 
 
 Follow the steps in this `link <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac#about-ssh-key-passphrases>`_ to generate a key pair (Follow the guide till step 3 under 'Adding your SSH key to the ssh-agent').
 
-DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command :code:`launch.sh -g 1 -s -i ghcr.io/kastnerrg/cse160-opencl:dsmlp -W CSE160_WI26_A00 -P Always`
+DSMLP uses containers to set up its software environment. You must create a container that provides access to a GPU with CUDA installed using the command
+
+.. code-block:: bash
+
+    launch.sh -g 1 -s -i ghcr.io/kastnerrg/cse160-opencl:dsmlp -W CSE160_WI26_A00 -P Always
 
 .. note::
     If you run into issues while getting GPUs in DSMLP, you can use :code:`-n` #, e.g., :code:`-n 1`, to avoid that node until we can reset it.
     Check the GPU status here `DSMLP STATUS <https://datahub.ucsd.edu/hub/status>`_
 
-.. note::
+.. important::
     You can request a specific GPU type by appending :code:`-v GPU_TYPE` to the command above. For example, to request a GTX 1080Ti GPU, you would use :code:`-v 1080ti`. You can see the available GPU types on the `DSMLP STATUS <https://datahub.ucsd.edu/hub/status>`_ page.
+
+.. important::
+    If you encounter an out of memory issue (e.g. OOMKilled), you can request more RAM when creating the pod by appending the :code:`-m amount in GiB` to the launch command above.
+    For example, to request for 8 GiB of system RAM (sufficient for all assignments), use :code:`-m 8`.
 
 Once you have the container, try running the command :code:`nvidia-smi` and :code:`clinfo -l` to see if you have access to a GPU.
 
