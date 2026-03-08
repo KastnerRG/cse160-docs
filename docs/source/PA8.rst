@@ -41,4 +41,4 @@ Note all tests must be correct. If a single test case fails, either on GPU and o
 Submission
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Submit the :code:`PA6/opencl_functions/opencl-functions.cpp` and :code:`PA6/opencl_functions/conv2d.cl` files on gradescope.
+Submit the :code:`PA8/opencl_functions/opencl-functions.cpp` and :code:`PA8/opencl_functions/conv2d.cl` files on gradescope.
