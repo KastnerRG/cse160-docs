@@ -68,7 +68,7 @@ Assignments
    PA5 - Convolution <PA5>
    PA6 - Reinventing the (Pytorch) Wheel (CNNs) <PA6>
    PA7 - Rounding Out the (Pytorch) Wheel <PA7>
-   PA8 - Explicit GeMM Convolution <PA8>
+   PA8 - Softmaxing the (Pytorch) Wheel  <PA8>
    
 .. toctree::
    :maxdepth: 2

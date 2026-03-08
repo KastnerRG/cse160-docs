@@ -1,4 +1,4 @@
-PA7 - Softmaxing the (Pytorch) Wheel [Draft]
+PA8 - Softmaxing the (Pytorch) Wheel [Draft]
 ===================================================================
 
 Objective
