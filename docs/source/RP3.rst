@@ -217,7 +217,6 @@ They can be installed with:
 .. code-block:: bash
 
     sudo apt-get update
-    sudo apt-get upgrade
     sudo apt-get install qcom-adreno-dev clinfo build-essential gdb
 
 Testing OpenCL
