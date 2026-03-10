@@ -19,13 +19,9 @@ Some devices have limits to the max size you can make a single dimension. There 
 
 Grading
 -------
-You will be graded on your GPU execution time: 
+You will get up to 90 points if on CPU your algorithm is correct.
 
-\< TBD: 85 points
-
-\< TBD: 90 points (Beat the TA solution)
-
-You will get additional points for your Leaderboard placement. Note the Leaderboard is considered frozen at 11:59 on the deadline date. Submissions afterwards will be removed from the leaderboard:
+If you get more than 75 points, then you will get additional points for your Qualcomm Adreno™ 643 execution time based on leaderboard placement. Note the leaderboard is considered frozen at 11:59 on the deadline date. Submissions afterwards will be removed from the leaderboard:
 
 * +5 points (Top 50)
 * +4 points (50 - 100)
@@ -35,10 +31,10 @@ You will get additional points for your Leaderboard placement. Note the Leaderbo
 
 Leaderboard positions above 250 will recieve no additional points.
 
-Note all tests must be correct. If a single test case fails, either on GPU and on CPU, you will get an 0 for the assignment. 
+Note all tests must be correct, if one test fails on the Qualcomm Adreno™ 643, you will not be placed on the leaderboard
 
 
 Submission
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Submit the :code:`PA8/opencl_functions/opencl-functions.cpp` and :code:`PA8/opencl_functions/conv2d.cl` files on gradescope.
+Submit the :code:`PA8/opencl_functions/opencl-functions.cpp` and :code:`PA8/opencl_functions/softmax.cl` files on gradescope.
