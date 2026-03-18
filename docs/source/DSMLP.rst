@@ -27,6 +27,9 @@ DSMLP uses containers to set up its software environment. You must create a cont
     If you encounter an out of memory issue (e.g. OOMKilled), you can request more RAM when creating the pod by appending the :code:`-m amount in GiB` to the launch command above.
     For example, to request for 8 GiB of system RAM (sufficient for all assignments), use :code:`-m 8`.
 
+..note::
+    To request a pod with CPU only, set the :code:`-g` flag to 0; e.g. :code:`-g 0`
+
 Once you have the container, try running the command :code:`nvidia-smi` and :code:`clinfo -l` to see if you have access to a GPU.
 
 .. code-block:: bash
