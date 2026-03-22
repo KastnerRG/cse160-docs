@@ -34,3 +34,21 @@ Common Pitfalls
 - For Windows users, if you are seeing the error `Error response from daemon: accessing specified distro mount service` or
     `distro-services/ubuntu.sock: no such file or directory`, open Docker Desktop and go to Resources>WSL Integration and check the box that says
     `Enable integration with my default WSL distro`. Then restart docker. This should spin docker up in your WSL distro.
+
+Uninstallation
+--------------
+
+Remove images, volumes, and containers that are no longer needed to free up disk space
+
+.. note::
+    You can identify the conatiners used by Visual Studio Code devcontainer as they start with :code:`vsc`.
+    e.g. :code:`vsc-cse160-opencl-qwertyuiopasdfghjkl`
+
+0. Make sure docker engine is running if on Linux, or docker desktop if on Windows or MacOS
+1. List all containers using the command :code:`docker ps -a`, identify the ones from VSCode
+2. Stop the container(s) if it is currently running using the command :code:`docker stop <CONTAINER_ID>`
+3. Remove the conatiner(s) using :code:`docker rm <CONTAINER_ID>`
+4. List all locally avaliable images using :code:`docker images`, identify the ones from VSCode
+5. Remove the images using :code:`docker rmi <IMAGE_ID>`
+6. (Optional) List all volumes using the command :code:`docker volume ls`
+7. (Optional) Remove the vscode volume using :code:`docker volume rm <VOLUME_NAME>`
