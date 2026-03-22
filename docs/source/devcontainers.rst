@@ -44,6 +44,10 @@ Remove images, volumes, and containers that are no longer needed to free up disk
     You can identify the conatiners used by Visual Studio Code devcontainer as they start with :code:`vsc`.
     e.g. :code:`vsc-cse160-opencl-qwertyuiopasdfghjkl`
 
+.. important::
+    These steps must be performed in order as docker will not allow you to remove an image used by an active
+    container
+
 0. Make sure docker engine is running if on Linux, or docker desktop if on Windows or MacOS
 1. List all containers using the command :code:`docker ps -a`, identify the ones from VSCode
 2. Stop the container(s) if it is currently running using the command :code:`docker stop <CONTAINER_ID>`
