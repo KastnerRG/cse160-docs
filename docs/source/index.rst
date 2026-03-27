@@ -46,8 +46,16 @@ Qualcomm Innovators Development Kit
    RB3_Linux
    RB3_Mac
 
+Thundercomm Rubik Pi
+^^^^^^^^^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 2
+   :caption: Getting Started with Rubik Pi 3
+
+   RP3
+
 Developing on your Computer
-^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
    :caption: Visual Studio Code with DevContainers
